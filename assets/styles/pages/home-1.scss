@@ -1,7 +1,7 @@
 .home-1 {
   display: flex;
   align-items: flex-end;
-  min-height: 100vh;
+  height: 100vh;
   position: relative;
   color: var(--pink);
   overflow: hidden;
@@ -19,16 +19,11 @@
 
 .home-1__wrapper {
   position: relative;
-  width: 100%;
   height: vh(837);
-  bottom: 0;
-
-  @media (max-height: 650px) {
-    height: 90vh;
-  }
 }
 
 .home-1__second-wrapper {
+  position: relative;
   height: 100%;
   width: 100%;
 }
@@ -47,7 +42,7 @@
     text-transform: uppercase;
     @include gerlomi;
     bottom: vh(130);
-    right: vh(20);
+    right: 0;
   }
   &:nth-of-type(3) {
     display: flex;
@@ -72,13 +67,9 @@
   @include manrope;
   font-weight: 400;
   font-size: vw(48);
-  line-height: 100%;
   position: absolute;
-  right: vh(20);
+  right: 0;
   bottom: vh(560);
-}
-
-.home-1__description {
 }
 
 .home-1__desc-text {
@@ -91,12 +82,14 @@
     max-width: vw(560);
     text-indent: vw(158);
   }
+
   &:nth-of-type(2) {
     bottom: vh(254);
     left: vw(812);
     max-width: vw(560);
     text-indent: vw(158);
   }
+
   &:nth-of-type(3) {
     right: vh(38);
     bottom: vh(13);
