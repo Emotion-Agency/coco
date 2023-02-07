@@ -28,13 +28,13 @@
   display: grid;
   width: 100%;
   grid-template-columns: repeat(12, 1fr);
-  column-gap: vw(30);
+  column-gap: vw(20);
   grid-auto-flow: column;
   @media (max-width: $br1) {
     column-gap: 30px;
   }
   @media (max-width: $br4) {
-    column-gap: 20px;
+    column-gap: 10px;
     grid-template-columns: repeat(4, 1fr);
   }
 }
@@ -48,23 +48,23 @@
 }
 
 .section {
-  padding-top: vw(300);
+  padding-top: vw(120);
   &--nm {
     padding-top: 0;
   }
   &--pb {
-    padding-bottom: vw(300);
+    padding-bottom: vw(120);
   }
   @media (max-width: $br1) {
-    padding-top: 200px;
-    &--pb {
-      padding-bottom: 200px;
-    }
-  }
-  @media (max-width: $br3) {
     padding-top: 120px;
     &--pb {
       padding-bottom: 120px;
+    }
+  }
+  @media (max-width: $br3) {
+    padding-top: 100px;
+    &--pb {
+      padding-bottom: 100px;
     }
   }
 }
