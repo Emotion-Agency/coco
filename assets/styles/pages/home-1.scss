@@ -1,7 +1,7 @@
 .home-1 {
   display: flex;
   align-items: flex-end;
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
   color: var(--pink);
   overflow: hidden;
@@ -19,11 +19,10 @@
 
 .home-1__wrapper {
   position: relative;
-  height: vh(837);
+  width: 100%;
 }
 
 .home-1__second-wrapper {
-  position: relative;
   height: 100%;
   width: 100%;
 }
@@ -36,40 +35,42 @@
   &:nth-of-type(1) {
     font-weight: 800;
     @include manrope;
-    bottom: vh(412);
+    bottom: vw(412);
   }
+
   &:nth-of-type(2) {
     text-transform: uppercase;
     @include gerlomi;
-    bottom: vh(130);
-    right: 0;
+    bottom: vw(130);
+    right: vw(20);
   }
+
   &:nth-of-type(3) {
     display: flex;
     @include recife;
     width: fit-content;
     bottom: 0;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
+    left: vw(638);
   }
 }
 
 .home-1__item {
   position: relative;
-  bottom: vh(56);
-  font-size: vw(100);
+  top: vw(60);
+  left: vw(-20);
+  font-size: vw(80);
   text-transform: uppercase;
+  line-height: 1em;
 }
 
 .home-1__text {
   @include manrope;
   font-weight: 400;
   font-size: vw(48);
+  line-height: 100%;
   position: absolute;
-  right: 0;
-  bottom: vh(560);
+  right: vw(20);
+  bottom: vw(560);
 }
 
 .home-1__desc-text {
@@ -78,29 +79,27 @@
   color: var(--pink);
 
   &:nth-of-type(1) {
-    bottom: vh(254);
+    bottom: vw(270);
     max-width: vw(560);
     text-indent: vw(158);
   }
-
   &:nth-of-type(2) {
-    bottom: vh(254);
+    bottom: vw(270);
     left: vw(812);
     max-width: vw(560);
     text-indent: vw(158);
   }
-
   &:nth-of-type(3) {
-    right: vh(38);
-    bottom: vh(13);
+    right: vw(38);
+    bottom: vw(13);
     max-width: vw(438);
-    text-indent: vw(147);
+    text-indent: vw(158);
   }
 }
 
 .home-1__icon-wrapper {
   position: absolute;
-  bottom: vh(14);
+  bottom: vw(14);
 
   svg {
     display: block;
