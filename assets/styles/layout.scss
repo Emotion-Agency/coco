@@ -57,12 +57,18 @@
   }
   @media (max-width: $br1) {
     padding-top: 120px;
+    &--nm {
+      padding-top: 0;
+    }
     &--pb {
       padding-bottom: 120px;
     }
   }
   @media (max-width: $br3) {
     padding-top: 100px;
+    &--nm {
+      padding-top: 0;
+    }
     &--pb {
       padding-bottom: 100px;
     }

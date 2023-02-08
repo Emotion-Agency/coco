@@ -20,7 +20,7 @@ definePageMeta({
               <span class="home-1__item"> ® </span>
             </span>
           </h1>
-          <h2 class="home-1__text">Jewelry</h2>
+          <div class="home-1__text">Jewelry</div>
           <div class="home-1__description">
             <p class="home-1__desc-text">
               Massa nullam feugiat vestibulum tincidunt arcu facilisis. Diam
