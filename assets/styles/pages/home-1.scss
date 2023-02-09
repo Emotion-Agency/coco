@@ -1,6 +1,7 @@
 .home-1 {
   position: relative;
   color: var(--pink);
+  overflow: hidden;
 
   @media (min-width: $br1) {
     display: flex;

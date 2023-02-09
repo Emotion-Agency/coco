@@ -45,5 +45,18 @@ definePageMeta({
         </div>
       </div>
     </section>
+    <section class="section section--nm home-2">
+      <img class="home-2__bg" src="/images/home/2.jpg" alt="Background" />
+      <div class="container home-2__wrapper">
+        <div class="grid home-2__second-wrapper">
+          <h2 class="home-2__text">Unique</h2>
+          <h2 class="home-2__text">Creative</h2>
+          <h2 class="home-2__text">Vegan</h2>
+          <h2 class="home-2__text">and</h2>
+          <h2 class="home-2__text">Recycled</h2>
+          <h2 class="home-2__text">Jewelry</h2>
+        </div>
+      </div>
+    </section>
   </main>
 </template>
