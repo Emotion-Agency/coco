@@ -58,5 +58,17 @@ definePageMeta({
         </div>
       </div>
     </section>
+    <section class="section home-3">
+      <div class="container home-3__wrapper">
+        <h2 class="home-3__title">Catalogue</h2>
+        <div class="home-3__filter-wrapper">
+          <Filter />
+          <CatalogV1 class="home-3__catalog" />
+        </div>
+        <div class="home-3__btn-wrapper">
+          <button class="home-3__btn">go to shop →</button>
+        </div>
+      </div>
+    </section>
   </main>
 </template>

@@ -1,0 +1,41 @@
+.filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: vw(40);
+  width: 100%;
+
+  @media (max-width: $br1) {
+    column-gap: 30px;
+  }
+
+  @media (max-width: $br4) {
+    column-gap: 20px;
+  }
+}
+
+.filter__btn {
+  @include manrope;
+  position: relative;
+  color: var(--main);
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: vw(60);
+  background-color: transparent;
+  opacity: 0.4;
+  filter: blur(4px);
+
+  &--active {
+    opacity: 1;
+    filter: none;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      height: 2px;
+      width: 100%;
+      background-color: var(--main);
+    }
+  }
+}
