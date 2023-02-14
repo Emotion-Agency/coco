@@ -58,11 +58,14 @@ const formData = reactive({
     },
   ],
 })
+
+const tickerText =
+  'Next page: [About] / Next page: [About] / Next page: [About] / Next page: [About] / Next page: [About] / Next page: [About] / Next page: [About] / Next page: [About] / Next page: [About] / Next page: [About] / Next page: [About]'
 </script>
 
 <template>
-  <footer class="container footer">
-    <div class="footer__wrapper">
+  <footer class="footer">
+    <div class="container footer__wrapper">
       <div class="footer__top-block">
         <div class="footer__logo-wrapper">
           <IconsBigLogo class="footer__logo" />
@@ -229,5 +232,6 @@ const formData = reactive({
         </div>
       </div>
     </div>
+    <TheTicker :text="tickerText" class="footer__ticker" />
   </footer>
 </template>

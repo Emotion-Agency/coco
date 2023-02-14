@@ -34,6 +34,7 @@
     width: 50px;
   }
 }
+
 .footer__top-title {
   margin-top: vw(85);
 
@@ -47,6 +48,7 @@
     margin-top: 20px;
   }
 }
+
 .footer__span-title {
   font-size: vw(120);
   text-transform: uppercase;
@@ -249,7 +251,7 @@
   }
 
   @media (max-width: $br4) {
-    margin-top: 12px;
+    margin-top: 60px;
   }
 }
 
@@ -339,9 +341,6 @@
   @media (max-width: $br1) {
     column-gap: 20px;
   }
-}
-
-.footer__social-li {
 }
 
 .footer__social-text {
@@ -564,6 +563,7 @@
     align-items: flex-start;
   }
 }
+
 .footer__left-info {
   display: flex;
   align-items: center;
@@ -573,6 +573,7 @@
     column-gap: 11px;
   }
 }
+
 .footer__info-details {
   @include manrope;
   font-weight: 500;
@@ -587,12 +588,7 @@
     column-gap: 45px;
   }
 }
-.footer__country {
-}
-.footer__date {
-}
-.footer__right-info {
-}
+
 .footer__licence {
   @include manrope;
   font-weight: 500;
