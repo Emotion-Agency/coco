@@ -14,18 +14,24 @@
   }
 }
 
-.desktop-filter__btn {
+.desktop-filter__radio[type='radio'] {
+  display: none;
+}
+
+.desktop-filter__text {
   @include manrope;
+  cursor: pointer;
   position: relative;
   color: var(--main);
   text-transform: uppercase;
   font-weight: 800;
   font-size: vw(60);
-  background-color: transparent;
   opacity: 0.4;
   filter: blur(4px);
+}
 
-  &--active {
+.desktop-filter__radio[type='radio']:checked {
+  + .desktop-filter__text {
     opacity: 1;
     filter: none;
 

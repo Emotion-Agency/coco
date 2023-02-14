@@ -34,12 +34,17 @@ onMounted(async () => {
 <template>
   <div class="filter">
     <ul v-if="!isMobile" class="desktop-filter">
-      <li
-        v-for="(el, idx) in categories"
-        :key="idx"
-        class="desktop-filter__category"
-      >
-        <button class="desktop-filter__btn">{{ el.text }}</button>
+      <li v-for="(el, idx) in categories" :key="idx" class="desktop-filter__li">
+        <input
+          :id="el.inputId"
+          class="desktop-filter__radio"
+          type="radio"
+          name="filter-radios"
+          checked
+        />
+        <label class="desktop-filter__text" :for="el.inputId">
+          {{ el.text }}
+        </label>
       </li>
     </ul>
     <div v-else class="mobile-filter">
