@@ -39,12 +39,12 @@ const products = [
 </script>
 
 <template>
-  <ul class="grid catalog-v1">
-    <li v-for="(el, idx) in products" :key="idx" class="catalog-v1__product">
-      <NuxtLink to="/" class="catalog-v1__link">
-        <img class="catalog-v1__img" :src="el.imgUrl" alt="Background" />
-        <h3 class="catalog-v1__title">{{ el.title }}</h3>
-        <p class="catalog-v1__price">[${{ el.price }}]</p>
+  <ul class="grid catalog-v2">
+    <li v-for="(el, idx) in products" :key="idx" class="catalog-v2__product">
+      <NuxtLink to="/" class="catalog-v2__link">
+        <img class="catalog-v2__img" :src="el.imgUrl" alt="Background" />
+        <h3 class="catalog-v2__title">{{ el.title }}</h3>
+        <p class="catalog-v2__price">[${{ el.price }}]</p>
       </NuxtLink>
     </li>
   </ul>

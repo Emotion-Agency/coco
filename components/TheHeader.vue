@@ -11,7 +11,7 @@
           <NuxtLink to="/" class="header__text"> New collection </NuxtLink>
         </li>
         <li class="header__li">
-          <NuxtLink to="/" class="header__text"> Shop </NuxtLink>
+          <NuxtLink to="/catalogue" class="header__text"> Shop </NuxtLink>
         </li>
       </ul>
       <NuxtLink to="/" class="header__logo" aria-label="Logo">

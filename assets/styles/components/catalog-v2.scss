@@ -1,0 +1,60 @@
+.catalog-v2 {
+  row-gap: vw(110);
+  grid-auto-flow: row;
+  grid-template-columns: repeat(2, 1fr);
+
+  @media (max-width: $br1) {
+    row-gap: 60px;
+  }
+
+  @media (max-width: $br4) {
+    row-gap: 32px;
+  }
+}
+
+.catalog-v2__img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  aspect-ratio: 0.85;
+}
+
+.catalog-v2__title {
+  @include manrope;
+  font-weight: 800;
+  font-size: vw(40);
+  margin-top: vw(12);
+  text-transform: uppercase;
+
+  @media (max-width: $br1) {
+    font-size: size(42, 16);
+    margin-top: 9px;
+  }
+
+  @media (max-width: $br4) {
+    font-size: 16px;
+    margin-top: 3px;
+  }
+}
+
+.catalog-v2__price {
+  @include manrope;
+  font-weight: 800;
+  font-size: vw(28);
+  margin-top: vw(8);
+  text-transform: uppercase;
+
+  @media (max-width: $br1) {
+    font-size: size(32, 14);
+    margin-top: 25px;
+  }
+
+  @media (max-width: $br3) {
+    margin-top: 8px;
+  }
+
+  @media (max-width: $br4) {
+    font-size: 14px;
+  }
+}

@@ -76,6 +76,22 @@
   }
 }
 
+.mobile-filter__icon {
+  display: block;
+  width: vw(40);
+  height: vw(40);
+
+  @media (max-width: $br1) {
+    width: 40px;
+    height: 40px;
+  }
+
+  @media (max-width: $br4) {
+    width: 16px;
+    height: 16px;
+  }
+}
+
 .mobile-filter__list {
   position: absolute;
   display: flex;
@@ -86,7 +102,7 @@
 
   @media (max-width: $br1) {
     top: 52px;
-    width: 380px;
+    width: 400px;
   }
 
   @media (max-width: $br4) {

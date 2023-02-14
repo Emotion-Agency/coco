@@ -50,7 +50,7 @@ onMounted(async () => {
     <div v-else class="mobile-filter">
       <button class="mobile-filter__button">
         Choose category
-        <IconsFilterMark />
+        <IconsFilterMark class="mobile-filter__icon" />
       </button>
       <ul class="mobile-filter__list">
         <li

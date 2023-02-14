@@ -6,6 +6,10 @@
     grid-template-columns: repeat(2, 1fr);
     row-gap: 60px;
   }
+
+  @media (max-width: $br1) {
+    row-gap: 32px;
+  }
 }
 
 .catalog-v1__product {
