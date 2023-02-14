@@ -49,7 +49,16 @@
 .catalog-v1__img {
   display: block;
   width: 100%;
-  height: fit-content;
+  max-width: 100%;
+  object-fit: cover;
+
+  @media (min-width: $br1) {
+    height: fit-content;
+  }
+
+  @media (max-width: $br1) {
+    aspect-ratio: 0.85;
+  }
 }
 
 .catalog-v1__title {

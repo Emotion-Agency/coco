@@ -1,4 +1,4 @@
-.filter {
+.desktop-filter {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,7 +14,7 @@
   }
 }
 
-.filter__btn {
+.desktop-filter__btn {
   @include manrope;
   position: relative;
   color: var(--main);

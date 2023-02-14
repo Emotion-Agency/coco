@@ -26,6 +26,8 @@
   position: relative;
   width: 100%;
   row-gap: vw(210);
+  padding-top: vw(18);
+  padding-bottom: vw(18);
 
   @media (max-width: $br1) {
     grid-template-columns: repeat(4, 1fr);
@@ -33,6 +35,8 @@
     height: 100%;
     align-content: space-between;
     row-gap: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 }
 
@@ -59,7 +63,8 @@
     }
 
     @media (max-width: $br3) {
-      @include col(1, 4);
+      @include col(1, 2);
+      @include row(1, 1);
     }
   }
 
@@ -76,10 +81,10 @@
 
     @media (max-width: $br3) {
       @include col(2, 4);
-      @include row(2, 2);
+      @include row(1, 1);
       text-align: right;
       position: relative;
-      top: vh(-200);
+      top: 55px;
     }
   }
 
@@ -151,7 +156,7 @@
     }
 
     @media (max-width: $br3) {
-      @include col(3, 4);
+      @include col(1, 4);
       @include row(5, 5);
     }
   }

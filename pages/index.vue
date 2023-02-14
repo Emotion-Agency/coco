@@ -66,7 +66,7 @@ definePageMeta({
           <CatalogV1 class="home-3__catalog" />
         </div>
         <div class="home-3__btn-wrapper">
-          <button class="home-3__btn">go to shop →</button>
+          <TextButton>go to shop →</TextButton>
         </div>
       </div>
     </section>

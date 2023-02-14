@@ -25,7 +25,7 @@
   }
 
   @media (max-width: $br4) {
-    font-size: 56px;
+    font-size: vw(270);
   }
 }
 
@@ -65,22 +65,5 @@
 
   @media (max-width: $br4) {
     margin-top: 40px;
-  }
-}
-
-.home-3__btn {
-  @include manrope;
-  background-color: transparent;
-  font-size: vw(100);
-  font-weight: 800;
-  text-transform: uppercase;
-  color: var(--main);
-
-  @media (max-width: $br1) {
-    font-size: size(60, 36);
-  }
-
-  @media (max-width: $br4) {
-    font-size: 36px;
   }
 }
