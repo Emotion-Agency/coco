@@ -26,14 +26,75 @@
   @media (max-width: $br1) {
     @include col(1, 4);
     @include row(2, 2);
+    margin-top: 74px;
+  }
+
+  @media (max-width: $br1) {
+    margin-top: 32px;
   }
 }
 
-.product-1__big-img {
+.product-1__img-list {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-flow: row;
+  gap: vw(20);
+
+  @media (max-width: $br1) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+}
+
+.product-1__img-li {
+  &:nth-of-type(1) {
+    @include col(1, 6);
+
+    @media (max-width: $br1) {
+      @include col(1, 4);
+    }
+  }
+
+  &:nth-of-type(2) {
+    @include col(1, 3);
+
+    @media (max-width: $br1) {
+      @include col(1, 1);
+    }
+  }
+
+  &:nth-of-type(3) {
+    @include col(4, 6);
+
+    @media (max-width: $br1) {
+      @include col(2, 2);
+    }
+  }
+
+  &:nth-of-type(4) {
+    @include col(1, 3);
+
+    @media (max-width: $br1) {
+      @include col(3, 3);
+    }
+  }
+
+  &:nth-of-type(5) {
+    @include col(4, 6);
+
+    @media (max-width: $br1) {
+      @include col(4, 4);
+    }
+  }
+}
+
+.product-1__img {
   display: block;
   width: 100%;
   max-width: 100%;
   object-fit: cover;
+  cursor: pointer;
 
   @media (min-width: $br1) {
     height: fit-content;
@@ -42,46 +103,6 @@
   @media (max-width: $br1) {
     aspect-ratio: 0.85;
   }
-}
-
-.product-1__medium-images {
-  grid-template-columns: repeat(2, 1fr);
-  grid-auto-flow: row;
-  gap: vw(20);
-  margin-top: vw(20);
-
-  @media (max-width: $br1) {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    margin-top: 30px;
-  }
-
-  @media (max-width: $br4) {
-    margin-top: 10px;
-  }
-}
-
-.product-1__medium-img {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  object-fit: cover;
-  aspect-ratio: 0.84;
-}
-
-.product-1__small-images {
-  grid-template-columns: repeat(6, 1fr);
-  grid-auto-flow: row;
-  gap: vw(20);
-  margin-top: vw(20);
-}
-
-.product-1__small-img {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  object-fit: cover;
-  aspect-ratio: 0.84;
 }
 
 .product-1__btn-wrapper {
@@ -312,17 +333,16 @@
   }
 }
 
-.product-1__right-btn {
+.product-1__right-button {
   @media (min-width: $br1) {
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    top: vw(810);
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: vw(197);
   }
+}
 
+.product-1__right-btn {
   @media (max-width: $br1) {
     position: fixed;
     bottom: 20px;

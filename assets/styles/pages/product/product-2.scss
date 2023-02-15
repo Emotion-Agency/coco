@@ -60,6 +60,10 @@
   margin-top: vw(100);
 
   @media (max-width: $br1) {
-    display: none;
+    margin-top: 80px;
+  }
+
+  @media (max-width: $br4) {
+    margin-top: 60px;
   }
 }

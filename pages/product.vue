@@ -5,6 +5,45 @@ definePageMeta({
   pageTransition,
 })
 
+const images = [
+  {
+    imgUrl: '/images/product/big-img.jpg',
+  },
+  {
+    imgUrl: '/images/product/1.jpg',
+  },
+  {
+    imgUrl: '/images/product/2.jpg',
+  },
+  {
+    imgUrl: '/images/product/3.jpg',
+  },
+  {
+    imgUrl: '/images/product/4.jpg',
+  },
+  {
+    imgUrl: '/images/product/5.jpg',
+  },
+  {
+    imgUrl: '/images/product/5.jpg',
+  },
+  {
+    imgUrl: '/images/product/5.jpg',
+  },
+  {
+    imgUrl: '/images/product/5.jpg',
+  },
+  {
+    imgUrl: '/images/product/5.jpg',
+  },
+  {
+    imgUrl: '/images/product/5.jpg',
+  },
+  {
+    imgUrl: '/images/product/5.jpg',
+  },
+]
+
 const descriptions = [
   {
     text: 'Details',
@@ -33,70 +72,19 @@ const { isMobile } = useMobile()
             to=".product-1__mobile-images-wrapper"
           >
             <div class="product-1__left-block">
-              <img
-                class="product-1__big-img"
-                src="/images/product/big-img.jpg"
-                alt="Main image"
-              />
-              <div class="grid product-1__medium-images">
-                <img
-                  class="product-1__medium-img"
-                  src="/images/product/1.jpg"
-                  alt="Image"
-                />
-                <img
-                  class="product-1__medium-img"
-                  src="/images/product/2.jpg"
-                  alt="Image"
-                />
-                <img
-                  class="product-1__medium-img"
-                  src="/images/product/3.jpg"
-                  alt="Image"
-                />
-                <img
-                  class="product-1__medium-img"
-                  src="/images/product/4.jpg"
-                  alt="Image"
-                />
-              </div>
-              <!-- <div class="grid product-1__small-images">
-            <img
-              class="product-1__small-img"
-              src="/images/product/1.jpg"
-              alt="Image"
-            />
-            <img
-              class="product-1__small-img"
-              src="/images/product/1.jpg"
-              alt="Image"
-            />
-            <img
-              class="product-1__small-img"
-              src="/images/product/1.jpg"
-              alt="Image"
-            />
-            <img
-              class="product-1__small-img"
-              src="/images/product/1.jpg"
-              alt="Image"
-            />
-            <img
-              class="product-1__small-img"
-              src="/images/product/1.jpg"
-              alt="Image"
-            />
-            <img
-              class="product-1__small-img"
-              src="/images/product/1.jpg"
-              alt="Image"
-            />
-            <img
-              class="product-1__small-img"
-              src="/images/product/1.jpg"
-              alt="Image"
-            />
-          </div> -->
+              <ul class="product-1__img-list">
+                <li
+                  v-for="(el, idx) in images"
+                  :key="idx"
+                  class="product-1__img-li"
+                >
+                  <img
+                    class="product-1__img"
+                    :src="el.imgUrl"
+                    alt="Main image"
+                  />
+                </li>
+              </ul>
               <div class="product-1__btn-wrapper">
                 <TextButton class="product-1__btn">
                   View All 20 photos
@@ -141,8 +129,9 @@ const { isMobile } = useMobile()
               and roll. This is a unisex product for all ages.
             </p>
           </div>
-
-          <TextButton class="product-1__right-btn">Add to bag →</TextButton>
+          <div class="product-1__right-button">
+            <TextButton class="product-1__right-btn">Add to bag →</TextButton>
+          </div>
         </div>
       </div>
     </section>
