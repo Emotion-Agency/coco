@@ -89,6 +89,9 @@
   border-radius: 50%;
   width: 72px;
   height: 72px;
+  @media (min-width: $br1) {
+    display: none;
+  }
 }
 
 .header__line {
