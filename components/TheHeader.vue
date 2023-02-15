@@ -8,9 +8,7 @@
           <NuxtLink to="/" class="header__text"> Home </NuxtLink>
         </li>
         <li class="header__li">
-          <NuxtLink to="/product" class="header__text">
-            New collection
-          </NuxtLink>
+          <NuxtLink to="/about" class="header__text"> New collection </NuxtLink>
         </li>
         <li class="header__li">
           <NuxtLink to="/shop" class="header__text"> Shop </NuxtLink>

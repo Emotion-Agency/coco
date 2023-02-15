@@ -9,9 +9,11 @@
   z-index: 100;
   pointer-events: none;
   backdrop-filter: blur(10px);
+  display: none;
 
   &--opened {
     pointer-events: auto;
+    display: block;
 
     .slider__backdrop {
       opacity: 0.9;

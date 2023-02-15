@@ -19,7 +19,7 @@ const imagesList = [
 </script>
 
 <template>
-  <div class="slider slider--opened">
+  <div class="slider">
     <div class="slider__backdrop"></div>
     <CloseButton class="slider__close-btn">close [ x ]</CloseButton>
     <div class="container slider__wrapper">
