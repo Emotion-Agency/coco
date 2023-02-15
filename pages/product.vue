@@ -134,6 +134,7 @@ const { isMobile } = useMobile()
           </div>
         </div>
       </div>
+      <Slider />
     </section>
     <section class="section product-2">
       <div class="container product-2__wrapper">

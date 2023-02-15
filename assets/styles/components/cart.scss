@@ -9,7 +9,7 @@
   z-index: 10;
   pointer-events: none;
 
-  &.opened {
+  &--opened {
     pointer-events: auto;
 
     .cart__wrapper {
