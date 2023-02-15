@@ -24,5 +24,6 @@
     <button class="header__burger">
       <span class="header__line"></span>
     </button>
+    <Cart />
   </header>
 </template>
