@@ -19,41 +19,44 @@ const descriptions = [
     descriptionId: 'product-vibes',
   },
 ]
+
+const { isMobile } = useMobile()
 </script>
 
 <template>
   <main>
     <section class="section product-1">
       <div class="container grid product-1__wrapper">
-        <div class="product-1__left-block">
-          <img
-            class="product-1__big-img"
-            src="/images/product/big-img.jpg"
-            alt="Main image"
-          />
-          <div class="grid product-1__medium-images">
+        <Teleport :disabled="!isMobile" to=".product-1__mobile-images-wrapper">
+          <div class="product-1__left-block">
             <img
-              class="product-1__medium-img"
-              src="/images/product/1.jpg"
-              alt="Image"
+              class="product-1__big-img"
+              src="/images/product/big-img.jpg"
+              alt="Main image"
             />
-            <img
-              class="product-1__medium-img"
-              src="/images/product/2.jpg"
-              alt="Image"
-            />
-            <img
-              class="product-1__medium-img"
-              src="/images/product/3.jpg"
-              alt="Image"
-            />
-            <img
-              class="product-1__medium-img"
-              src="/images/product/4.jpg"
-              alt="Image"
-            />
-          </div>
-          <!-- <div class="grid product-1__small-images">
+            <div class="grid product-1__medium-images">
+              <img
+                class="product-1__medium-img"
+                src="/images/product/1.jpg"
+                alt="Image"
+              />
+              <img
+                class="product-1__medium-img"
+                src="/images/product/2.jpg"
+                alt="Image"
+              />
+              <img
+                class="product-1__medium-img"
+                src="/images/product/3.jpg"
+                alt="Image"
+              />
+              <img
+                class="product-1__medium-img"
+                src="/images/product/4.jpg"
+                alt="Image"
+              />
+            </div>
+            <!-- <div class="grid product-1__small-images">
             <img
               class="product-1__small-img"
               src="/images/product/1.jpg"
@@ -90,13 +93,14 @@ const descriptions = [
               alt="Image"
             />
           </div> -->
-          <div class="product-1__btn-wrapper">
-            <TextButton class="product-1__btn">
-              View All 20 photos
-              <IconsArrowDown />
-            </TextButton>
+            <div class="product-1__btn-wrapper">
+              <TextButton class="product-1__btn">
+                View All 20 photos
+                <IconsArrowDown />
+              </TextButton>
+            </div>
           </div>
-        </div>
+        </Teleport>
         <div class="product-1__right-block">
           <div class="product-1__info-wrapper">
             <p class="product-1__specific">(Choker №1)</p>
@@ -104,6 +108,7 @@ const descriptions = [
             <p class="product-1__category">Category 1</p>
             <p class="product-1__price">$175.00</p>
           </div>
+          <div class="product-1__mobile-images-wrapper"></div>
           <div class="product-1__description-wrapper">
             <ul class="product-1__list">
               <li
@@ -131,6 +136,7 @@ const descriptions = [
               and roll. This is a unisex product for all ages.
             </p>
           </div>
+
           <TextButton class="product-1__right-btn">Add to bag →</TextButton>
         </div>
       </div>

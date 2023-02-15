@@ -40,7 +40,7 @@ const initTicker = async () => {
     direction,
   })
 
-  ticker.init()
+  // ticker.init()
 }
 
 onMounted(async () => {

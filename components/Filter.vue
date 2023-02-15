@@ -18,17 +18,7 @@ const categories = [
   },
 ]
 
-const isMobile = ref(true)
-
-const resizeHandler = () => {
-  isMobile.value = window?.innerWidth <= 1060
-}
-
-onMounted(async () => {
-  const { resize } = await import('@emotionagency/utils')
-
-  resize.on(resizeHandler)
-})
+const { isMobile } = useMobile()
 </script>
 
 <template>
