@@ -15,9 +15,6 @@ definePageMeta({
           <Filter />
           <CatalogV2 class="catalogue-1__catalog" />
         </div>
-        <div class="catalogue-1__btn-wrapper">
-          <TextButton>go to shop →</TextButton>
-        </div>
       </div>
     </section>
   </main>

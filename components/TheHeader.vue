@@ -23,8 +23,6 @@
     </div>
     <button class="header__burger">
       <span class="header__line"></span>
-      <span class="header__line"></span>
-      <span class="header__line"></span>
     </button>
   </header>
 </template>

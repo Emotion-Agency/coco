@@ -52,18 +52,3 @@
     margin-top: 32px;
   }
 }
-
-.catalogue-1__btn-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: vw(100);
-
-  @media (max-width: $br1) {
-    margin-top: 100px;
-  }
-
-  @media (max-width: $br4) {
-    margin-top: 40px;
-  }
-}
