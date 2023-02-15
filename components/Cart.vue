@@ -19,7 +19,7 @@ const cartItems = [
 </script>
 
 <template>
-  <div class="cart opened">
+  <div class="cart">
     <div class="cart__backdrop"></div>
     <div class="cart__wrapper">
       <CloseButton class="cart__close-btn">close [ x ]</CloseButton>
