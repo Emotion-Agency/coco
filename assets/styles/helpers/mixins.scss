@@ -40,5 +40,6 @@
     src: url('@/public/fonts/#{$file_name}.woff2') format(#{$format});
     font-weight: #{$weight};
     font-style: #{$style};
+    descent-override: 0%;
   }
 }

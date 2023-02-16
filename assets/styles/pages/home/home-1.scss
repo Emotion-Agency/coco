@@ -97,7 +97,7 @@
     @include gerlomi;
 
     @media (min-width: $br1) {
-      bottom: vw(180);
+      bottom: vw(244);
       right: vw(20);
     }
 
@@ -105,7 +105,6 @@
       @include col(4, 4);
       @include row(2, 2);
       position: relative;
-      top: 10px;
       text-align: end;
     }
   }
@@ -127,13 +126,29 @@
   }
 }
 
+.is-safari {
+  .home-1__span {
+    &:nth-of-type(2) {
+      @media (min-width: $br1) {
+        bottom: vw(180);
+      }
+
+      @media (max-width: $br1) {
+        top: 10px;
+      }
+    }
+  }
+}
+
 .home-1__item {
+  @include manrope;
   position: relative;
   top: vw(60);
   left: vw(-20);
   font-size: vw(80);
   text-transform: uppercase;
   line-height: 1em;
+  font-style: normal;
 }
 
 .home-1__text {

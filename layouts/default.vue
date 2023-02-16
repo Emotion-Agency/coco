@@ -6,6 +6,11 @@ useFonts()
 onMounted(async () => {
   const { hello } = await import('~/assets/scripts/utils/hello')
   hello()
+
+  if (navigator.userAgent.toLowerCase().includes('safari/')) {
+    if (!navigator.userAgent.toLowerCase().includes('chrome/'))
+      document.documentElement.classList.add('is-safari')
+  }
 })
 </script>
 

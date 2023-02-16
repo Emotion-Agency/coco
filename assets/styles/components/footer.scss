@@ -86,7 +86,16 @@
       @include col(10, 12);
       position: relative;
       text-align: right;
-      top: vw(22);
+    }
+  }
+}
+
+.is-safari {
+  .footer__span-title {
+    &:nth-of-type(3) {
+      @media (min-width: $br1) {
+        top: vw(22);
+      }
     }
   }
 }
