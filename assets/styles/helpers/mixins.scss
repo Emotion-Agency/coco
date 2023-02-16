@@ -44,6 +44,24 @@
   }
 }
 
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @mixin stroke-link($bg: var(--main)) {
   position: relative;
   width: fit-content;
@@ -77,5 +95,8 @@
         transform: translateY(-50%) scale(1);
       }
     }
+  }
+  &:hover {
+    animation: blink 1s;
   }
 }
