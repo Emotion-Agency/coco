@@ -1,6 +1,6 @@
 .home-1 {
   position: relative;
-  color: var(--pink);
+  color: #ccc;
 
   @media (min-width: $br1) {
     display: flex;
@@ -37,6 +37,9 @@
 .home-1__wrapper {
   position: relative;
   width: 100%;
+  @media (min-width: $br1) {
+    mix-blend-mode: difference;
+  }
 
   @media (max-width: $br1) {
     height: fit-content;
