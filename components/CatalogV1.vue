@@ -1,46 +1,16 @@
 <script setup lang="ts">
-const products = [
-  {
-    title: 'with multicolor bears and cherries',
-    price: '1100',
-    imgUrl: '/images/catalogV1/1.jpg',
-  },
-  {
-    title: 'with multicolor bears and cherries',
-    price: '1100',
-    imgUrl: '/images/catalogV1/2.jpg',
-  },
-  {
-    title: 'with multicolor bears and cherries',
-    price: '1100',
-    imgUrl: '/images/catalogV1/3.jpg',
-  },
-  {
-    title: 'with multicolor bears and cherries',
-    price: '1100',
-    imgUrl: '/images/catalogV1/4.jpg',
-  },
-  {
-    title: 'with multicolor bears and cherries',
-    price: '1100',
-    imgUrl: '/images/catalogV1/5.jpg',
-  },
-  {
-    title: 'with multicolor bears and cherries',
-    price: '1100',
-    imgUrl: '/images/catalogV1/6.jpg',
-  },
-  {
-    title: 'with multicolor bears and cherries',
-    price: '1100',
-    imgUrl: '/images/catalogV1/7.jpg',
-  },
-]
+import { iItem } from '~~/types/products'
+
+interface iProps {
+  items: iItem[]
+}
+
+defineProps<iProps>()
 </script>
 
 <template>
   <ul class="grid catalog-v1">
-    <li v-for="(el, idx) in products" :key="idx" class="catalog-v1__product">
+    <li v-for="(el, idx) in items" :key="idx" class="catalog-v1__product">
       <NuxtLink to="/shop/1/" class="catalog-v1__link">
         <img class="catalog-v1__img" :src="el.imgUrl" alt="Background" />
         <h3 class="catalog-v1__title">{{ el.title }}</h3>
