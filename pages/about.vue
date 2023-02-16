@@ -83,10 +83,10 @@ const tickerText = 'Relive By Coco Relive By Coco Relive By Coco Relive By Coco'
       </div>
     </section>
     <section class="section section--nm about-5">
-      <div class="container grid about-5__wrapper">
+      <div class="grid about-5__wrapper">
         <img class="about-5__img" src="/images/about/3.jpg" alt="About image" />
-        <div class="about-5__info-wrapper">
-          <h3 class="about-5__title">
+        <div class="container about-5__info-wrapper">
+          <h3 class="grid about-5__title">
             <span class="about-5__span-title"> And </span>
             <span class="about-5__span-title"> who is </span>
             <span class="about-5__span-title"> Coco... </span>
@@ -97,6 +97,17 @@ const tickerText = 'Relive By Coco Relive By Coco Relive By Coco Relive By Coco'
             positivity
           </p>
         </div>
+      </div>
+    </section>
+    <section class="section section--nm about-6">
+      <div class="container about-6__wrapper">
+        <p class="about-6__text">
+          Our <span class="about-6__gerlomi-text">a handmade</span> products
+          made by a little 8 year old girl that loves fashion, music, dance &
+          rock&roll. This is a
+          <span class="about-6__gerlomi-text">unisex</span> products
+          <span class="about-6__gerlomi-text">for all ages</span>
+        </p>
       </div>
     </section>
   </main>
