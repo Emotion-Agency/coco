@@ -16,13 +16,25 @@ const cartItems = [
     imgUrl: '/images/catalogV1/3.jpg',
   },
 ]
+
+const { isCartOpen } = useCart()
+
+watch(isCartOpen, () => {
+  if (isCartOpen.value) {
+    window.ss.isFixed = true
+  } else {
+    window.ss.isFixed = false
+  }
+})
 </script>
 
 <template>
-  <div class="cart">
-    <div class="cart__backdrop"></div>
+  <div class="cart" :class="[isCartOpen && 'cart--opened']">
+    <div class="cart__backdrop" @click="isCartOpen = false"></div>
     <div class="cart__wrapper">
-      <CloseButton class="cart__close-btn">close [ x ]</CloseButton>
+      <CloseButton class="cart__close-btn" @click="isCartOpen = false"
+        >close [ x ]</CloseButton
+      >
       <h3 class="cart__title">Your bag</h3>
       <div class="cart__line"></div>
       <div class="cart__block-wrapper">

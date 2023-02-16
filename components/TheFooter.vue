@@ -61,6 +61,8 @@ const formData = reactive({
 
 const tickerText =
   'Next page: [About] / Next page: [About] / Next page: [About] / Next page: [About] / Next page: [About] / Next page: [About] / Next page: [About] / Next page: [About] / Next page: [About] / Next page: [About] / Next page: [About]'
+
+const { isCartOpen } = useCart()
 </script>
 
 <template>
@@ -175,25 +177,25 @@ const tickerText =
                 </NuxtLink>
               </li>
               <li class="footer__pages-li">
-                <NuxtLink to="/" class="footer__pages-link">
+                <button class="footer__pages-link" @click="isCartOpen = true">
                   <p class="footer__pages-number">02</p>
                   <p class="footer__pages-text">bag</p>
-                </NuxtLink>
+                </button>
               </li>
               <li class="footer__pages-li">
-                <NuxtLink to="/" class="footer__pages-link">
+                <NuxtLink to="/shop/" class="footer__pages-link">
                   <p class="footer__pages-number">03</p>
                   <p class="footer__pages-text">Shop</p>
                 </NuxtLink>
               </li>
               <li class="footer__pages-li">
-                <NuxtLink to="/" class="footer__pages-link">
+                <NuxtLink to="/about/" class="footer__pages-link">
                   <p class="footer__pages-number">04</p>
                   <p class="footer__pages-text">about</p>
                 </NuxtLink>
               </li>
               <li class="footer__pages-li">
-                <NuxtLink to="/" class="footer__pages-link">
+                <NuxtLink to="/contacts/" class="footer__pages-link">
                   <p class="footer__pages-number">05</p>
                   <p class="footer__pages-text">contacts</p>
                 </NuxtLink>
