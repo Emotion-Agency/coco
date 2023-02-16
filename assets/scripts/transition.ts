@@ -4,25 +4,42 @@ import { resetScroll } from './utils/resetScroll'
 
 export const pageTransition: TransitionProps = {
   duration: 250,
-  mode: 'in-out',
+  mode: 'out-in',
   css: false,
   appear: true,
-  onEnter(el, done) {
+  onEnter(el: HTMLElement, done) {
     gsap.fromTo(
       el,
-      { opacity: 0 },
-      { duration: 0.5, opacity: 1, onComplete: done }
+      { opacity: 0, scale: 1.01, filter: 'blur(20px)' },
+      {
+        duration: 0.5,
+        opacity: 1,
+        scale: 1,
+        filter: 'blur(0px)',
+        ease: 'power4.out',
+        onComplete: () => {
+          el.style.transform = ''
+          el.style.filter = ''
+          done()
+        },
+      }
     )
-
-    setTimeout(() => {
-      resetScroll()
-    }, 300)
   },
   onLeave(el, done) {
     gsap.fromTo(
       el,
-      { opacity: 1 },
-      { duration: 0.5, opacity: 0, onComplete: done }
+      { opacity: 1, scale: 1, filter: 'blur(0px)' },
+      {
+        duration: 0.5,
+        opacity: 0,
+        scale: 0.99,
+        filter: 'blur(20px)',
+        ease: 'power4.in',
+        onComplete: done,
+      }
     )
+    setTimeout(() => {
+      resetScroll()
+    }, 499)
   },
 }

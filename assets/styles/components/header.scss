@@ -5,6 +5,26 @@
   }
 }
 
+.is-safari {
+  .header {
+    &.not-top {
+      background-color: transparent;
+      backdrop-filter: initial;
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(134, 134, 134, 0.4);
+        backdrop-filter: blur(10px);
+      }
+    }
+  }
+}
+
 .header {
   position: fixed;
   padding-top: vw(12);
@@ -16,14 +36,12 @@
   transition: transform 0.5s ease, opacity 0.5s ease, background-color 0.5s ease,
     backdrop-filter 0.5s ease;
   &.not-top {
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: rgba(134, 134, 134, 0.4);
     backdrop-filter: blur(10px);
-    .header__text {
-      color: var(--main);
-      &::after {
-        background-color: #ccc;
-      }
-    }
+  }
+  &.with-bg {
+    background-color: #fff;
+    .header__text,
     .header__cart-btn {
       color: var(--main);
     }

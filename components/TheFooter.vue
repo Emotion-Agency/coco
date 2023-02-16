@@ -111,27 +111,36 @@ const { isCartOpen } = useCart()
                 <a
                   href="https://www.facebook.com/"
                   target="_blank"
+                  class="footer__social-link"
                   rel="noreferrer noopener"
                 >
-                  <p class="footer__social-text">[ Fb ]</p>
+                  [
+                  <p class="footer__social-text">Fb</p>
+                  ]
                 </a>
               </li>
               <li class="footer__social-li">
                 <a
                   href="https://www.instagram.com/"
                   target="_blank"
+                  class="footer__social-link"
                   rel="noreferrer noopener"
                 >
-                  <p class="footer__social-text">[ Insta ]</p>
+                  [
+                  <p class="footer__social-text">Insta</p>
+                  ]
                 </a>
               </li>
               <li class="footer__social-li">
                 <a
                   href="https://www.tiktok.com/"
                   target="_blank"
+                  class="footer__social-link"
                   rel="noreferrer noopener"
                 >
-                  <p class="footer__social-text">[ tik tok ]</p>
+                  [
+                  <p class="footer__social-text">tik tok</p>
+                  ]
                 </a>
               </li>
             </ul>
