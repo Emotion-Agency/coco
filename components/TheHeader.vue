@@ -10,7 +10,7 @@ const { isCartOpen } = useCart()
           <NuxtLink to="/" class="header__text"> Home </NuxtLink>
         </li>
         <li class="header__li">
-          <NuxtLink to="/shop?collection=new/" class="header__text">
+          <NuxtLink to="/shop?filter=New collection" class="header__text">
             New collection
           </NuxtLink>
         </li>

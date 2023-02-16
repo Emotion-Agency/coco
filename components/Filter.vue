@@ -3,9 +3,12 @@ interface iProps {
   filters: string[]
   defaultText?: string
 }
-const filterValue = ref('default')
-
 defineProps<iProps>()
+
+const route = useRoute()
+
+const filterValue = ref(route.query.filter || 'default')
+
 const emit = defineEmits(['filter'])
 
 const onChange = (e: InputEvent) => {
@@ -17,6 +20,20 @@ const onChange = (e: InputEvent) => {
 }
 
 const { isMobile } = useMobile()
+
+const isFilterOpen = ref(false)
+
+const closeHandler = () => {
+  isFilterOpen.value = false
+}
+
+onMounted(() => {
+  document.body.addEventListener('click', closeHandler)
+})
+
+onBeforeUnmount(() => {
+  document.body.removeEventListener('click', closeHandler)
+})
 </script>
 
 <template>
@@ -28,7 +45,7 @@ const { isMobile } = useMobile()
           class="desktop-filter__radio"
           type="radio"
           name="filter-radios"
-          checked
+          :checked="filterValue === 'default'"
           @change="onChange"
         />
         <label class="desktop-filter__text" for="default">
@@ -41,6 +58,7 @@ const { isMobile } = useMobile()
           class="desktop-filter__radio"
           type="radio"
           name="filter-radios"
+          :checked="filterValue === el"
           @change="onChange"
         />
         <label class="desktop-filter__text" :for="el">
@@ -49,18 +67,24 @@ const { isMobile } = useMobile()
       </li>
     </ul>
     <div v-else class="mobile-filter">
-      <button class="mobile-filter__button">
+      <button
+        class="mobile-filter__button"
+        @click.stop="isFilterOpen = !isFilterOpen"
+      >
         Choose category
         <IconsFilterMark class="mobile-filter__icon" />
       </button>
-      <ul class="mobile-filter__list">
+      <ul
+        class="mobile-filter__list"
+        :class="[isFilterOpen && 'mobile-filter__list--opened']"
+      >
         <li class="mobile-filter__li">
           <input
             id="default"
             class="mobile-filter__radio"
             type="radio"
             name="filter-radios"
-            checked
+            :checked="filterValue === 'default'"
             @change="onChange"
           />
           <label class="mobile-filter__text" for="default">
@@ -73,6 +97,8 @@ const { isMobile } = useMobile()
             class="mobile-filter__radio"
             type="radio"
             name="filter-radios"
+            :checked="filterValue === el"
+            @change="onChange"
           />
           <label class="mobile-filter__text" :for="el">
             {{ el }}

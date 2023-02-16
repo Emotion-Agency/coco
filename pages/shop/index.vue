@@ -13,7 +13,7 @@ const products = ref<iItem[]>([
     title: 'with multicolor bears and cherries 1',
     price: 1100,
     imgUrl: '/images/catalogV1/1.jpg',
-    category: 'Category 1',
+    category: 'New collection',
   },
   {
     id: keysGenerator(8),
