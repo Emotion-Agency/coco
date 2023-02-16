@@ -1,9 +1,23 @@
 <script setup lang="ts">
 const { isCartOpen } = useCart()
+
+let navbarPos
+
+onMounted(async () => {
+  const { default: NavbarPos } = await import(
+    '~/assets/scripts/utils/navbarPos'
+  )
+  navbarPos = new NavbarPos()
+  navbarPos.init()
+})
+
+onBeforeUnmount(() => {
+  navbarPos && navbarPos.destroy()
+})
 </script>
 
 <template>
-  <header class="header">
+  <header class="header navbar">
     <div class="container header__wrapper">
       <ul class="header__navbar">
         <li class="header__li">

@@ -13,6 +13,7 @@ export default class NavbarPos {
   init() {
     this.scrollPos = 0
     this.scrollNav = this.scrollNav.bind(this)
+    this.navbar = document.querySelector('.navbar')
     raf.on(this.scrollNav)
   }
 
@@ -38,6 +39,12 @@ export default class NavbarPos {
     this.isHidden && this.removeVisibility()
 
     this.scrollPos = -this.$sc.scrollTop
+
+    if (-this.scrollPos >= window.innerHeight) {
+      this.navbar.classList.add('not-top')
+    } else {
+      this.navbar.classList.remove('not-top')
+    }
   }
 
   get isHidden() {
