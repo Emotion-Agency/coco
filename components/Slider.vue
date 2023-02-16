@@ -1,27 +1,35 @@
 <script setup lang="ts">
-const imagesList = [
-  {
-    imgUrl: '/images/product/1.jpg',
-  },
-  {
-    imgUrl: '/images/product/2.jpg',
-  },
-  {
-    imgUrl: '/images/product/3.jpg',
-  },
-  {
-    imgUrl: '/images/product/4.jpg',
-  },
-  {
-    imgUrl: '/images/product/5.jpg',
-  },
-]
+interface iImg {
+  imgUrl: string
+}
+
+interface iProps {
+  isOpened: boolean
+  imagesList: iImg[]
+}
+
+const props = defineProps<iProps>()
+
+const emit = defineEmits(['close'])
+
+watch(
+  () => props.isOpened,
+  () => {
+    if (props.isOpened) {
+      window.ss.isFixed = true
+    } else {
+      window.ss.isFixed = false
+    }
+  }
+)
 </script>
 
 <template>
-  <div class="slider">
-    <div class="slider__backdrop"></div>
-    <CloseButton class="slider__close-btn">close [ x ]</CloseButton>
+  <div class="slider" :class="[isOpened && 'slider--opened']">
+    <div class="slider__backdrop" @click="emit('close')"></div>
+    <CloseButton class="slider__close-btn" @click="emit('close')"
+      >close [ x ]</CloseButton
+    >
     <div class="container slider__wrapper">
       <ul class="slider__images-list">
         <li

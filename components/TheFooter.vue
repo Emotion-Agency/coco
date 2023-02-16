@@ -59,9 +59,6 @@ const formData = reactive({
   ],
 })
 
-const tickerText =
-  'Next page: [About] / Next page: [About] / Next page: [About] / Next page: [About] / Next page: [About] / Next page: [About] / Next page: [About] / Next page: [About] / Next page: [About] / Next page: [About] / Next page: [About]'
-
 const { isCartOpen } = useCart()
 </script>
 
@@ -234,6 +231,11 @@ const { isCartOpen } = useCart()
         </div>
       </div>
     </div>
-    <TheTicker :text="tickerText" class="footer__ticker" />
+    <TheTicker
+      text="Next page: [About]"
+      class="footer__ticker"
+      :multiplier="100"
+      divider="/"
+    />
   </footer>
 </template>

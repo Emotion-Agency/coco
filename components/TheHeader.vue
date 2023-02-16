@@ -18,7 +18,7 @@ const { isCartOpen } = useCart()
           <NuxtLink to="/shop/" class="header__text"> Shop </NuxtLink>
         </li>
         <li class="header__li">
-          <NuxtLink to="/abou/t" class="header__text"> About </NuxtLink>
+          <NuxtLink to="/about/" class="header__text"> About </NuxtLink>
         </li>
       </ul>
       <NuxtLink to="/" class="header__logo" aria-label="Logo">

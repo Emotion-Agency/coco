@@ -1,4 +1,4 @@
-// import { raf, matrixTransform } from '@/scripts/utils/ea'
+import { raf, matrixTransform } from '@/assets/scripts/utils/ea'
 
 export class Ticker {
   time = 0

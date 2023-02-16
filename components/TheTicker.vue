@@ -1,9 +1,12 @@
 <template>
   <div class="ticker">
     <div ref="$ticker" class="ticker__items">
-      <div v-for="index in repeatNumber" :key="index" class="ticker__item">
-        {{ text }}
-      </div>
+      <div
+        v-for="index in repeatNumber"
+        :key="index"
+        class="ticker__item"
+        v-html="'&nbsp' + divider + '&nbsp' + text"
+      />
     </div>
   </div>
 </template>
@@ -14,6 +17,7 @@ interface iProps {
   duration?: number
   multiplier?: number
   direction?: 1 | -1
+  divider?: string
 }
 
 const props = defineProps<iProps>()
@@ -22,6 +26,7 @@ const text = props.text || ''
 const duration = props.duration || 80
 const multiplier = props.multiplier || 21
 const direction = props.direction || 1
+const divider = props.divider || '—'
 
 let ticker
 const $ticker = ref(null)
@@ -40,7 +45,7 @@ const initTicker = async () => {
     direction,
   })
 
-  // ticker.init()
+  ticker.init()
 }
 
 onMounted(async () => {

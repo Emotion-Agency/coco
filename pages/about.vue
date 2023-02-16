@@ -5,14 +5,19 @@ definePageMeta({
   pageTransition,
 })
 
-const tickerText = 'Relive By Coco Relive By Coco Relive By Coco Relive By Coco'
+const tickerText = 'Relive By Coco'
 </script>
 
 <template>
   <main>
     <section class="section section--nm about-1">
       <img class="about-1__bg" src="/images/about/1.jpg" alt="Background" />
-      <TheTicker :text="tickerText" class="about-1__ticker" />
+      <TheTicker
+        :text="tickerText"
+        class="about-1__ticker"
+        :divider="' '"
+        :direction="-1"
+      />
       <div class="container about-1__wrapper">
         <h2 class="grid about-1__title">
           <span class="about-1__span-title"> Seriously playful </span>

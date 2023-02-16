@@ -33,13 +33,4 @@
   align-items: center;
   color: var(--white);
   white-space: nowrap;
-  margin-left: vw(75);
-
-  @media (max-width: $br1) {
-    margin-left: 32px;
-  }
-
-  @media (max-width: $br4) {
-    margin-left: 20px;
-  }
 }

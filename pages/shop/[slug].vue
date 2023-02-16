@@ -59,6 +59,8 @@ const descriptions = [
   },
 ]
 
+const isSliderOpen = ref(false)
+
 const { isMobile } = useMobile()
 </script>
 
@@ -74,7 +76,7 @@ const { isMobile } = useMobile()
             <div class="product-1__left-block">
               <ul class="product-1__img-list">
                 <li
-                  v-for="(el, idx) in images"
+                  v-for="(el, idx) in images.slice(0, 5)"
                   :key="idx"
                   class="product-1__img-li"
                 >
@@ -86,7 +88,7 @@ const { isMobile } = useMobile()
                 </li>
               </ul>
               <div class="product-1__btn-wrapper">
-                <TextButton class="product-1__btn">
+                <TextButton class="product-1__btn" @click="isSliderOpen = true">
                   View All 20 photos
                   <IconsArrowDown />
                 </TextButton>
@@ -134,7 +136,11 @@ const { isMobile } = useMobile()
           </div>
         </div>
       </div>
-      <Slider />
+      <Slider
+        :images-list="images"
+        :is-opened="isSliderOpen"
+        @close="isSliderOpen = false"
+      />
     </section>
     <section class="section product-2">
       <div class="container product-2__wrapper">
