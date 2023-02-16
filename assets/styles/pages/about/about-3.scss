@@ -125,12 +125,11 @@
 
 .about-3__line {
   display: block;
-  transform: rotate(90deg);
-  width: vw(164);
-  height: 2px;
+  height: vw(164);
+  width: 2px;
   background-color: #a6a6a6;
-  margin-top: vw(146);
-  margin-bottom: vw(81);
+  margin-top: vw(65);
+  margin-bottom: vw(65);
 
   @media (max-width: $br1) {
     display: none;
@@ -138,8 +137,8 @@
 
   @media (max-width: $br4) {
     display: block;
-    width: 82px;
-    margin-top: 80px;
+    height: 82px;
+    margin-top: 40px;
     margin-bottom: 40px;
   }
 }

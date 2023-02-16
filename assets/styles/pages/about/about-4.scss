@@ -103,23 +103,20 @@
 
 .about-4__line {
   display: block;
-  transform: rotate(90deg);
-  width: vw(238);
-  height: 2px;
+  height: vw(238);
+  width: 2px;
   background-color: var(--main);
-  margin-top: vw(238);
-  margin-bottom: vw(248);
+  margin-top: vw(130);
+  margin-bottom: vw(120);
 
   @media (max-width: $br1) {
-    width: 152px;
-    margin-top: 115px;
-    margin-bottom: 115px;
+    height: 152px;
+    margin-top: 40px;
+    margin-bottom: 40px;
   }
 
   @media (max-width: $br4) {
-    width: 82px;
-    margin-top: 80px;
-    margin-bottom: 80px;
+    height: 82px;
   }
 }
 
