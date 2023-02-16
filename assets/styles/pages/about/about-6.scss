@@ -1,0 +1,40 @@
+.about-6 {
+  padding-top: vw(20);
+  padding-bottom: vw(120);
+
+  @media (max-width: $br1) {
+    padding-top: 16px;
+    padding-bottom: 126px;
+  }
+
+  @media (max-width: $br4) {
+    padding-top: 20px;
+    padding-bottom: 60px;
+  }
+}
+
+.about-6__text {
+  @include manrope;
+  font-weight: 700;
+  font-size: vw(120);
+  text-align: justify;
+  text-transform: uppercase;
+  font-feature-settings: 'salt' on;
+  color: var(--white);
+
+  @media (max-width: $br1) {
+    font-size: size(72, 28);
+  }
+
+  @media (max-width: $br4) {
+    font-size: 28px;
+  }
+}
+
+.about-6__recife-text {
+  @include recife;
+}
+
+.about-6__gerlomi-text {
+  @include gerlomi;
+}

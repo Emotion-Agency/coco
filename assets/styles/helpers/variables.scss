@@ -1,13 +1,16 @@
 :root {
-  --black: #212022;
-  --bg: #f4f4f4;
   --white: #ffffff;
+  --bg: #9f9f9f;
+  --blue: #556cfa;
+  --pink: #ffd9d9;
+  --main: #333333;
   --red: #e73737;
   --accent: green;
+  --vh: 100vh;
 }
 
 //screen config
-$maxWidth: 1920;
+$maxWidth: 1024;
 $minWidth: 375;
 
 //breakpoints
@@ -19,9 +22,9 @@ $br3: 768px;
 $br4: 460px;
 
 //easings
-$easing: cubic-bezier(0.16, 1, 0.3, 1);
+$easing: cubic-bezier(0, 0.55, 0.45, 1);
 
 // layouts
-$g-offset: vw(56);
-$g-sm: 32px;
+$g-offset: vw(20);
+$g-sm: 20px;
 $g-s: 20px;

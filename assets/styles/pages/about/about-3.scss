@@ -1,0 +1,158 @@
+.about-3 {
+  position: relative;
+  padding-top: vw(40);
+  background-color: #f4efe1;
+
+  @media (max-width: $br1) {
+    padding-top: 36px;
+  }
+
+  @media (max-width: $br4) {
+    padding-top: 30px;
+  }
+}
+
+.about-3__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+
+  @media (max-width: $br1) {
+    padding-bottom: 60px;
+  }
+
+  @media (max-width: $br4) {
+    padding-bottom: 0;
+  }
+}
+
+.about-3__title {
+  @include manrope;
+  font-weight: 800;
+  font-size: vw(120);
+  text-transform: uppercase;
+
+  @media (max-width: $br1) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: size(64, 36);
+  }
+
+  @media (max-width: $br3) {
+    display: inline-block;
+    text-align: center;
+  }
+
+  @media (max-width: $br4) {
+    font-size: 36px;
+  }
+}
+
+.about-3__span-title {
+  &:nth-of-type(1) {
+    @media (min-width: $br1) {
+      @include col(1, 5);
+      text-align: start;
+    }
+  }
+
+  &:nth-of-type(2) {
+    @include gerlomi;
+    position: relative;
+
+    @media (min-width: $br1) {
+      @include col(6, 7);
+      text-align: start;
+    }
+  }
+
+  &:nth-of-type(3) {
+    @media (min-width: $br1) {
+      @include col(8, 12);
+    }
+  }
+}
+
+.is-safari {
+  .about-3__span-title {
+    &:nth-of-type(2) {
+      @media (min-width: $br1) {
+        top: vw(21);
+      }
+
+      @media (max-width: $br1) {
+        top: 10px;
+      }
+
+      @media (max-width: $br3) {
+        top: 0;
+      }
+    }
+  }
+}
+
+.about-3__info {
+  margin-top: vw(146);
+  max-width: vw(929);
+
+  @media (max-width: $br1) {
+    margin-top: 100px;
+    max-width: 100%;
+  }
+
+  @media (max-width: $br4) {
+    margin-top: 40px;
+  }
+}
+
+.about-3__img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  aspect-ratio: 1.29;
+}
+
+.about-3__text {
+  @include manrope;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-feature-settings: 'salt' on;
+  font-size: vw(36);
+  margin-top: vw(22);
+
+  @media (max-width: $br1) {
+    font-size: 24px;
+    margin-top: 12px;
+  }
+}
+
+.about-3__line-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-3__line {
+  display: block;
+  height: vw(164);
+  width: 2px;
+  background-color: #a6a6a6;
+  margin-top: vw(65);
+  margin-bottom: vw(65);
+
+  @media (max-width: $br1) {
+    display: none;
+  }
+
+  @media (max-width: $br4) {
+    display: block;
+    height: 82px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+}

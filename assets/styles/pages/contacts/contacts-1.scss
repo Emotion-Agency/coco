@@ -1,0 +1,8 @@
+.contacts-1 {
+  padding-top: vw(70);
+  background-color: var(--white);
+
+  @media (max-width: $br1) {
+    padding-top: 50px;
+  }
+}

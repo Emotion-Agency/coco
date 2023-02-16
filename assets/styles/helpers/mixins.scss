@@ -33,12 +33,13 @@
   }
 }
 
-@mixin font($font_name, $file_name, $weight, $style) {
+@mixin font($font_name, $file_name, $weight, $style, $format: 'woff2') {
   @font-face {
     font-family: $font_name;
     font-display: swap;
-    src: url('@/public/fonts/#{$file_name}.woff2') format('woff2');
+    src: url('@/public/fonts/#{$file_name}.woff2') format(#{$format});
     font-weight: #{$weight};
     font-style: #{$style};
+    descent-override: 0%;
   }
 }

@@ -1,0 +1,132 @@
+.desktop-filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: vw(40);
+  width: 100%;
+  max-width: 80%;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+  row-gap: vw(20);
+
+  @media (max-width: $br1) {
+    column-gap: 30px;
+  }
+
+  @media (max-width: $br4) {
+    column-gap: 20px;
+  }
+}
+
+.desktop-filter__radio[type='radio'] {
+  display: none;
+}
+
+.desktop-filter__text {
+  @include manrope;
+  cursor: pointer;
+  position: relative;
+  color: var(--main);
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: vw(60);
+  opacity: 0.4;
+  filter: blur(4px);
+}
+
+.desktop-filter__radio[type='radio']:checked {
+  + .desktop-filter__text {
+    opacity: 1;
+    filter: none;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      height: 2px;
+      width: 100%;
+      background-color: var(--main);
+    }
+  }
+}
+
+// ==================== Mobile Filter ====================
+
+.mobile-filter {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile-filter__button {
+  @include manrope;
+  font-weight: 800;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: var(--white);
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  column-gap: 12px;
+
+  @media (max-width: $br1) {
+    font-size: 20px;
+  }
+}
+
+.mobile-filter__icon {
+  display: block;
+  width: vw(40);
+  height: vw(40);
+
+  @media (max-width: $br1) {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.mobile-filter__list {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  background-color: var(--main);
+  padding: 12px;
+  opacity: 0;
+  transform: translateY(40px);
+  pointer-events: none;
+  transition: opacity 0.45s $easing, transform 0.45s $easing;
+  &--opened {
+    opacity: 1;
+    transform: translateY(0px);
+    pointer-events: auto;
+  }
+
+  @media (max-width: $br1) {
+    top: 32px;
+    min-width: 228px;
+    max-width: 100%;
+  }
+}
+
+.mobile-filter__radio[type='radio'] {
+  display: none;
+}
+
+.mobile-filter__text {
+  @include manrope;
+  color: rgba(255, 255, 255, 0.5);
+  background-color: transparent;
+  font-size: 20px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.mobile-filter__radio[type='radio']:checked {
+  + .mobile-filter__text {
+    color: var(--white);
+  }
+}

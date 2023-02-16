@@ -1,0 +1,36 @@
+.ticker {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--main);
+  padding-top: vw(12);
+  padding-bottom: vw(12);
+  margin-top: vw(26);
+
+  @media (max-width: $br1) {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-top: 88px;
+  }
+
+  @media (max-width: $br4) {
+    margin-top: 40px;
+  }
+}
+
+.ticker__items {
+  display: flex;
+  white-space: nowrap;
+  align-items: center;
+  width: fit-content;
+}
+
+.ticker__item {
+  @include reg;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  color: var(--white);
+  white-space: nowrap;
+}
