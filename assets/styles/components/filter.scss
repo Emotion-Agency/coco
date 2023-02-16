@@ -8,7 +8,7 @@
   flex-wrap: wrap;
   margin-left: auto;
   margin-right: auto;
-  row-gap: vw(20);
+  row-gap: vw(40);
 
   @media (max-width: $br1) {
     column-gap: 30px;
@@ -33,20 +33,27 @@
   font-size: vw(60);
   opacity: 0.4;
   filter: blur(4px);
+  transition-duration: 0.45s;
+  transition-timing-function: $easing;
+  transition-property: opacity, filter;
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0%;
+    background-color: var(--main);
+    transition: width 0.45s $easing;
+  }
 }
 
 .desktop-filter__radio[type='radio']:checked {
   + .desktop-filter__text {
     opacity: 1;
     filter: none;
-
     &::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      height: 2px;
       width: 100%;
-      background-color: var(--main);
     }
   }
 }
@@ -123,6 +130,7 @@
   font-size: 20px;
   font-weight: 800;
   text-transform: uppercase;
+  transition: color 0.45s $easing;
 }
 
 .mobile-filter__radio[type='radio']:checked {

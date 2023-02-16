@@ -419,7 +419,7 @@
   display: flex;
   align-items: center;
   column-gap: vw(18);
-
+  @include stroke-link;
   @media (max-width: $br1) {
     column-gap: 18px;
   }
@@ -500,6 +500,7 @@
   font: inherit;
   color: inherit;
   text-transform: inherit;
+  @include stroke-link;
 
   @media (max-width: $br1) {
     column-gap: 11px;

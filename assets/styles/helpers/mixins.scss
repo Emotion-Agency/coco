@@ -43,3 +43,34 @@
     descent-override: 0%;
   }
 }
+
+@mixin stroke-link($bg: var(--main)) {
+  position: relative;
+  width: fit-content;
+  transition: color 0.45s $easing;
+  z-index: 2;
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: auto;
+    right: 0;
+    top: 0;
+    background-color: $bg;
+    width: 0%;
+    height: 100%;
+    transition: width 0.45s $easing;
+    z-index: -1;
+  }
+  @media (min-width: $br2) {
+    &:hover,
+    &.router-link-exact-active {
+      &:after {
+        width: 100%;
+        left: 0;
+        right: auto;
+      }
+      color: var(--white);
+    }
+  }
+}
