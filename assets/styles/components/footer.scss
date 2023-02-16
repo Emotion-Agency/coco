@@ -202,6 +202,8 @@
 
 .footer__img {
   display: block;
+  width: 100%;
+  object-fit: cover;
   height: 100%;
 
   @media (min-width: $br1) {

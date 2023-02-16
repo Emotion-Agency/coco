@@ -345,7 +345,7 @@
 .product-1__right-btn {
   @media (max-width: $br1) {
     position: fixed;
-    bottom: 20px;
+    bottom: 35px;
     right: 20px;
     background-color: var(--main);
     color: var(--white);
@@ -356,6 +356,7 @@
   }
 
   @media (max-width: $br4) {
+    bottom: 40px;
     font-size: 20px;
     padding: 5px 12px;
   }

@@ -1,17 +1,14 @@
 .about-3 {
   position: relative;
   padding-top: vw(40);
-  padding-bottom: vw(65);
   background-color: #f4efe1;
 
   @media (max-width: $br1) {
     padding-top: 36px;
-    padding-bottom: 60px;
   }
 
   @media (max-width: $br4) {
     padding-top: 30px;
-    padding-bottom: 40px;
   }
 }
 
@@ -22,6 +19,14 @@
   flex-direction: column;
   width: 100%;
   text-align: center;
+
+  @media (max-width: $br1) {
+    padding-bottom: 60px;
+  }
+
+  @media (max-width: $br4) {
+    padding-bottom: 0;
+  }
 }
 
 .about-3__title {

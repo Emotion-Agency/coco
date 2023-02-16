@@ -13,6 +13,7 @@
   top: 0;
   left: 0;
   transition: transform 0.5s ease, opacity 0.5s ease;
+
   &.loading {
     transform: translateY(-100%);
     opacity: 0;
@@ -96,6 +97,7 @@
   border-radius: 50%;
   width: 72px;
   height: 72px;
+
   @media (min-width: $br1) {
     display: none;
   }

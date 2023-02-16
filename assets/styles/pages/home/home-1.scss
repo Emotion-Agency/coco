@@ -149,6 +149,16 @@
   text-transform: uppercase;
   line-height: 1em;
   font-style: normal;
+
+  @media (max-width: $br1) {
+    font-size: size(50, 24);
+    top: 5px;
+    left: -2px;
+  }
+
+  @media (max-width: $br4) {
+    font-size: 24px;
+  }
 }
 
 .home-1__text {

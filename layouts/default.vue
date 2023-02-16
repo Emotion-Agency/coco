@@ -24,6 +24,7 @@ onMounted(async () => {
     <AppGrid />
     <SmoothScroll>
       <TheHeader />
+      <Cart />
       <slot />
       <TheFooter />
     </SmoothScroll>
