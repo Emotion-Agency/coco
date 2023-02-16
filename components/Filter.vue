@@ -15,7 +15,6 @@ const onChange = (e: InputEvent) => {
   const target = e.target as HTMLInputElement
   filterValue.value = target.getAttribute('id')
 
-  console.log(target.getAttribute('id'))
   emit('filter', filterValue.value)
 }
 
