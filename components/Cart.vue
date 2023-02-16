@@ -70,7 +70,7 @@ watch(isCartOpen, () => {
           </div>
           <div class="cart__line"></div>
           <div class="cart__button-wrapper">
-            <TextButton>Checkout →</TextButton>
+            <TextButton>Checkout</TextButton>
           </div>
         </div>
       </div>

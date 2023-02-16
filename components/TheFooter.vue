@@ -94,7 +94,7 @@ const { isCartOpen } = useCart()
           <IconsBigDiamond class="footer__icon" />
         </div>
         <div class="footer__button-wrapper">
-          <TextButton class="footer__top-btn">See more →</TextButton>
+          <TextButton class="footer__top-btn">See more</TextButton>
         </div>
       </div>
       <div class="footer__bottom-block">

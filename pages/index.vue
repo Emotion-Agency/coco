@@ -143,7 +143,7 @@ const filteredItems = computed(() => {
           <CatalogV1 class="home-3__catalog" :items="filteredItems" />
         </div>
         <div class="home-3__btn-wrapper">
-          <TextButton>go to shop →</TextButton>
+          <TextButton>go to shop</TextButton>
         </div>
       </div>
     </section>

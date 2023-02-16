@@ -38,7 +38,7 @@
       <slot />
     </div>
     <small v-if="error" class="input-error">{{ validationText }}</small>
-    <TextButton class="input-btn"> Send → </TextButton>
+    <TextButton class="input-btn">Send</TextButton>
   </div>
 </template>
 

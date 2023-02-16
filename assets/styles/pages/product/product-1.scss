@@ -119,6 +119,11 @@
   font-size: vw(32);
   margin-top: vw(30);
   position: relative;
+  background-color: transparent;
+  font: inherit;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: inherit;
 
   svg {
     display: block;
@@ -353,6 +358,9 @@
     padding: 8px 24px;
     z-index: 100;
     font-size: size(32, 20);
+    svg path {
+      fill: var(--white);
+    }
   }
 
   @media (max-width: $br4) {

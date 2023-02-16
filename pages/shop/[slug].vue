@@ -142,10 +142,10 @@ const { isMobile } = useMobile()
                 </li>
               </ul>
               <div class="product-1__btn-wrapper">
-                <TextButton class="product-1__btn" @click="isSliderOpen = true">
+                <button class="product-1__btn" @click="isSliderOpen = true">
                   View All 20 photos
                   <IconsArrowDown />
-                </TextButton>
+                </button>
               </div>
             </div>
           </Teleport>
@@ -186,7 +186,7 @@ const { isMobile } = useMobile()
             </p>
           </div>
           <div class="product-1__right-button">
-            <TextButton class="product-1__right-btn">Add to bag →</TextButton>
+            <TextButton class="product-1__right-btn">Add to bag</TextButton>
           </div>
         </div>
       </div>
@@ -203,7 +203,7 @@ const { isMobile } = useMobile()
           <CatalogV2 class="product-2__catalog" :items="products" />
         </div>
         <div class="product-2__btn-wrapper">
-          <TextButton>See all →</TextButton>
+          <TextButton>See all</TextButton>
         </div>
       </div>
     </section>
