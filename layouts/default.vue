@@ -1,4 +1,9 @@
 <script setup lang="ts">
+/**
+* @todo
+fix body height on mobile
+* */
+
 import { useFonts } from '~/composables/fonts'
 
 useFonts()

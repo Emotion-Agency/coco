@@ -233,5 +233,9 @@
   gap: 12px;
   color: var(--white);
   text-transform: uppercase;
+}
+
+.burger-menu__text {
+  @include manrope;
   font-weight: 800;
 }
