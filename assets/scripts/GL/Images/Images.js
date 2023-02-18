@@ -119,7 +119,6 @@ export default class Images extends Figure {
       strength = lerp(this.material.uniforms.uStrength.value, strength, 0.08)
       this.material.uniforms.uStrength.value = strength
       this.material.uniforms.uVisible.value = this.visibility
-      console.log(this.material.uniforms.uVisible)
     }
   }
 

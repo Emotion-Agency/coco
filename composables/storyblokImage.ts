@@ -3,6 +3,7 @@ import ImgixClient from '@imgix/js-core'
 interface iOpts {
   filters?: string
   size?: string
+  imgix?: boolean
 }
 
 export const useStoryblokImage = (image: string, options: iOpts = {}) => {
@@ -24,5 +25,7 @@ export const useStoryblokImage = (image: string, options: iOpts = {}) => {
 
   const customPath = size ? '/m/' + size + '/' + filters : '/m/' + filters
 
-  return imgixTransform(imageService + path + customPath)
+  return options?.imgix
+    ? imgixTransform(imageService + path + customPath)
+    : imageService + path + customPath
 }

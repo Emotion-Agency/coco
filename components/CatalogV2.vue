@@ -8,28 +8,46 @@ interface iProps {
 defineProps<iProps>()
 
 const { addToCart } = useCart()
+
+const $items = ref<NodeListOf<HTMLElement>>(null)
+
+const { startTransition } = useGL($items)
 </script>
 
 <template>
   <ul class="grid catalog-v2">
-    <li v-for="(el, idx) in items" :key="idx" class="catalog-v2__product">
-      <NuxtLink :to="`/shop/${el.slug}/`" class="catalog-v2__link" @click.stop>
+    <li
+      v-for="(el, idx) in items"
+      ref="$items"
+      :key="idx"
+      class="catalog-v2__product"
+    >
+      <a
+        :href="`/shop/${el.slug}/`"
+        class="catalog-v2__link"
+        @click.prevent="startTransition"
+      >
         <div class="catalog-v2__top">
           <TheImg
             format="webp"
             quality="90"
             :storyblok="true"
+            :imgx="true"
             :width="800"
             class="catalog-v2__img"
             :src="el.mainImage"
             alt="Background"
+            data-gl
+            data-gl-parallax="1"
+            data-a-gl
+            data-a-gl-progress="1"
           />
         </div>
         <h3 class="catalog-v2__title">{{ el.title }}</h3>
         <div class="catalog-v2__bottom">
           <p class="catalog-v2__price">[${{ el.price }}]</p>
         </div>
-      </NuxtLink>
+      </a>
       <TextButton class="catalog__v2-btn" @click="addToCart(el)"
         >Add to cart</TextButton
       >

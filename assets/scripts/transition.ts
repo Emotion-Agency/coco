@@ -1,5 +1,6 @@
 import gsap from 'gsap'
 import { TransitionProps } from 'nuxt/dist/app/compat/capi'
+import { glTransition } from './glTransition'
 import { resetScroll } from './utils/resetScroll'
 
 export const pageTransition: TransitionProps = {
@@ -25,8 +26,12 @@ export const pageTransition: TransitionProps = {
         },
       }
     )
+
+    if (document.body.classList.contains('gl-transition')) {
+      glTransition(el)
+    }
   },
-  onLeave(el, done) {
+  onLeave(el: HTMLElement, done) {
     const footer: HTMLElement = document.querySelector('.footer')
 
     gsap.fromTo(

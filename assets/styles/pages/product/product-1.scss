@@ -47,6 +47,14 @@
   }
 }
 
+.gl-transition {
+  &:nth-of-type(1) {
+    .product-1__img {
+      opacity: 0;
+    }
+  }
+}
+
 .product-1__img-li {
   &:nth-of-type(1) {
     @include col(1, 6);
@@ -96,9 +104,9 @@
   object-fit: cover;
   cursor: pointer;
 
-  @media (min-width: $br1) {
-    height: fit-content;
-  }
+  // @media (min-width: $br1) {
+  //   height: fit-content;
+  // }
 
   @media (max-width: $br1) {
     aspect-ratio: 0.85;

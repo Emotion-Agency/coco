@@ -40,6 +40,7 @@ watch(
             quality="90"
             class="slider__img"
             :storyblok="true"
+            :width="1000"
             :src="el.filename"
             alt="Slider image"
           />

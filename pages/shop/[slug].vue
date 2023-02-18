@@ -100,6 +100,7 @@ const { addToCart } = useCart()
                     class="product-1__img"
                     :src="el.filename"
                     :storyblok="true"
+                    :width="900"
                     alt="Main image"
                   />
                 </li>

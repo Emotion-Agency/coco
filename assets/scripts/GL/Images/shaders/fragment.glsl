@@ -1,5 +1,5 @@
 varying vec2 vUv;
-varying vec2 vDUv;
+
 varying vec2 vResolution;
 
 uniform sampler2D uTexture;
@@ -8,9 +8,9 @@ uniform float uTime;
 uniform float uVisible;
 uniform float uScale;
 uniform float uHover;
-uniform float uRadius;
 
-const float defaultScale = 0.9;
+
+const float defaultScale = 1.;
 
 vec4 tex(in vec2 st) {
    return texture2D(uTexture, st);
@@ -32,17 +32,17 @@ void main() {
    float angle = 1.55;
 
    float roundblend = sin(PI*uHover);
-   float displace = uStrength * 2. + ((1. - uVisible) * 20.) + roundblend * 20.;
+   float displace = uStrength * 2. + ((1. - uVisible) * 20.) + roundblend * 2.;
 
-   newUv += (sin(newUv.y * 10. + (uTime / 5.)) / 500.) * displace;
-   newUv += (sin(newUv.x * 10. + (uTime / 15.)) / 500.) * displace;
+   newUv += (sin(newUv.y * 5. + (uTime / 5.)) / 500.) * displace;
+   newUv += (sin(newUv.x * 5. + (uTime / 15.)) / 500.) * displace;
 
    vec2 p = (newUv - vec2(0.5, 0.5)) * (defaultScale - uScale) + vec2(0.5, 0.5);
-   vec2 offset = uStrength / 50.0 * vec2(cos(angle), sin(angle)) + roundblend * 0.05;
+   vec2 offset = uStrength / 150.0 * vec2(cos(angle), sin(angle)) + roundblend * 0.05;
 
 
    float t = uStrength + ((1. - uVisible) * 10.) + roundblend;
-   float _Speed = 3.0;
+   float _Speed = 1.0;
 
    float res = t * _Speed * 3.0 + 0.01;
 
@@ -63,7 +63,6 @@ void main() {
 
    vec4 finalTexture = img;
 
-   // vec4 color = roundCorners(vDUv, vResolution, uRadius, finalTexture);
 
    gl_FragColor = finalTexture * uVisible;
 }
