@@ -18,6 +18,8 @@ const { addToCart } = useCart()
           <TheImg
             format="webp"
             quality="90"
+            :storyblok="true"
+            :width="800"
             class="catalog-v2__img"
             :src="el.mainImage"
             alt="Background"

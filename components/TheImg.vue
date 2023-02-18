@@ -1,11 +1,21 @@
 <script lang="ts" setup>
 interface iProps {
   src: string
+  storyblok?: boolean
+  imgx?: boolean
+  width?: number
+  height?: number
 }
 
-defineProps<iProps>()
+const props = defineProps<iProps>()
+
+const source = props.storyblok
+  ? useStoryblokImage(props.src, {
+      size: `${props.width || 0}x${props.height || 0}`,
+    })
+  : props.src
 </script>
 
 <template>
-  <img :src="src" />
+  <img :src="source" />
 </template>

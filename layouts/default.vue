@@ -24,6 +24,7 @@ onMounted(async () => {
   const { hello } = await import('~/assets/scripts/utils/hello')
   const { winSizes } = await import('~/assets/scripts/utils/winSizes')
   const { resize } = await import('@/assets/scripts/utils/ea')
+  const { raf } = await import('@emotionagency/utils')
 
   hello()
   resize.on(winSizes)
@@ -50,6 +51,15 @@ onMounted(async () => {
       }
     })
   }, 200)
+
+  const { Scetch } = await import('@emotionagency/glhtml')
+
+  window.scetch = new Scetch('#gl', {
+    raf,
+    dpr: window.devicePixelRatio,
+  })
+
+  emitter.emit('scetchCreated')
 })
 
 useHead({
@@ -74,6 +84,7 @@ useHead({
       <TheHeader />
       <Cart />
       <slot />
+      <div id="gl"></div>
       <TheFooter />
     </SmoothScroll>
   </div>

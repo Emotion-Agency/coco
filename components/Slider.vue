@@ -39,6 +39,7 @@ watch(
             format="webp"
             quality="90"
             class="slider__img"
+            :storyblok="true"
             :src="el.filename"
             alt="Slider image"
           />

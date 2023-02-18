@@ -321,6 +321,13 @@
   }
 }
 
+.product-1__desc-text-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .product-1__desc-text {
   // display: none;
   @include manrope;

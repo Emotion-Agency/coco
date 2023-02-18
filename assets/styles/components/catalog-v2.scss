@@ -24,6 +24,13 @@
 //   }
 // }
 
+.catalog-v2__product {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 .catalog-v2__top {
   position: relative;
 }
@@ -34,7 +41,7 @@
   padding: 8px 12px;
   width: 100%;
   transition: opacity 0.45s $easing;
-  margin-top: 16px;
+  margin-top: auto;
   transition: color 0.45s $easing, background-color 0.45s $easing;
   &:hover {
     background-color: var(--main);

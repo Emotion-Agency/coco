@@ -1,3 +1,5 @@
+import glsl from 'vite-plugin-glsl'
+
 export default defineNuxtConfig({
   css: ['@/assets/styles/index.scss'],
 
@@ -24,6 +26,12 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       ENVIROMENT: process.env.NODE_ENV,
+      IMGIX_DOMAIN: process.env.IMGIX_DOMAIN,
+      IMGIX_KEY: process.env.IMGIX_KEY,
     },
+  },
+
+  vite: {
+    plugins: [glsl()],
   },
 })

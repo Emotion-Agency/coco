@@ -24,11 +24,14 @@
     "prettier": "^2.6.2",
     "sass": "^1.51.0",
     "sass-loader": "^12.6.0",
-    "typescript": "^4.6.4"
+    "typescript": "^4.6.4",
+    "vite-plugin-glsl": "^0.3.0"
   },
   "dependencies": {
+    "@emotionagency/glhtml": "^1.0.1",
     "@emotionagency/smoothscroll": "latest",
     "@emotionagency/utils": "latest",
+    "@imgix/js-core": "^3.8.0",
     "@storyblok/nuxt": "^5.1.0",
     "axios": "^1.3.3",
     "gsap": "^3.10.3",

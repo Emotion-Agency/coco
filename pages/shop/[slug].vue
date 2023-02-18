@@ -99,6 +99,7 @@ const { addToCart } = useCart()
                     quality="90"
                     class="product-1__img"
                     :src="el.filename"
+                    :storyblok="true"
                     alt="Main image"
                   />
                 </li>
