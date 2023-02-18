@@ -1,15 +1,19 @@
 <script setup lang="ts">
 import { pageTransition } from '~~/assets/scripts/transition'
+import { useProductsStories } from '~~/composables/stories/productsStory'
 
 definePageMeta({
   pageTransition,
 })
 
 const { products } = useProducts()
+const { listenStory } = await useProductsStories()
 
 const route = useRoute()
 
 const slug = route.params.slug
+
+listenStory(slug)
 
 const currentProduct = computed(() => {
   return products.value.find(product => product.slug === slug)
