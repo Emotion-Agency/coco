@@ -118,7 +118,7 @@
     width: fit-content;
 
     @media (min-width: $br1) {
-      bottom: vw(-26);
+      bottom: vw(13);
       left: vw(638);
     }
 
@@ -155,12 +155,13 @@
 
   @media (max-width: $br1) {
     font-size: size(50, 24);
-    top: 5px;
+    top: 15px;
     left: -2px;
   }
 
   @media (max-width: $br4) {
     font-size: 24px;
+    top: 10px;
   }
 }
 

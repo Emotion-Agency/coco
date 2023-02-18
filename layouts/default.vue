@@ -7,6 +7,12 @@ import { useProductsStories } from '~~/composables/stories/productsStory'
 
 useFonts()
 
+/**
+* @todo
+fix webgl with filter
+fix scroll at transition
+* */
+
 const { isInEditor } = useAppState()
 
 const { products } = useProducts()
