@@ -22,7 +22,7 @@ export const useCategoryFilter = (items: Ref<iItem[]>) => {
       })
     } else {
       filteredProductsByCategory.value = items.value.filter(
-        product => product.category === value
+        product => product.collection === value
       )
       router.push(`?filter=${value}`)
     }
@@ -31,7 +31,7 @@ export const useCategoryFilter = (items: Ref<iItem[]>) => {
   }
 
   const categories = computed(() => {
-    return [...new Set(items.value.map(product => product.category))]
+    return [...new Set(items.value.map(product => product.collection))]
   })
 
   onMounted(() => {

@@ -1,11 +1,9 @@
 <script setup lang="ts">
-interface iImg {
-  imgUrl: string
-}
+import { iImage } from '~~/types/story'
 
 interface iProps {
   isOpened: boolean
-  imagesList: iImg[]
+  imagesList: iImage[]
 }
 
 const props = defineProps<iProps>()
@@ -41,7 +39,7 @@ watch(
             format="webp"
             quality="90"
             class="slider__img"
-            :src="el.imgUrl"
+            :src="el.filename"
             alt="Slider image"
           />
         </li>

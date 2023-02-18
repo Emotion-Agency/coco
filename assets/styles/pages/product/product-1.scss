@@ -289,6 +289,18 @@
   font-size: vw(32);
   opacity: 0.4;
   filter: blur(1.5px);
+  transition-duration: 0.45s;
+  transition-timing-function: $easing;
+  transition-property: opacity, filter;
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    width: 0%;
+    background-color: var(--main);
+    transition: width 0.45s $easing;
+  }
 
   @media (max-width: $br1) {
     font-size: size(32, 16);
@@ -303,19 +315,14 @@
   + .product-1__text {
     opacity: 1;
     filter: none;
-
     &::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      height: 2px;
       width: 100%;
-      background-color: var(--main);
     }
   }
 }
 
 .product-1__desc-text {
+  // display: none;
   @include manrope;
   font-weight: 500;
   font-size: vw(24);
@@ -324,6 +331,10 @@
   text-align: center;
   font-feature-settings: 'salt' on;
   max-width: vw(770);
+
+  // &--active {
+  //   display: block;
+  // }
 
   @media (max-width: $br1) {
     font-size: size(24, 16);

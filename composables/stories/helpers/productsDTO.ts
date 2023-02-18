@@ -6,6 +6,8 @@ export const productsDTO = (productsData: iStory<iProductContent>[]) => {
       id: product.id,
       disableForSale: product.content.disable_for_sale,
       description: product.content.description,
+      how_to_use: product.content.how_to_use,
+      product_vibes: product.content.product_vibes,
       title: product.name,
       images: product.content.images,
       mainImage: product.content.images[0]?.filename,

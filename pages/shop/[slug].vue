@@ -1,117 +1,53 @@
 <script setup lang="ts">
 import { pageTransition } from '~~/assets/scripts/transition'
-import { keysGenerator } from '~~/assets/scripts/utils/ea'
-import { iItem } from '~~/types/products'
 
 definePageMeta({
   pageTransition,
 })
 
-const products = ref<iItem[]>([
+const { products } = useProducts()
+
+const route = useRoute()
+
+const slug = route.params.slug
+
+const currentProduct = computed(() => {
+  return products.value.find(product => product.slug === slug)
+})
+
+if (!currentProduct.value) {
+  throw createError({ statusCode: 404, statusMessage: 'Page Not Found' })
+}
+
+const tabs = ref([
   {
-    id: keysGenerator(8),
-    title: 'with multicolor bears and cherries 1',
-    price: 1100,
-    imgUrl: '/images/catalogV1/1.jpg',
-    category: 'Category 1',
+    title: 'Details',
+    descriptionId: 'details',
+    text: currentProduct.value.description,
+    isActive: true,
   },
   {
-    id: keysGenerator(8),
-    title: 'with multicolor bears and cherries 2',
-    price: 1100,
-    imgUrl: '/images/catalogV1/2.jpg',
-    category: 'Category 2',
+    title: 'How to use',
+    descriptionId: 'how-use',
+    text: currentProduct.value.how_to_use,
+    isActive: false,
   },
   {
-    id: keysGenerator(8),
-    title: 'with multicolor bears and cherries 3',
-    price: 1100,
-    imgUrl: '/images/catalogV1/3.jpg',
-    category: 'Category 3',
-  },
-  {
-    id: keysGenerator(8),
-    title: 'with multicolor bears and cherries 4',
-    price: 1100,
-    imgUrl: '/images/catalogV1/4.jpg',
-    category: 'Category 1',
-  },
-  {
-    id: keysGenerator(8),
-    title: 'with multicolor bears and cherries 5',
-    price: 1100,
-    imgUrl: '/images/catalogV1/5.jpg',
-    category: 'Category 1',
-  },
-  {
-    id: keysGenerator(8),
-    title: 'with multicolor bears and cherries 6',
-    price: 1100,
-    imgUrl: '/images/catalogV1/6.jpg',
-    category: 'Category 1',
-  },
-  {
-    id: keysGenerator(8),
-    title: 'with multicolor bears and cherries 7',
-    price: 1100,
-    imgUrl: '/images/catalogV1/7.jpg',
-    category: 'Category 3',
+    title: 'Product vibes',
+    descriptionId: 'product-vibes',
+    text: currentProduct.value.product_vibes,
+    isActive: false,
   },
 ])
 
-const images = [
-  {
-    imgUrl: '/images/product/big-img.jpg',
-  },
-  {
-    imgUrl: '/images/product/1.jpg',
-  },
-  {
-    imgUrl: '/images/product/2.jpg',
-  },
-  {
-    imgUrl: '/images/product/3.jpg',
-  },
-  {
-    imgUrl: '/images/product/4.jpg',
-  },
-  {
-    imgUrl: '/images/product/5.jpg',
-  },
-  {
-    imgUrl: '/images/product/5.jpg',
-  },
-  {
-    imgUrl: '/images/product/5.jpg',
-  },
-  {
-    imgUrl: '/images/product/5.jpg',
-  },
-  {
-    imgUrl: '/images/product/5.jpg',
-  },
-  {
-    imgUrl: '/images/product/5.jpg',
-  },
-  {
-    imgUrl: '/images/product/5.jpg',
-  },
-]
-
-const descriptions = [
-  {
-    text: 'Details',
-    descriptionId: 'details',
-  },
-  {
-    text: 'How to use',
-    descriptionId: 'how-use',
-  },
-  {
-    text: 'Product vibes',
-    descriptionId: 'product-vibes',
-  },
-]
+const tabHandler = (id: string) => {
+  tabs.value = tabs.value.map(tab => {
+    if (tab.descriptionId === id) {
+      return { ...tab, isActive: true }
+    }
+    return { ...tab, isActive: false }
+  })
+}
 
 const isSliderOpen = ref(false)
 
@@ -128,9 +64,12 @@ const { isMobile } = useMobile()
             to=".product-1__mobile-images-wrapper"
           >
             <div class="product-1__left-block">
-              <ul class="product-1__img-list">
+              <ul
+                v-if="currentProduct?.images?.length"
+                class="product-1__img-list"
+              >
                 <li
-                  v-for="(el, idx) in images.slice(0, 5)"
+                  v-for="(el, idx) in currentProduct.images.slice(0, 5)"
                   :key="idx"
                   class="product-1__img-li"
                 >
@@ -138,7 +77,7 @@ const { isMobile } = useMobile()
                     format="webp"
                     quality="90"
                     class="product-1__img"
-                    :src="el.imgUrl"
+                    :src="el.filename"
                     alt="Main image"
                   />
                 </li>
@@ -155,37 +94,37 @@ const { isMobile } = useMobile()
         <div class="product-1__right-block">
           <div class="product-1__info-wrapper">
             <p class="product-1__specific">(Choker №1)</p>
-            <h3 class="product-1__name">with multicolor bears and cherries</h3>
-            <p class="product-1__category">Category 1</p>
-            <p class="product-1__price">$175.00</p>
+            <h3 class="product-1__name">{{ currentProduct.title }}</h3>
+            <p class="product-1__category">{{ currentProduct.collection }}</p>
+            <p class="product-1__price">${{ currentProduct.price }}</p>
           </div>
           <div class="product-1__mobile-images-wrapper"></div>
           <div class="product-1__description-wrapper">
             <ul class="product-1__list">
-              <li
-                v-for="(el, idx) in descriptions"
-                :key="idx"
-                class="product-1__li"
-              >
+              <li v-for="(el, idx) in tabs" :key="idx" class="product-1__li">
                 <input
                   :id="el.descriptionId"
                   class="product-1__radio"
                   type="radio"
                   name="product-radios"
-                  checked
+                  :checked="el.isActive"
+                  @change="tabHandler(el.descriptionId)"
                 />
                 <label class="product-1__text" :for="el.descriptionId">
-                  {{ el.text }}
+                  {{ el.title }}
                 </label>
               </li>
             </ul>
-            <p class="product-1__desc-text">
-              This product is vegan and made with some components are recycled
-              charms. Some charms are unique and maybe one charm on the choker
-              won’t match exactly the image. This is a handmade product by a
-              little 8 year old girl that loves fashion, music, dance and rock
-              and roll. This is a unisex product for all ages.
-            </p>
+            <div class="product-1__desc-text-wrapper">
+              <p
+                v-for="tab in tabs"
+                v-show="tab.isActive"
+                :key="tab.descriptionId"
+                class="product-1__desc-text"
+              >
+                {{ tab.text }}
+              </p>
+            </div>
           </div>
           <div class="product-1__right-button">
             <TextButton class="product-1__right-btn">Add to bag</TextButton>
@@ -193,7 +132,8 @@ const { isMobile } = useMobile()
         </div>
       </div>
       <Slider
-        :images-list="images"
+        v-if="currentProduct?.images?.length"
+        :images-list="currentProduct.images"
         :is-opened="isSliderOpen"
         @close="isSliderOpen = false"
       />

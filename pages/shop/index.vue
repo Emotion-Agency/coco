@@ -1,63 +1,11 @@
 <script setup lang="ts">
 import { pageTransition } from '~~/assets/scripts/transition'
-import { keysGenerator } from '~~/assets/scripts/utils/ea'
-import { iItem } from '~~/types/products'
 
 definePageMeta({
   pageTransition,
 })
 
-const products = ref<iItem[]>([
-  {
-    id: keysGenerator(8),
-    title: 'with multicolor bears and cherries 1',
-    price: 1100,
-    imgUrl: '/images/catalogV1/1.jpg',
-    category: 'New collection',
-  },
-  {
-    id: keysGenerator(8),
-    title: 'with multicolor bears and cherries 2',
-    price: 1100,
-    imgUrl: '/images/catalogV1/2.jpg',
-    category: 'Category 2',
-  },
-  {
-    id: keysGenerator(8),
-    title: 'with multicolor bears and cherries 3',
-    price: 1100,
-    imgUrl: '/images/catalogV1/3.jpg',
-    category: 'Category 3',
-  },
-  {
-    id: keysGenerator(8),
-    title: 'with multicolor bears and cherries 4',
-    price: 1100,
-    imgUrl: '/images/catalogV1/4.jpg',
-    category: 'Category 1',
-  },
-  {
-    id: keysGenerator(8),
-    title: 'with multicolor bears and cherries 5',
-    price: 1100,
-    imgUrl: '/images/catalogV1/5.jpg',
-    category: 'Category 1',
-  },
-  {
-    id: keysGenerator(8),
-    title: 'with multicolor bears and cherries 6',
-    price: 1100,
-    imgUrl: '/images/catalogV1/6.jpg',
-    category: 'Category 1',
-  },
-  {
-    id: keysGenerator(8),
-    title: 'with multicolor bears and cherries 7',
-    price: 1100,
-    imgUrl: '/images/catalogV1/7.jpg',
-    category: 'Category 3',
-  },
-])
+const { products } = useProducts()
 
 const { categoryFilterHandler, filteredProductsByCategory, categories } =
   useCategoryFilter(products)

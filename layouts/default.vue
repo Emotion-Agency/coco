@@ -20,8 +20,6 @@ watch(
   { immediate: true }
 )
 
-console.log(products.value)
-
 onMounted(async () => {
   const { hello } = await import('~/assets/scripts/utils/hello')
   const { winSizes } = await import('~/assets/scripts/utils/winSizes')

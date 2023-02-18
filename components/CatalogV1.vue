@@ -11,12 +11,12 @@ defineProps<iProps>()
 <template>
   <ul class="grid catalog-v1">
     <li v-for="(el, idx) in items" :key="idx" class="catalog-v1__product">
-      <NuxtLink to="/shop/1/" class="catalog-v1__link">
+      <NuxtLink :to="`/shop/${el.slug}/`" class="catalog-v1__link">
         <TheImg
           format="webp"
           quality="90"
           class="catalog-v1__img"
-          :src="el.imgUrl"
+          :src="el.mainImage"
           alt="Background"
         />
         <h3 class="catalog-v1__title">{{ el.title }}</h3>
