@@ -118,7 +118,7 @@ const filteredItems = computed(() => {
       </div>
     </section>
     <section class="section section--nm home-2">
-      <nuxt-img
+      <TheImg
         format="webp"
         quality="90"
         class="home-2__bg"

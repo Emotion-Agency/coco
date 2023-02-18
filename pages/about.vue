@@ -11,7 +11,7 @@ const tickerText = 'Relive By Coco'
 <template>
   <main>
     <section class="section section--nm about-1">
-      <nuxt-img
+      <TheImg
         format="webp"
         quality="90"
         class="about-1__bg"
@@ -52,7 +52,7 @@ const tickerText = 'Relive By Coco'
           <span class="about-3__span-title"> expression </span>
         </h3>
         <div class="about-3__info">
-          <nuxt-img
+          <TheImg
             format="webp"
             quality="90"
             class="about-3__img"
@@ -97,7 +97,7 @@ const tickerText = 'Relive By Coco'
     </div>
     <section class="section section--nm about-5">
       <div class="grid about-5__wrapper">
-        <nuxt-img
+        <TheImg
           format="webp"
           quality="90"
           class="about-5__img"

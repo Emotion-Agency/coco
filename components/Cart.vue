@@ -42,7 +42,7 @@ watch(isCartOpen, () => {
           <li v-for="(el, idx) in cartItems" :key="idx" class="cart__item">
             <div v-if="idx !== 0" class="cart__line"></div>
             <div class="cart__item-wrapper">
-              <nuxt-img
+              <TheImg
                 format="webp"
                 quality="90"
                 class="cart__img"

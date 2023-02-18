@@ -1,12 +1,26 @@
 <script setup lang="ts">
-/**
-* @todo
-fix body height on mobile
-* */
+import emitter from 'tiny-emitter/instance.js'
 
 import { useFonts } from '~/composables/fonts'
+import { productsDTO } from '~~/composables/stories/helpers/productsDTO'
+import { useProductsStories } from '~~/composables/stories/productsStory'
 
 useFonts()
+
+const { isInEditor } = useAppState()
+
+const { products } = useProducts()
+const { stories } = await useProductsStories()
+
+watch(
+  stories,
+  () => {
+    products.value = productsDTO(stories.value)
+  },
+  { immediate: true }
+)
+
+console.log(products.value)
 
 onMounted(async () => {
   const { hello } = await import('~/assets/scripts/utils/hello')
@@ -20,6 +34,24 @@ onMounted(async () => {
     if (!navigator.userAgent.toLowerCase().includes('chrome/'))
       document.documentElement.classList.add('is-safari')
   }
+
+  setTimeout(() => {
+    const sbBridge = new window.StoryblokBridge()
+
+    sbBridge.on(['input', 'published', 'change'], event => {
+      emitter.emit('storyChange', event.story)
+    })
+
+    sbBridge.on(['published', 'change'], () => {
+      location.reload()
+    })
+
+    sbBridge.pingEditor(() => {
+      if (sbBridge.isInEditor()) {
+        isInEditor.value = true
+      }
+    })
+  }, 200)
 })
 
 useHead({

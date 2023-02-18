@@ -29,7 +29,10 @@
   "dependencies": {
     "@emotionagency/smoothscroll": "latest",
     "@emotionagency/utils": "latest",
+    "@storyblok/nuxt": "^5.1.0",
+    "axios": "^1.3.3",
     "gsap": "^3.10.3",
-    "nuxt": "^3.1.0"
+    "nuxt": "^3.1.0",
+    "tiny-emitter": "^2.1.0"
   }
 }

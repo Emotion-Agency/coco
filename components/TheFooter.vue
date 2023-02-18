@@ -87,7 +87,7 @@ const { isCartOpen } = useCart()
               class="footer__gallery-item"
             >
               <a :href="el.link" target="_blank" rel="noreferrer noopener">
-                <nuxt-img
+                <TheImg
                   format="webp"
                   quality="90"
                   class="footer__img"

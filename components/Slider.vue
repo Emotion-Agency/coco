@@ -37,7 +37,7 @@ watch(
           :key="idx"
           class="slider__images-li"
         >
-          <nuxt-img
+          <TheImg
             format="webp"
             quality="90"
             class="slider__img"
