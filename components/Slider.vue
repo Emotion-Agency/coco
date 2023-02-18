@@ -37,7 +37,13 @@ watch(
           :key="idx"
           class="slider__images-li"
         >
-          <img class="slider__img" :src="el.imgUrl" alt="Slider image" />
+          <nuxt-img
+            format="webp"
+            quality="90"
+            class="slider__img"
+            :src="el.imgUrl"
+            alt="Slider image"
+          />
         </li>
       </ul>
     </div>

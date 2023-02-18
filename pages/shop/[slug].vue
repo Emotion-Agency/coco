@@ -134,7 +134,9 @@ const { isMobile } = useMobile()
                   :key="idx"
                   class="product-1__img-li"
                 >
-                  <img
+                  <nuxt-img
+                    format="webp"
+                    quality="90"
                     class="product-1__img"
                     :src="el.imgUrl"
                     alt="Main image"

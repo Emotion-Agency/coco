@@ -1,6 +1,8 @@
 export default defineNuxtConfig({
   css: ['@/assets/styles/index.scss'],
 
+  modules: ['@nuxt/image-edge'],
+
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
   },

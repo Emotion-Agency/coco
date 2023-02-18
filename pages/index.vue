@@ -119,7 +119,13 @@ const filteredItems = computed(() => {
       </div>
     </section>
     <section class="section section--nm home-2">
-      <img class="home-2__bg" src="/images/home/2.jpg" alt="Background" />
+      <nuxt-img
+        format="webp"
+        quality="90"
+        class="home-2__bg"
+        src="/images/home/2.jpg"
+        alt="Background"
+      />
       <div class="container home-2__wrapper">
         <div class="grid home-2__second-wrapper">
           <h2 class="home-2__text">Unique</h2>

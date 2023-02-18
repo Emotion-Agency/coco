@@ -11,7 +11,13 @@ const tickerText = 'Relive By Coco'
 <template>
   <main>
     <section class="section section--nm about-1">
-      <img class="about-1__bg" src="/images/about/1.jpg" alt="Background" />
+      <nuxt-img
+        format="webp"
+        quality="90"
+        class="about-1__bg"
+        src="/images/about/1.jpg"
+        alt="Background"
+      />
       <TheTicker
         :text="tickerText"
         class="about-1__ticker"
@@ -46,7 +52,9 @@ const tickerText = 'Relive By Coco'
           <span class="about-3__span-title"> expression </span>
         </h3>
         <div class="about-3__info">
-          <img
+          <nuxt-img
+            format="webp"
+            quality="90"
             class="about-3__img"
             src="/images/about/2.jpg"
             alt="About image"
@@ -89,7 +97,13 @@ const tickerText = 'Relive By Coco'
     </div>
     <section class="section section--nm about-5">
       <div class="grid about-5__wrapper">
-        <img class="about-5__img" src="/images/about/3.jpg" alt="About image" />
+        <nuxt-img
+          format="webp"
+          quality="90"
+          class="about-5__img"
+          src="/images/about/3.jpg"
+          alt="About image"
+        />
         <div class="container about-5__info-wrapper">
           <h3 class="grid about-5__title">
             <span class="about-5__span-title"> And </span>
