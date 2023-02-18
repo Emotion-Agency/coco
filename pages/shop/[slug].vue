@@ -23,26 +23,41 @@ if (!currentProduct.value) {
   throw createError({ statusCode: 404, statusMessage: 'Page Not Found' })
 }
 
-const tabs = ref([
-  {
-    title: 'Details',
-    descriptionId: 'details',
-    text: currentProduct.value.description,
-    isActive: true,
+const otherProducts = computed(() => {
+  return products.value.filter(product => product.slug !== slug).slice(0, 6)
+})
+
+const tabs = ref([])
+
+const tabsItems = computed({
+  get() {
+    return [
+      {
+        title: 'Details',
+        descriptionId: 'details',
+        text: currentProduct.value.description,
+        isActive: true,
+      },
+      {
+        title: 'How to use',
+        descriptionId: 'how-use',
+        text: currentProduct.value.how_to_use,
+        isActive: false,
+      },
+      {
+        title: 'Product vibes',
+        descriptionId: 'product-vibes',
+        text: currentProduct.value.product_vibes,
+        isActive: false,
+      },
+    ]
   },
-  {
-    title: 'How to use',
-    descriptionId: 'how-use',
-    text: currentProduct.value.how_to_use,
-    isActive: false,
+  set(value) {
+    tabs.value = value
   },
-  {
-    title: 'Product vibes',
-    descriptionId: 'product-vibes',
-    text: currentProduct.value.product_vibes,
-    isActive: false,
-  },
-])
+})
+
+tabs.value = tabsItems.value
 
 const tabHandler = (id: string) => {
   tabs.value = tabs.value.map(tab => {
@@ -56,6 +71,8 @@ const tabHandler = (id: string) => {
 const isSliderOpen = ref(false)
 
 const { isMobile } = useMobile()
+
+const { addToCart } = useCart()
 </script>
 
 <template>
@@ -88,7 +105,7 @@ const { isMobile } = useMobile()
               </ul>
               <div class="product-1__btn-wrapper">
                 <button class="product-1__btn" @click="isSliderOpen = true">
-                  View All 20 photos
+                  View All {{ currentProduct?.images?.length }} photos
                   <IconsArrowDown />
                 </button>
               </div>
@@ -97,7 +114,9 @@ const { isMobile } = useMobile()
         </ClientOnly>
         <div class="product-1__right-block">
           <div class="product-1__info-wrapper">
-            <p class="product-1__specific">(Choker №1)</p>
+            <p class="product-1__specific">
+              (Choker №{{ currentProduct.idx + 1 }})
+            </p>
             <h3 class="product-1__name">{{ currentProduct.title }}</h3>
             <p class="product-1__category">{{ currentProduct.collection }}</p>
             <p class="product-1__price">${{ currentProduct.price }}</p>
@@ -131,7 +150,11 @@ const { isMobile } = useMobile()
             </div>
           </div>
           <div class="product-1__right-button">
-            <TextButton class="product-1__right-btn">Add to bag</TextButton>
+            <TextButton
+              class="product-1__right-btn"
+              @click="addToCart(currentProduct)"
+              >Add to bag</TextButton
+            >
           </div>
         </div>
       </div>
@@ -142,14 +165,14 @@ const { isMobile } = useMobile()
         @close="isSliderOpen = false"
       />
     </section>
-    <section class="section product-2">
+    <section v-if="otherProducts?.length" class="section product-2">
       <div class="container product-2__wrapper">
         <h2 class="product-2__title">Other Products</h2>
         <div class="product-2__filter-wrapper">
-          <CatalogV2 class="product-2__catalog" :items="products" />
+          <CatalogV2 class="product-2__catalog" :items="otherProducts" />
         </div>
         <div class="product-2__btn-wrapper">
-          <TextButton>See all</TextButton>
+          <TextButton tag="nuxt-link" to="/shop/">See all</TextButton>
         </div>
       </div>
     </section>

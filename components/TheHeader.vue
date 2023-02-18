@@ -70,10 +70,10 @@ const navItems = [
     link: '/',
     text: 'Home',
   },
-  {
-    link: '/shop?filter=New collection',
-    text: 'New collection',
-  },
+  // {
+  //   link: '/shop?filter=New collection',
+  //   text: 'New collection',
+  // },
   {
     link: '/shop',
     text: 'Shop',
@@ -83,6 +83,14 @@ const navItems = [
     text: 'About',
   },
 ]
+
+const { cartItems } = useCart()
+
+const cartItemsLength = computed(() => {
+  const totalItemsArray = cartItems.value.map(item => item.quantity)
+
+  return totalItemsArray.reduce((a, b) => a + b, 0)
+})
 </script>
 
 <template>
@@ -105,7 +113,7 @@ const navItems = [
         aria-label="Open cart"
         @click="isCartOpen = true"
       >
-        bag [01]
+        bag [{{ cartItemsLength }}]
       </button>
     </div>
     <Teleport to="#app">

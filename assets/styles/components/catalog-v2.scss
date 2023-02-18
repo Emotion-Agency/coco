@@ -13,6 +13,38 @@
   }
 }
 
+// .catalog-v2__product {
+//   transition: mix-blend-mode 0.45s $easing;
+//   &:hover {
+//     mix-blend-mode: difference;
+//     .catalog__v2-btn {
+//       opacity: 1;
+//       pointer-events: auto;
+//     }
+//   }
+// }
+
+.catalog-v2__top {
+  position: relative;
+}
+
+.catalog__v2-btn {
+  font-size: vw(20);
+  border: 2px dashed var(--main);
+  padding: 8px 12px;
+  width: 100%;
+  transition: opacity 0.45s $easing;
+  margin-top: 16px;
+  transition: color 0.45s $easing, background-color 0.45s $easing;
+  &:hover {
+    background-color: var(--main);
+    color: var(--white);
+    svg path {
+      fill: var(--white);
+    }
+  }
+}
+
 .catalog-v2__img {
   display: block;
   width: 100%;
@@ -39,23 +71,35 @@
   }
 }
 
+.catalog-v2__bottom {
+  margin-top: vw(8);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @media (max-width: $br1) {
+    margin-top: 25px;
+  }
+  @media (max-width: $br3) {
+    margin-top: 8px;
+  }
+}
+
 .catalog-v2__price {
   @include manrope;
   font-weight: 800;
   font-size: vw(28);
-  margin-top: vw(8);
+
   text-transform: uppercase;
 
   @media (max-width: $br1) {
     font-size: size(32, 14);
-    margin-top: 25px;
-  }
-
-  @media (max-width: $br3) {
-    margin-top: 8px;
   }
 
   @media (max-width: $br4) {
     font-size: 14px;
   }
 }
+
+// .catalog-v2__btn {
+//   font-size: vw(20);
+// }

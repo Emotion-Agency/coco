@@ -21,6 +21,9 @@
   &:nth-of-type(7n + 2) {
     @media (min-width: $br1) {
       @include col(5, 6);
+      .catalog-v1__title {
+        font-size: 1.5vw;
+      }
     }
   }
   &:nth-of-type(7n + 3) {
@@ -31,11 +34,17 @@
   &:nth-of-type(7n + 4) {
     @media (min-width: $br1) {
       @include col(1, 2);
+      .catalog-v1__title {
+        font-size: 1.5vw;
+      }
     }
   }
   &:nth-of-type(7n + 5) {
     @media (min-width: $br1) {
       @include col(3, 4);
+      .catalog-v1__title {
+        font-size: 1.5vw;
+      }
     }
   }
   &:nth-of-type(7n + 6) {
@@ -55,6 +64,7 @@
   width: 100%;
   max-width: 100%;
   object-fit: cover;
+  aspect-ratio: 0.81;
 
   @media (min-width: $br1) {
     height: fit-content;

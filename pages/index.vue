@@ -11,11 +11,13 @@ const { categoryFilterHandler, filteredProductsByCategory, categories } =
   useCategoryFilter(products)
 
 const filteredItems = computed(() => {
-  return products.value.filter(item => {
-    return filteredProductsByCategory.value.some(ci => {
-      return ci.id === item.id
+  return products.value
+    .filter(item => {
+      return filteredProductsByCategory.value.some(ci => {
+        return ci.id === item.id
+      })
     })
-  })
+    .slice(0, 7)
 })
 </script>
 
@@ -96,7 +98,7 @@ const filteredItems = computed(() => {
           <CatalogV1 class="home-3__catalog" :items="filteredItems" />
         </div>
         <div class="home-3__btn-wrapper">
-          <TextButton>go to shop</TextButton>
+          <TextButton tag="nuxt-link" to="/shop/">go to shop</TextButton>
         </div>
       </div>
     </section>

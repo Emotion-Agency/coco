@@ -1,5 +1,6 @@
 export interface iItem {
   id: number
+  idx: number
   disableForSale: boolean
   description: string
   how_to_use: string
@@ -7,8 +8,8 @@ export interface iItem {
   title: string
   images: any[]
   mainImage: string
-  price: number
-  compare_price: number | undefined
+  price: string
+  compare_price: string | undefined
   slug: string
   collection: string
 }

@@ -41,8 +41,8 @@ export interface iProductContent {
   product_vibes: string
   how_to_use: string
   images: iImage[]
-  price: number
-  compare_price: number
+  price: string
+  compare_price: string
   slug: string
   collection: string
 }

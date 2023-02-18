@@ -8,8 +8,9 @@ export const pageTransition: TransitionProps = {
   css: false,
   appear: true,
   onEnter(el: HTMLElement, done) {
+    const footer: HTMLElement = document.querySelector('.footer')
     gsap.fromTo(
-      el,
+      [el, footer],
       { opacity: 0, scale: 1.01, filter: 'blur(20px)' },
       {
         duration: 0.5,
@@ -26,8 +27,10 @@ export const pageTransition: TransitionProps = {
     )
   },
   onLeave(el, done) {
+    const footer: HTMLElement = document.querySelector('.footer')
+
     gsap.fromTo(
-      el,
+      [el, footer],
       { opacity: 1, scale: 1, filter: 'blur(0px)' },
       {
         duration: 0.5,
