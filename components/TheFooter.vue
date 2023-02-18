@@ -209,19 +209,21 @@ const { isCartOpen } = useCart()
             </ul>
           </div>
           <form class="footer__form" novalidate>
-            <legend class="footer__form-title">Follow us</legend>
-            <TheInput
-              v-for="input in formData.inputs"
-              :id="input.id"
-              :key="input.id"
-              ref="$inputs"
-              class="footer__input"
-              :type="input.type"
-              :placeholder="input.label"
-              :required="input.required"
-              :validation-text="input.validationText && input.validationText"
-              :validation="input.validationText && input.validation"
-            />
+            <fieldset>
+              <legend class="footer__form-title">Follow us</legend>
+              <TheInput
+                v-for="input in formData.inputs"
+                :id="input.id"
+                :key="input.id"
+                ref="$inputs"
+                class="footer__input"
+                :type="input.type"
+                :placeholder="input.label"
+                :required="input.required"
+                :validation-text="input.validationText && input.validationText"
+                :validation="input.validationText && input.validation"
+              />
+            </fieldset>
           </form>
         </div>
         <div class="footer__info-wrapper">

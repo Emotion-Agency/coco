@@ -13,7 +13,7 @@ const emit = defineEmits(['filter'])
 
 const onChange = (e: InputEvent) => {
   const target = e.target as HTMLInputElement
-  filterValue.value = target.getAttribute('id')
+  filterValue.value = target.getAttribute('data-value')
 
   emit('filter', filterValue.value)
 }
@@ -36,11 +36,12 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="filter">
+  <nav class="filter">
     <ul v-if="!isMobile" class="desktop-filter">
       <li class="desktop-filter__li">
         <input
           id="default"
+          data-value="default"
           class="desktop-filter__radio"
           type="radio"
           name="filter-radios"
@@ -53,14 +54,18 @@ onBeforeUnmount(() => {
       </li>
       <li v-for="(el, idx) in filters" :key="idx" class="desktop-filter__li">
         <input
-          :id="el"
+          :id="el.toLocaleLowerCase().replace(/\s/gm, '-')"
+          :data-value="el"
           class="desktop-filter__radio"
           type="radio"
           name="filter-radios"
           :checked="filterValue === el"
           @change="onChange"
         />
-        <label class="desktop-filter__text" :for="el">
+        <label
+          class="desktop-filter__text"
+          :for="el.toLocaleLowerCase().replace(/\s/gm, '-')"
+        >
           {{ el }}
         </label>
       </li>
@@ -80,6 +85,7 @@ onBeforeUnmount(() => {
         <li class="mobile-filter__li">
           <input
             id="default"
+            data-value="default"
             class="mobile-filter__radio"
             type="radio"
             name="filter-radios"
@@ -92,18 +98,22 @@ onBeforeUnmount(() => {
         </li>
         <li v-for="(el, idx) in filters" :key="idx" class="mobile-filter__li">
           <input
-            :id="el"
+            :id="el.toLocaleLowerCase().replace(/\s/gm, '-')"
+            :data-value="el"
             class="mobile-filter__radio"
             type="radio"
             name="filter-radios"
             :checked="filterValue === el"
             @change="onChange"
           />
-          <label class="mobile-filter__text" :for="el">
+          <label
+            class="mobile-filter__text"
+            :for="el.toLocaleLowerCase().replace(/\s/gm, '-')"
+          >
             {{ el }}
           </label>
         </li>
       </ul>
     </div>
-  </div>
+  </nav>
 </template>

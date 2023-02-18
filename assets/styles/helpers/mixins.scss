@@ -37,7 +37,7 @@
   @font-face {
     font-family: $font_name;
     font-display: swap;
-    src: url('@/public/fonts/#{$file_name}.woff2') format(#{$format});
+    src: url('/fonts/#{$file_name}.woff2') format(#{$format});
     font-weight: #{$weight};
     font-style: #{$style};
     descent-override: 0%;
@@ -62,10 +62,10 @@
   }
 }
 
-@mixin stroke-link($bg: var(--main)) {
+@mixin stroke-link($color: var(--main)) {
   position: relative;
   width: fit-content;
-  transition: color 0.45s $easing;
+  transition: color 0.45s $easing, transform 0.45s $easing;
   z-index: 2;
   &::before,
   &::after {
@@ -86,17 +86,17 @@
     content: ']';
     right: -10px;
   }
-  @media (min-width: $br2) {
-    &:hover,
-    &.router-link-exact-active {
-      &:before,
-      &:after {
-        opacity: 1;
-        transform: translateY(-50%) scale(1);
-      }
-    }
-  }
-  &:hover {
+
+  &:hover,
+  &.router-link-exact-active {
     animation: blink 1s;
+    &:before,
+    &:after {
+      opacity: 1;
+      transform: translateY(-50%) scale(1);
+    }
+    @media (max-width: $br1) {
+      transform: translateX(10px);
+    }
   }
 }

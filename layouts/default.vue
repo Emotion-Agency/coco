@@ -10,12 +10,22 @@ useFonts()
 
 onMounted(async () => {
   const { hello } = await import('~/assets/scripts/utils/hello')
+  const { winSizes } = await import('~/assets/scripts/utils/winSizes')
+  const { resize } = await import('@/assets/scripts/utils/ea')
+
   hello()
+  resize.on(winSizes)
 
   if (navigator.userAgent.toLowerCase().includes('safari/')) {
     if (!navigator.userAgent.toLowerCase().includes('chrome/'))
       document.documentElement.classList.add('is-safari')
   }
+})
+
+useHead({
+  htmlAttrs: {
+    lang: 'en',
+  },
 })
 </script>
 

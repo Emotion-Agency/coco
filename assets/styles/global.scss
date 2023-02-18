@@ -8,7 +8,7 @@
 html {
   font-size: vw(24);
   overflow: hidden;
-  height: 100vh;
+  height: var(--vh);
 }
 
 body {
@@ -19,7 +19,7 @@ body {
   font-family: sans-serif;
   overscroll-behavior-y: none;
   @include smooth-font;
-  height: 100vh;
+  height: var(--vh);
   @media (min-width: 960px) {
     overflow: hidden;
   }
