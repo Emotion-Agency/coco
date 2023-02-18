@@ -25,7 +25,7 @@ const tickerText = 'Relive By Coco'
         </h2>
       </div>
     </section>
-    <section class="section section--nm about-2">
+    <div class="section section--nm about-2">
       <div class="container about-2__wrapper">
         <p class="about-2__text">
           Relive by <span class="about-2__recife-text">Coco</span> is a
@@ -37,7 +37,7 @@ const tickerText = 'Relive By Coco'
           <span class="about-2__gerlomi-text">cruelty free</span>
         </p>
       </div>
-    </section>
+    </div>
     <section class="section section--nm about-3">
       <div class="container about-3__wrapper">
         <h3 class="grid about-3__title">
@@ -63,7 +63,7 @@ const tickerText = 'Relive By Coco'
         </div>
       </div>
     </section>
-    <section class="section section--nm about-4">
+    <div class="section section--nm about-4">
       <div class="container about-4__wrapper">
         <div class="grid about-4__text-wrapper">
           <p class="about-4__text">To remember to be Playfull is important!</p>
@@ -86,7 +86,7 @@ const tickerText = 'Relive By Coco'
           </p>
         </div>
       </div>
-    </section>
+    </div>
     <section class="section section--nm about-5">
       <div class="grid about-5__wrapper">
         <img class="about-5__img" src="/images/about/3.jpg" alt="About image" />
@@ -104,7 +104,7 @@ const tickerText = 'Relive By Coco'
         </div>
       </div>
     </section>
-    <section class="section section--nm about-6">
+    <div class="section section--nm about-6">
       <div class="container about-6__wrapper">
         <p class="about-6__text">
           Our <span class="about-6__gerlomi-text">a handmade</span> products
@@ -114,6 +114,6 @@ const tickerText = 'Relive By Coco'
           <span class="about-6__gerlomi-text">for all ages</span>
         </p>
       </div>
-    </section>
+    </div>
   </main>
 </template>

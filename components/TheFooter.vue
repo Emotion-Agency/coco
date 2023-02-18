@@ -115,7 +115,7 @@ const { isCartOpen } = useCart()
                   rel="noreferrer noopener"
                 >
                   [
-                  <p class="footer__social-text">Fb</p>
+                  <span class="footer__social-text">Fb</span>
                   ]
                 </a>
               </li>
@@ -127,7 +127,7 @@ const { isCartOpen } = useCart()
                   rel="noreferrer noopener"
                 >
                   [
-                  <p class="footer__social-text">Insta</p>
+                  <span class="footer__social-text">Insta</span>
                   ]
                 </a>
               </li>
@@ -139,7 +139,7 @@ const { isCartOpen } = useCart()
                   rel="noreferrer noopener"
                 >
                   [
-                  <p class="footer__social-text">tik tok</p>
+                  <span class="footer__social-text">tik tok</span>
                   ]
                 </a>
               </li>
@@ -150,14 +150,14 @@ const { isCartOpen } = useCart()
             <ul class="footer__contacts-list">
               <li class="footer__contacts-li">
                 <a class="footer__contacts-link" href="mailto:coco@gmail.com">
-                  <p class="footer__contacts-number">01</p>
-                  <p class="footer__contacts-text">Coco@GMAIL.COM</p>
+                  <span class="footer__contacts-number">01</span>
+                  <span class="footer__contacts-text">Coco@GMAIL.COM</span>
                 </a>
               </li>
               <li class="footer__contacts-li">
                 <a class="footer__contacts-link" href="tel:10223332222">
-                  <p class="footer__contacts-number">02</p>
-                  <p class="footer__contacts-text">+1 (022) 333 2222</p>
+                  <span class="footer__contacts-number">02</span>
+                  <span class="footer__contacts-text">+1 (022) 333 2222</span>
                 </a>
               </li>
               <li class="footer__contacts-li">
@@ -167,8 +167,8 @@ const { isCartOpen } = useCart()
                   target="_blank"
                   rel="noreferrer noopener"
                 >
-                  <p class="footer__contacts-number">03</p>
-                  <p class="footer__contacts-text">Whatsapp</p>
+                  <span class="footer__contacts-number">03</span>
+                  <span class="footer__contacts-text">Whatsapp</span>
                 </a>
               </li>
             </ul>
@@ -178,32 +178,32 @@ const { isCartOpen } = useCart()
             <ul class="footer__pages-list">
               <li class="footer__pages-li">
                 <NuxtLink to="/" class="footer__pages-link">
-                  <p class="footer__pages-number">01</p>
-                  <p class="footer__pages-text">home</p>
+                  <span class="footer__pages-number">01</span>
+                  <span class="footer__pages-text">home</span>
                 </NuxtLink>
               </li>
               <li class="footer__pages-li">
                 <button class="footer__pages-link" @click="isCartOpen = true">
-                  <p class="footer__pages-number">02</p>
-                  <p class="footer__pages-text">bag</p>
+                  <span class="footer__pages-number">02</span>
+                  <span class="footer__pages-text">bag</span>
                 </button>
               </li>
               <li class="footer__pages-li">
                 <NuxtLink to="/shop/" class="footer__pages-link">
-                  <p class="footer__pages-number">03</p>
-                  <p class="footer__pages-text">Shop</p>
+                  <span class="footer__pages-number">03</span>
+                  <span class="footer__pages-text">Shop</span>
                 </NuxtLink>
               </li>
               <li class="footer__pages-li">
                 <NuxtLink to="/about/" class="footer__pages-link">
-                  <p class="footer__pages-number">04</p>
-                  <p class="footer__pages-text">about</p>
+                  <span class="footer__pages-number">04</span>
+                  <span class="footer__pages-text">about</span>
                 </NuxtLink>
               </li>
               <li class="footer__pages-li">
                 <NuxtLink to="/contacts/" class="footer__pages-link">
-                  <p class="footer__pages-number">05</p>
-                  <p class="footer__pages-text">contacts</p>
+                  <span class="footer__pages-number">05</span>
+                  <span class="footer__pages-text">contacts</span>
                 </NuxtLink>
               </li>
             </ul>
