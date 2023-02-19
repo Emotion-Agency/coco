@@ -1,3 +1,7 @@
+.catalog-v1-wrapper {
+  position: relative;
+}
+
 .catalog-v1 {
   row-gap: vw(110);
   grid-auto-flow: row;
@@ -118,4 +122,12 @@
   @media (max-width: $br4) {
     font-size: 14px;
   }
+}
+
+.catalog-loader {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
 }

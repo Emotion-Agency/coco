@@ -41,7 +41,7 @@ export default class Images extends Figure {
   createMaterial() {
     const uniforms = {
       uTexture: { type: 't', value: this.texture },
-      uTexture2: { type: 't', value: this.texture2 },
+      uColorTexture: { type: 't', value: this.texture },
       uScale: { value: 0 },
       uHover: { value: 0 },
       uClicked: { value: 0 },
@@ -92,12 +92,12 @@ export default class Images extends Figure {
 
   onMouseEnter() {
     gsap.to(this.material.uniforms.uHover, {
-      duration: 1,
+      duration: 2,
       value: 1,
       ease: 'power2.out',
     })
     gsap.to(this.material.uniforms.uScale, {
-      duration: 1,
+      duration: 2,
       value: 0.02,
       ease: 'power1.inOut',
     })

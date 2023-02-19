@@ -78,5 +78,6 @@ watch(
         >
       </li>
     </ul>
+    <UiLoader v-if="isLoading" class="catalog-loader" />
   </div>
 </template>

@@ -49,5 +49,7 @@ void main() {
 
    vec4 finalTexture = img;
 
+   // finalTexture.rgb = mix(finalTexture.rgb, 1. - finalTexture.rgb, abs(uHover));
+
    gl_FragColor = finalTexture * uVisible;
 }
