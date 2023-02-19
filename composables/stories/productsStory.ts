@@ -26,6 +26,7 @@ export const useProductsStories: tProductsStories = async () => {
         {
           version:
             config.public.ENVIROMENT === 'development' ? 'draft' : 'published',
+          cv: Date.now(),
         }
       )
 

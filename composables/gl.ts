@@ -57,7 +57,7 @@ export const useGL = () => {
     }
   }
 
-  const destroyImages = ($items: NodeListOf<HTMLElement>) => {
+  const destroyImages = ($items: NodeListOf<HTMLElement> | HTMLElement[]) => {
     try {
       const images = [...$items]
         .map(item => item.querySelector('[data-gl-id]:not(.js-clicked)'))

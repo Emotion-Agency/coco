@@ -172,6 +172,13 @@
 .product-1__right-block {
   @include col(7, 12);
   position: relative;
+  @media (min-width: $br1) {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 6.25vw);
+    justify-content: space-between;
+    padding-bottom: vw(20);
+  }
 
   @media (max-width: $br1) {
     @include col(1, 4);
@@ -371,8 +378,9 @@
   @media (min-width: $br1) {
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin-top: vw(197);
+    align-items: flex-end;
+    flex-grow: 1;
+    margin-top: vw(80);
   }
 }
 

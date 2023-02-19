@@ -27,45 +27,28 @@ const otherProducts = computed(() => {
   return products.value.filter(product => product.slug !== slug).slice(0, 6)
 })
 
-const tabs = ref([])
+const activeTab = ref('details')
 
-const tabsItems = computed({
-  get() {
-    return [
-      {
-        title: 'Details',
-        descriptionId: 'details',
-        text: currentProduct.value.description,
-        isActive: true,
-      },
-      {
-        title: 'How to use',
-        descriptionId: 'how-use',
-        text: currentProduct.value.how_to_use,
-        isActive: false,
-      },
-      {
-        title: 'Product vibes',
-        descriptionId: 'product-vibes',
-        text: currentProduct.value.product_vibes,
-        isActive: false,
-      },
-    ]
+const tabs = computed(() => [
+  {
+    title: 'Details',
+    descriptionId: 'details',
+    text: currentProduct.value.description,
   },
-  set(value) {
-    tabs.value = value
+  {
+    title: 'How to use',
+    descriptionId: 'how-use',
+    text: currentProduct.value.how_to_use,
   },
-})
-
-tabs.value = tabsItems.value
+  {
+    title: 'Product vibes',
+    descriptionId: 'product-vibes',
+    text: currentProduct.value.product_vibes,
+  },
+])
 
 const tabHandler = (id: string) => {
-  tabs.value = tabs.value.map(tab => {
-    if (tab.descriptionId === id) {
-      return { ...tab, isActive: true }
-    }
-    return { ...tab, isActive: false }
-  })
+  activeTab.value = id
 }
 
 const isSliderOpen = ref(false)
@@ -74,22 +57,18 @@ const { isMobile } = useMobile()
 
 const { addToCart } = useCart()
 
-onBeforeUnmount(() => {
-  try {
-    const images = document.querySelectorAll('[data-gl-id]:not(.js-clicked)')
+const { destroyImages } = useGL()
 
-    images.forEach((img: HTMLElement) => {
-      window.scetch && window.scetch.removeFigure(img.dataset.glId)
-    })
-  } catch (error) {
-    console.log(error)
-  }
+const $el = ref<HTMLElement>(null)
+
+onBeforeUnmount(() => {
+  destroyImages([$el.value])
 })
 </script>
 
 <template>
   <main>
-    <section class="section product-1">
+    <section ref="$el" class="section product-1">
       <div class="container grid product-1__wrapper">
         <ProductImages
           v-if="!isMobile"
@@ -122,7 +101,7 @@ onBeforeUnmount(() => {
                   class="product-1__radio"
                   type="radio"
                   name="product-radios"
-                  :checked="el.isActive"
+                  :checked="el.descriptionId === activeTab"
                   @change="tabHandler(el.descriptionId)"
                 />
                 <label class="product-1__text" :for="el.descriptionId">
@@ -133,7 +112,7 @@ onBeforeUnmount(() => {
             <div class="product-1__desc-text-wrapper">
               <p
                 v-for="tab in tabs"
-                v-show="tab.isActive"
+                v-show="tab.descriptionId === activeTab"
                 :key="tab.descriptionId"
                 class="product-1__desc-text"
               >

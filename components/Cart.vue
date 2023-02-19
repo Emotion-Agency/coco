@@ -62,7 +62,12 @@ const browseHandler = () => {
               />
               <div class="cart__info-wrapper">
                 <div class="cart__top-info">
-                  <p class="cart__name">{{ el.title }}</p>
+                  <NuxtLink
+                    :to="`/shop/${el.slug}/`"
+                    class="cart__name"
+                    @click="isCartOpen = false"
+                    >{{ el.title }}</NuxtLink
+                  >
                   <p class="cart__price">${{ +el.price * el.quantity }}</p>
                 </div>
                 <div class="cart__bottom-info">
