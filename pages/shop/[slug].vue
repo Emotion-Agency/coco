@@ -90,7 +90,7 @@ onBeforeUnmount(() => {
             <ProductImages
               v-if="isMobile"
               :product="currentProduct"
-              @close-slider="isSliderOpen = false"
+              @close-slider="isSliderOpen = true"
             />
           </div>
           <div class="product-1__description-wrapper">
