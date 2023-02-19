@@ -45,20 +45,20 @@ const filteredItems = computed(() => {
           <div class="home-1__text">Jewelry</div>
           <div class="home-1__description">
             <p class="home-1__desc-text">
-              Massa nullam feugiat vestibulum tincidunt arcu facilisis. Diam
-              proin est nunc consectetur egestas. Neque egestas habitasse
-              feugiat pellentesque velit. Ultricies.
+              Our online store offers a unique selection of handmade recycled
+              and vegan jewelry, perfect for conscious consumers looking to make
+              a difference in the world
             </p>
             <p class="home-1__desc-text">
-              Magnis dolor at vitae sem pretium id. Tincidunt scelerisque risus
-              proin nisl faucibus. Pharetra id sed faucibus nunc id. Nunc id
-              aenean tempor est varius enim. Ac vel amet vel.
+              Each piece is crafted using recycled materials and is completely
+              vegan, making it a sustainable and ethical choice for those who
+              care about the planet
             </p>
             <p class="home-1__desc-text">
-              UNATTAINABLE ACCESS, GIVEN TO A LIMITED FEW THAT HAVE ONLY BEEN
-              AVAILABLE TO THOSE GRANDFATHERED INTO THE GLOBAL NETWORK. BEGIN
-              YOUR SEARCH WITH ORE AND ACCESS THE UNATTAINABLE. FIND THE
-              IMPOSSIBLE.
+              Supporting this online store means supporting a young girl's dream
+              and her commitment to making the world a better place. It is a
+              reminder that we all have the power to make a difference, no
+              matter how young we may be
             </p>
           </div>
           <div class="home-1__icon-wrapper">

@@ -60,6 +60,33 @@ const formData = reactive({
 })
 
 const { isCartOpen } = useCart()
+
+const date = ref('')
+
+const dateHandler = () => {
+  const currentDate = new Date(
+    new Date().toLocaleString('en-US', { timeZone: 'America/New_York' })
+  )
+
+  const month =
+    currentDate.getMonth() + 1 > 9
+      ? currentDate.getMonth() + 1
+      : `0${currentDate.getMonth() + 1}`
+
+  return `[${month}/${currentDate.getDate()}/${currentDate.getFullYear()} ${currentDate.getHours()}:${currentDate.getMinutes()} AM]`
+}
+
+let interval
+onMounted(() => {
+  date.value = dateHandler()
+  interval = setInterval(() => {
+    date.value = dateHandler()
+  }, 10000)
+})
+
+onBeforeUnmount(() => {
+  interval && clearInterval(interval)
+})
 </script>
 
 <template>
@@ -75,9 +102,8 @@ const { isCartOpen } = useCart()
           <span class="footer__span-title"> Insta </span>
         </h3>
         <p class="footer__description">
-          Massa nullam feugiat vestibulum tincidunt arcu facilisis. Diam proin
-          est nunc consectetur egestas. Neque egestas habitasse feugiat
-          pellentesque velit. Ultricies.
+          We believe that together we can create a better future, and we invite
+          you to be a part of it. Follow us now and let's make a difference!
         </p>
         <div class="footer__gallery-wrapper">
           <ul class="footer__gallery">
@@ -237,7 +263,7 @@ const { isCartOpen } = useCart()
             <IconsPlanet />
             <div class="footer__info-details">
               <p class="footer__country">USA, NYC</p>
-              <p class="footer__date">[12/14/2022 6:00 AM]</p>
+              <p class="footer__date">{{ date }}</p>
             </div>
           </div>
           <div class="footer__right-info">
