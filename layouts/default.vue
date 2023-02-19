@@ -20,7 +20,17 @@ watch(
   { immediate: true }
 )
 
+const parallaxInit = async () => {
+  const { Parallax } = await import('@emotionagency/parallax')
+  window.parallax = new Parallax({ mobile: false })
+}
+
 onMounted(async () => {
+  if (navigator.userAgent.toLowerCase().includes('safari/')) {
+    if (!navigator.userAgent.toLowerCase().includes('chrome/'))
+      document.documentElement.classList.add('is-safari')
+  }
+
   const { hello } = await import('~/assets/scripts/utils/hello')
   const { winSizes } = await import('~/assets/scripts/utils/winSizes')
   const { resize } = await import('@/assets/scripts/utils/ea')
@@ -28,10 +38,7 @@ onMounted(async () => {
   hello()
   resize.on(winSizes)
 
-  if (navigator.userAgent.toLowerCase().includes('safari/')) {
-    if (!navigator.userAgent.toLowerCase().includes('chrome/'))
-      document.documentElement.classList.add('is-safari')
-  }
+  await parallaxInit()
 
   setTimeout(() => {
     const sbBridge = new window.StoryblokBridge()

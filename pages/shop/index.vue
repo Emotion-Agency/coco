@@ -5,6 +5,8 @@ definePageMeta({
   pageTransition,
 })
 
+useObserver('.section')
+
 const { products } = useProducts()
 
 const { categoryFilterHandler, filteredProductsByCategory, categories } =

@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@emotionagency/glhtml": "^1.0.1",
+    "@emotionagency/parallax": "^1.0.3",
     "@emotionagency/smoothscroll": "latest",
     "@emotionagency/utils": "latest",
     "@imgix/js-core": "^3.8.0",

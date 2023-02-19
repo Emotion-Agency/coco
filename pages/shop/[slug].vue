@@ -5,6 +5,7 @@ import { useProductsStories } from '~~/composables/stories/productsStory'
 definePageMeta({
   pageTransition,
 })
+useObserver('.section')
 
 const { products } = useProducts()
 const { listenStory } = await useProductsStories()

@@ -116,36 +116,38 @@ const cartItemsLength = computed(() => {
         bag [{{ cartItemsLength }}]
       </button>
     </div>
-    <Teleport to="#app">
-      <div class="burger-wrapper">
-        <button
-          aria-label="open menu"
-          class="burger"
-          :class="[isBurgerOpen && 'burger--opened']"
-          @click.stop="burgerHandler"
-        >
-          <span ref="$burgerBg" class="burger__bg">
-            <nav ref="$burgerItems" class="burger-menu">
-              <ul class="burger-menu__items">
-                <li
-                  v-for="item in navItems"
-                  :key="item.text"
-                  class="burger-menu__li"
-                >
-                  <NuxtLink :to="item.link" class="burger-menu__text">
-                    {{ item.text }}
-                  </NuxtLink>
-                </li>
-              </ul>
-            </nav>
-          </span>
-          <span class="burger__lines">
-            <span class="burger__line"></span>
-            <span class="burger__line"></span>
-            <span class="burger__line"></span>
-          </span>
-        </button>
-      </div>
-    </Teleport>
+    <ClientOnly>
+      <Teleport to="#app">
+        <div class="burger-wrapper">
+          <button
+            aria-label="open menu"
+            class="burger"
+            :class="[isBurgerOpen && 'burger--opened']"
+            @click.stop="burgerHandler"
+          >
+            <span ref="$burgerBg" class="burger__bg">
+              <nav ref="$burgerItems" class="burger-menu">
+                <ul class="burger-menu__items">
+                  <li
+                    v-for="item in navItems"
+                    :key="item.text"
+                    class="burger-menu__li"
+                  >
+                    <NuxtLink :to="item.link" class="burger-menu__text">
+                      {{ item.text }}
+                    </NuxtLink>
+                  </li>
+                </ul>
+              </nav>
+            </span>
+            <span class="burger__lines">
+              <span class="burger__line"></span>
+              <span class="burger__line"></span>
+              <span class="burger__line"></span>
+            </span>
+          </button>
+        </div>
+      </Teleport>
+    </ClientOnly>
   </header>
 </template>

@@ -5,17 +5,18 @@ definePageMeta({
   pageTransition,
 })
 
+useObserver('.section')
+
 const tickerText = 'Relive By Coco'
 </script>
 
 <template>
   <main>
     <section class="section section--nm about-1">
-      <TheImg
-        format="webp"
-        quality="90"
+      <ParallaxImg
         class="about-1__bg"
         src="/images/about/1.jpg"
+        :scale="1"
         alt="Background"
       />
       <TheTicker
@@ -52,10 +53,11 @@ const tickerText = 'Relive By Coco'
           <span class="about-3__span-title"> expression </span>
         </h3>
         <div class="about-3__info">
-          <TheImg
+          <ParallaxImg
             format="webp"
             quality="90"
             class="about-3__img"
+            img-class="about-3__img"
             src="/images/about/2.jpg"
             alt="About image"
           />
@@ -97,10 +99,10 @@ const tickerText = 'Relive By Coco'
     </div>
     <section class="section section--nm about-5">
       <div class="grid about-5__wrapper">
-        <TheImg
-          format="webp"
-          quality="90"
+        <ParallaxImg
           class="about-5__img"
+          img-class="about-5__img"
+          :scale="1"
           src="/images/about/3.jpg"
           alt="About image"
         />

@@ -401,6 +401,13 @@
     "@emotionagency/utils" "0.0.7"
     ogl "0.0.73"
 
+"@emotionagency/parallax@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@emotionagency/parallax/-/parallax-1.0.3.tgz#6c47b1ee929b06860af75a4eddf9fb5ae1e15ec5"
+  integrity sha512-/WuhIQz6xO/7v4K/fCLRoem9YE9ZrcDSHFhD1I3UX5/OhjgtKbRe4L5lNM/BMg5JtDWt61f8BFoSWWIjMLjDtQ==
+  dependencies:
+    "@emotionagency/utils" "*"
+
 "@emotionagency/smoothscroll@latest":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@emotionagency/smoothscroll/-/smoothscroll-1.0.3.tgz#731efff534f0086818f6349df818232cb7d87a6e"
@@ -408,17 +415,17 @@
   dependencies:
     virtual-scroll "^2.1.1"
 
+"@emotionagency/utils@*", "@emotionagency/utils@latest":
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/@emotionagency/utils/-/utils-1.0.7.tgz#a1d66f0260a0c4ca7e2bc54cf185f813e30cd610"
+  integrity sha512-QOsIegh9x1o1/cBE3LpQsUlMeDcciua6ccPQG4gZWuli6eKQryqz1PioGmy89yANkTXAaQclVvjQ3rePruXfJw==
+
 "@emotionagency/utils@0.0.7":
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/@emotionagency/utils/-/utils-0.0.7.tgz#ff21f75624110b3cbbfcbb0a5c89c2d4e32c7a32"
   integrity sha512-7YIbBezR0I+tHhMLt2HyEhHpgjgx+ZYp5NRttGBlUf7ysA/GSZYTSRuLZxV330AnNorcI1wwvVORKesbOP8WyQ==
   dependencies:
     debounce "^1.2.0"
-
-"@emotionagency/utils@latest":
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/@emotionagency/utils/-/utils-1.0.7.tgz#a1d66f0260a0c4ca7e2bc54cf185f813e30cd610"
-  integrity sha512-QOsIegh9x1o1/cBE3LpQsUlMeDcciua6ccPQG4gZWuli6eKQryqz1PioGmy89yANkTXAaQclVvjQ3rePruXfJw==
 
 "@esbuild/android-arm64@0.16.17":
   version "0.16.17"

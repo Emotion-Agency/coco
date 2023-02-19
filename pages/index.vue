@@ -5,6 +5,8 @@ definePageMeta({
   pageTransition,
 })
 
+useObserver('.section')
+
 const { products } = useProducts()
 
 const { categoryFilterHandler, filteredProductsByCategory, categories } =
@@ -68,9 +70,7 @@ const filteredItems = computed(() => {
       </div>
     </section>
     <section class="section section--nm home-2">
-      <TheImg
-        format="webp"
-        quality="90"
+      <ParallaxImg
         class="home-2__bg"
         src="/images/home/2.jpg"
         alt="Background"
