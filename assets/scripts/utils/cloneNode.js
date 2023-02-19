@@ -14,7 +14,7 @@ export const cloneNode = $el => {
     left: ${b.left}px;
     width: ${b.width}px;
     height: ${b.height}px;
-    z-index: 1000;
+    z-index: 10;
   `
   $el.classList.add('js-cloned')
   $el.classList.add('js-cloned-reset')

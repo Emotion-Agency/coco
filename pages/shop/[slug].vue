@@ -73,47 +73,29 @@ const isSliderOpen = ref(false)
 const { isMobile } = useMobile()
 
 const { addToCart } = useCart()
+
+onBeforeUnmount(() => {
+  try {
+    const images = document.querySelectorAll('[data-gl-id]:not(.js-clicked)')
+
+    images.forEach((img: HTMLElement) => {
+      window.scetch && window.scetch.removeFigure(img.dataset.glId)
+    })
+  } catch (error) {
+    console.log(error)
+  }
+})
 </script>
 
 <template>
   <main>
     <section class="section product-1">
       <div class="container grid product-1__wrapper">
-        <ClientOnly>
-          <Teleport
-            :disabled="!isMobile"
-            to=".product-1__mobile-images-wrapper"
-          >
-            <div class="product-1__left-block">
-              <ul
-                v-if="currentProduct?.images?.length"
-                class="product-1__img-list"
-              >
-                <li
-                  v-for="(el, idx) in currentProduct.images.slice(0, 5)"
-                  :key="idx"
-                  class="product-1__img-li"
-                >
-                  <TheImg
-                    format="webp"
-                    quality="90"
-                    class="product-1__img"
-                    :src="el.filename"
-                    :storyblok="true"
-                    :width="900"
-                    alt="Main image"
-                  />
-                </li>
-              </ul>
-              <div class="product-1__btn-wrapper">
-                <button class="product-1__btn" @click="isSliderOpen = true">
-                  View All {{ currentProduct?.images?.length }} photos
-                  <IconsArrowDown />
-                </button>
-              </div>
-            </div>
-          </Teleport>
-        </ClientOnly>
+        <ProductImages
+          v-if="!isMobile"
+          :product="currentProduct"
+          @open-slider="isSliderOpen = true"
+        />
         <div class="product-1__right-block">
           <div class="product-1__info-wrapper">
             <p class="product-1__specific">
@@ -121,9 +103,17 @@ const { addToCart } = useCart()
             </p>
             <h3 class="product-1__name">{{ currentProduct.title }}</h3>
             <p class="product-1__category">{{ currentProduct.collection }}</p>
-            <p class="product-1__price">${{ currentProduct.price }}</p>
+            <p v-if="currentProduct.price" class="product-1__price">
+              ${{ Number(currentProduct.price).toFixed(2) }}
+            </p>
           </div>
-          <div class="product-1__mobile-images-wrapper"></div>
+          <div class="product-1__mobile-images-wrapper">
+            <ProductImages
+              v-if="isMobile"
+              :product="currentProduct"
+              @close-slider="isSliderOpen = false"
+            />
+          </div>
           <div class="product-1__description-wrapper">
             <ul class="product-1__list">
               <li v-for="(el, idx) in tabs" :key="idx" class="product-1__li">

@@ -13,9 +13,11 @@ export default class Images extends Figure {
 
     this.onMouseEnter = this.onMouseEnter.bind(this)
     this.onMouseLeave = this.onMouseLeave.bind(this)
+    this.onClick = this.onClick.bind(this)
 
     this.$el.addEventListener('mouseenter', this.onMouseEnter)
     this.$el.addEventListener('mouseleave', this.onMouseLeave)
+    this.$el.addEventListener('click', this.onClick)
   }
 
   createGeometry() {
@@ -26,6 +28,7 @@ export default class Images extends Figure {
     const fileName = this.$el.getAttribute('src')
 
     this.texture = await this.uploadTexture(fileName)
+
     this.textureLoaded = true
   }
 
@@ -38,13 +41,14 @@ export default class Images extends Figure {
   createMaterial() {
     const uniforms = {
       uTexture: { type: 't', value: this.texture },
+      uTexture2: { type: 't', value: this.texture2 },
       uScale: { value: 0 },
       uHover: { value: 0 },
+      uClicked: { value: 0 },
       uStrength: { value: 0 },
       uViewportY: { value: window.innerHeight },
       uScrollPos: { value: 0 },
       uVisible: { value: 1 },
-      uRadius: { value: 0 },
     }
 
     super.createMaterial({ uniforms, vertex, fragment })
@@ -80,6 +84,10 @@ export default class Images extends Figure {
 
   get visibility() {
     return +this.$el.dataset.aGlProgress ?? 1
+  }
+
+  onClick() {
+    this.material.uniforms.uClicked.value = 1
   }
 
   onMouseEnter() {

@@ -1,13 +1,13 @@
 import emitter from 'tiny-emitter/instance.js'
-import { Ref } from 'nuxt/dist/app/compat/capi'
 import { cloneNode } from '~~/assets/scripts/utils/cloneNode'
 
-export const useGL = ($items: Ref<NodeListOf<HTMLElement>>) => {
+export const useGL = () => {
   const isSceneCreated = useState('isSceneCreated', () => false)
+  const { isMobile } = useMobile()
 
   const createScene = async () => {
     try {
-      if (!isSceneCreated.value) {
+      if (!isSceneCreated.value && !isMobile.value) {
         const { Scetch } = await import('@emotionagency/glhtml')
         const { raf } = await import('@emotionagency/utils')
 
@@ -29,6 +29,12 @@ export const useGL = ($items: Ref<NodeListOf<HTMLElement>>) => {
   const startTransition = (e: Event) => {
     const target = e.currentTarget as HTMLElement
     const href = target.getAttribute('href')
+
+    // if (isMobile.value) {
+    //   router.push(href)
+    //   return
+    // }
+
     const clicked = target.querySelector('[data-gl]')
     clicked.classList.add('js-clicked')
     document.body.classList.add('gl-transition')
@@ -37,37 +43,39 @@ export const useGL = ($items: Ref<NodeListOf<HTMLElement>>) => {
     router.push(href)
   }
 
-  onMounted(async () => {
+  const initImages = async ($items: NodeListOf<HTMLElement>) => {
     try {
       const { initImages } = await import('~/assets/scripts/GL/Images/init')
       if (isSceneCreated.value) {
-        initImages(
-          [...$items.value].map(item => item.querySelector('[data-gl]'))
-        )
+        initImages([...$items].map(item => item.querySelector('[data-gl]')))
       } else {
         await createScene()
-        initImages(
-          [...$items.value].map(item => item.querySelector('[data-gl]'))
-        )
+        initImages([...$items].map(item => item.querySelector('[data-gl]')))
       }
     } catch (error) {
       console.log(error)
     }
-  })
+  }
 
-  onBeforeUnmount(() => {
+  const destroyImages = ($items: NodeListOf<HTMLElement>) => {
     try {
-      const images = [...$items.value].map(item =>
-        item.querySelector('[data-gl-id]')
-      )
+      const images = [...$items]
+        .map(item => item.querySelector('[data-gl-id]:not(.js-clicked)'))
+        .filter(item => item)
 
       images.forEach((img: HTMLElement) => {
-        window.scetch.removeFigure(img.dataset.glId)
+        window.scetch && window.scetch.removeFigure(img.dataset.glId)
       })
     } catch (error) {
       console.log(error)
     }
-  })
+  }
 
-  return { isSceneCreated, createScene, startTransition }
+  return {
+    isSceneCreated,
+    createScene,
+    startTransition,
+    initImages,
+    destroyImages,
+  }
 }

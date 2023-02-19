@@ -1,6 +1,12 @@
 .catalog-v1 {
   row-gap: vw(110);
   grid-auto-flow: row;
+  &--loading {
+    opacity: 0;
+    .catalog-v1__img {
+      transform: scale(0);
+    }
+  }
 
   @media (max-width: $br1) {
     grid-template-columns: repeat(2, 1fr);

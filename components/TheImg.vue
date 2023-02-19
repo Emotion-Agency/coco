@@ -9,14 +9,16 @@ interface iProps {
 
 const props = defineProps<iProps>()
 
-const source = props.storyblok
-  ? useStoryblokImage(props.src, {
-      size: `${props.width || 0}x${props.height || 0}`,
-      imgix: props.imgx,
-    })
-  : props.src
+const imageSource = computed(() => {
+  return props.storyblok
+    ? useStoryblokImage(props.src, {
+        size: `${props.width || 0}x${props.height || 0}`,
+        imgix: props.imgx,
+      })
+    : props.src
+})
 </script>
 
 <template>
-  <img :src="source" />
+  <img :src="imageSource" />
 </template>

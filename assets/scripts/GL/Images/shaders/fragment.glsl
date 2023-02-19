@@ -3,16 +3,16 @@ varying vec2 vResolution;
 
 uniform sampler2D uTexture;
 uniform float uStrength;
-uniform float uTime;
 uniform float uVisible;
-uniform float uScale;
 uniform float uHover;
+uniform float uClicked;
 
 const float defaultScale = 1.;
 
 vec4 tex(in vec2 st) {
    return texture2D(uTexture, st);
 }
+
 
 void main() {
 
@@ -25,13 +25,9 @@ void main() {
    vec2 newUv = uv;
    float angle = 1.55;
 
-   float roundblend = sin(PI * uHover);
-   float displace = uStrength * 2.0 + ((1.0 - uVisible) * 20.0) + roundblend * 2.0;
+   float roundblend = sin(PI * uHover) * (1. - uClicked);
 
-   newUv += (sin(newUv.y * 5.0 + (uTime / 5.0)) / 500.0) * displace;
-   newUv += (sin(newUv.x * 5.0 + (uTime / 15.0)) / 500.0) * displace;
-
-   vec2 p = (newUv - vec2(0.5, 0.5)) * (defaultScale - uScale) + vec2(0.5, 0.5);
+   vec2 p = (newUv - vec2(0.5, 0.5)) * (defaultScale) + vec2(0.5, 0.5);
    vec2 offset = uStrength / 150.0 * vec2(cos(angle), sin(angle)) + roundblend * 0.05;
 
    float t = uStrength + ((1.0 - uVisible) * 10.0) + roundblend;
@@ -52,10 +48,6 @@ void main() {
    vec4 img = vec4(cr.r, cga.g, cb.b, 1.0);
 
    vec4 finalTexture = img;
-
-
-   // finalTexture.rgb = (1. - uStrength) * finalTexture.rgb + uStrength * ( 1. - finalTexture.rgb);
-
 
    gl_FragColor = finalTexture * uVisible;
 }

@@ -48,14 +48,17 @@
 }
 
 .gl-transition {
-  &:nth-of-type(1) {
-    .product-1__img {
-      opacity: 0;
+  .product-1__img-li {
+    &:nth-of-type(1) {
+      .product-1__img {
+        opacity: 0;
+      }
     }
   }
 }
 
 .product-1__img-li {
+  position: relative;
   &:nth-of-type(1) {
     @include col(1, 6);
 

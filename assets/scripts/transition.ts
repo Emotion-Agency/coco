@@ -4,7 +4,7 @@ import { glTransition } from './glTransition'
 import { resetScroll } from './utils/resetScroll'
 
 export const pageTransition: TransitionProps = {
-  duration: 250,
+  duration: 1000,
   mode: 'out-in',
   css: false,
   appear: true,
@@ -22,6 +22,7 @@ export const pageTransition: TransitionProps = {
         onComplete: () => {
           el.style.transform = ''
           el.style.filter = ''
+          window.ss && (window.ss.state.isFixed = false)
           done()
         },
       }
@@ -33,6 +34,7 @@ export const pageTransition: TransitionProps = {
   },
   onLeave(el: HTMLElement, done) {
     const footer: HTMLElement = document.querySelector('.footer')
+    window.ss && (window.ss.state.isFixed = true)
 
     gsap.fromTo(
       [el, footer],

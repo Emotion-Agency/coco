@@ -8,5 +8,5 @@ export const initImages = imgs => {
     $el: img,
     Figure: Images,
   }))
-  window.scetch.addFigures(nodes)
+  window.scetch && window.scetch.addFigures(nodes)
 }
