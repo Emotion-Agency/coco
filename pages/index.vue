@@ -21,11 +21,24 @@ const filteredItems = computed(() => {
     })
     .slice(0, 7)
 })
+
+// const $section1 = ref<HTMLElement>(null)
+// const $section2 = ref<HTMLElement>(null)
+
+// onMounted(async () => {
+//   const { default: SectionParallax } = await import(
+//     '~/assets/scripts/SectionParallax'
+//   )
+
+//   new SectionParallax($section1.value, $section2.value)
+// })
+
+// onBe
 </script>
 
 <template>
   <main>
-    <section class="section section--nm home-1">
+    <section ref="$section1" class="section section--nm home-1">
       <video
         playsinline
         loop
@@ -69,7 +82,7 @@ const filteredItems = computed(() => {
         </div>
       </div>
     </section>
-    <section class="section section--nm home-2">
+    <section ref="$section2" class="section section--nm home-2">
       <ParallaxImg
         class="home-2__bg"
         src="/images/home/2.jpg"

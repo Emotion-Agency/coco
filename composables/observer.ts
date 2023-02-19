@@ -10,7 +10,7 @@ export const useObserver = ($node: string) => {
     setTimeout(() => {
       const sections = [...document.querySelectorAll($node)]
       sections.forEach(section => {
-        intersectionObserverInstance(section).on()
+        intersectionObserverInstance(section)?.on()
       })
     }, 1000)
   }
@@ -20,9 +20,13 @@ export const useObserver = ($node: string) => {
   })
 
   onBeforeUnmount(() => {
-    const sections = [...document.querySelectorAll($node)]
-    sections.forEach(section => {
-      intersectionObserverInstance(section).off()
-    })
+    try {
+      const sections = [...document.querySelectorAll($node)]
+      sections.forEach(section => {
+        intersectionObserverInstance(section)?.off()
+      })
+    } catch (error) {
+      console.log(error)
+    }
   })
 }
