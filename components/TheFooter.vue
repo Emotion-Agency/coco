@@ -103,7 +103,12 @@ const linkText = computed(() => {
           <IconsBigDiamond class="footer__icon" />
         </div>
         <div class="footer__button-wrapper">
-          <TextButton class="footer__top-btn">See more</TextButton>
+          <TextButton
+            tag="a"
+            href="https://www.instagram.com/relivebycoco/"
+            class="footer__top-btn"
+            >See more</TextButton
+          >
         </div>
       </div>
       <div class="footer__bottom-block">
@@ -130,7 +135,7 @@ const linkText = computed(() => {
               </li>
               <li class="footer__social-li">
                 <a
-                  href="https://www.instagram.com/"
+                  href="https://www.instagram.com/relivebycoco/"
                   target="_blank"
                   class="footer__social-link"
                   rel="noreferrer noopener"
