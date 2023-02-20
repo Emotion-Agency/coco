@@ -3,9 +3,16 @@ import { iCartItem, iItem } from '~/types/products'
 export const useCart = () => {
   const isCartOpen = useState('cartOpen', () => false)
   const cartItems = useState<iCartItem[]>('cartItems', () => [])
+  const { addToast } = useToasts()
 
   const addToCart = (item: iItem) => {
     const findItem = cartItems.value.find(ci => ci.id === item.id)
+
+    addToast({
+      color: ToastColor.primary,
+      id: Date.now().toString(),
+      text: `${item.title} added to bag`,
+    })
 
     if (findItem) {
       cartItems.value = cartItems.value.filter(ci => ci.id !== findItem.id)

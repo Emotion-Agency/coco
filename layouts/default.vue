@@ -86,5 +86,6 @@ useHead({
       <div class="noise"></div>
       <TheFooter />
     </SmoothScroll>
+    <AppToast />
   </div>
 </template>
