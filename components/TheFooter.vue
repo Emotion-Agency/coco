@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { dateHandler } from '~~/assets/scripts/getDate'
+
 const galleryImages = [
   {
     link: 'https://www.instagram.com/',
@@ -61,20 +63,8 @@ const formData = reactive({
 
 const { isCartOpen } = useCart()
 
+const { nextPage } = useFooterLink()
 const date = ref('')
-
-const dateHandler = () => {
-  const currentDate = new Date(
-    new Date().toLocaleString('en-US', { timeZone: 'America/New_York' })
-  )
-
-  const month =
-    currentDate.getMonth() + 1 > 9
-      ? currentDate.getMonth() + 1
-      : `0${currentDate.getMonth() + 1}`
-
-  return `[${month}/${currentDate.getDate()}/${currentDate.getFullYear()} ${currentDate.getHours()}:${currentDate.getMinutes()} AM]`
-}
 
 let interval
 onMounted(() => {
@@ -86,6 +76,10 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   interval && clearInterval(interval)
+})
+
+const linkText = computed(() => {
+  return `Next page: [${nextPage.value.text}]`
 })
 </script>
 
@@ -274,11 +268,13 @@ onBeforeUnmount(() => {
         </div>
       </div>
     </div>
-    <TheTicker
-      text="Next page: [About]"
-      class="footer__ticker"
-      :multiplier="100"
-      divider="/"
-    />
+    <NuxtLink :to="nextPage.link">
+      <TheTicker
+        :text="linkText"
+        class="footer__ticker"
+        :multiplier="100"
+        divider="/"
+      />
+    </NuxtLink>
   </footer>
 </template>

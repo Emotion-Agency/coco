@@ -5,6 +5,9 @@ definePageMeta({
   pageTransition,
 })
 
+const { updateNextPage } = useFooterLink()
+updateNextPage('about')
+
 useObserver('.section')
 
 const { products } = useProducts()

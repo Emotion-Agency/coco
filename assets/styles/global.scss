@@ -16,7 +16,7 @@ body {
   color: var(--main);
   font-size: 1rem;
   position: relative;
-  font-family: sans-serif;
+  @include manrope;
   overscroll-behavior-y: none;
   @include smooth-font;
   height: var(--vh);

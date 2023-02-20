@@ -5,7 +5,7 @@
         v-for="index in repeatNumber"
         :key="index"
         class="ticker__item"
-        v-html="'&nbsp' + divider + '&nbsp' + text"
+        v-html="html"
       />
     </div>
   </div>
@@ -20,19 +20,22 @@ interface iProps {
   divider?: string
 }
 
-const props = defineProps<iProps>()
-
-const text = props.text || ''
-const duration = props.duration || 80
-const multiplier = props.multiplier || 21
-const direction = props.direction || 1
-const divider = props.divider || '—'
+const props = withDefaults(defineProps<iProps>(), {
+  text: '',
+  duration: 80,
+  multiplier: 21,
+  direction: 1,
+  divider: '—',
+})
 
 let ticker
 const $ticker = ref(null)
 
 const repeatNumber = computed(() => {
-  let number = Math.max(Math.ceil((multiplier / text.length) * 4), 2)
+  let number = Math.max(
+    Math.ceil((props.multiplier / props.text.length) * 4),
+    2
+  )
   number = number % 2 === 0 ? number : number + 1
   return number
 })
@@ -41,8 +44,8 @@ const initTicker = async () => {
   const { Ticker } = await import('~/assets/scripts/Ticker')
   ticker = new Ticker({
     $el: $ticker.value,
-    duration,
-    direction,
+    duration: props.duration,
+    direction: props.direction,
   })
 
   ticker.init()
@@ -54,5 +57,9 @@ onMounted(async () => {
 
 onBeforeUnmount(() => {
   ticker && ticker.destroy()
+})
+
+const html = computed(() => {
+  return '&nbsp' + props.divider + '&nbsp' + props.text
 })
 </script>

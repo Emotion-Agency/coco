@@ -5,6 +5,9 @@ definePageMeta({
   pageTransition,
 })
 
+const { updateNextPage } = useFooterLink()
+updateNextPage('shop')
+
 useObserver('.section')
 
 const tickerText = 'Relive By Coco'

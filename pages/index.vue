@@ -4,6 +4,8 @@ import { pageTransition } from '~~/assets/scripts/transition'
 definePageMeta({
   pageTransition,
 })
+const { updateNextPage } = useFooterLink()
+updateNextPage('about')
 
 useObserver('.section')
 

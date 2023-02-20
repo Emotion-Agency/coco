@@ -5,6 +5,9 @@ definePageMeta({
   pageTransition,
 })
 
+const { updateNextPage } = useFooterLink()
+updateNextPage('home')
+
 onMounted(() => {
   document.querySelector('.navbar') &&
     document.querySelector('.navbar').classList.add('with-bg')

@@ -7,6 +7,9 @@ definePageMeta({
 })
 useObserver('.section')
 
+const { updateNextPage } = useFooterLink()
+updateNextPage('home')
+
 const { products } = useProducts()
 const { listenStory } = await useProductsStories()
 
