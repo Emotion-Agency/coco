@@ -30,6 +30,10 @@ export default class SectionParallax {
     } else {
       this.$section1.classList.add('js-absolute')
       this.$section2.classList.add('js-over')
+
+      this.$section1.querySelector('video').style.transform = `scale(${
+        1 + this.scrollPos / 1000
+      })`
     }
   }
 

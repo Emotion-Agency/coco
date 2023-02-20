@@ -39,14 +39,7 @@ const filteredItems = computed(() => {
 <template>
   <main>
     <section ref="$section1" class="section section--nm home-1">
-      <video
-        playsinline
-        loop
-        autoplay
-        muted
-        src="https://videos.ctfassets.net/p9hjkod65go3/103Pt3FrHKABdCPHce4xui/19b7ad43c4074fee731113b2181da7dc/02_ORE_OverlapVideos_1920x1080_FinalAssembly_V4.mp4"
-        class="home-1__bg"
-      />
+      <video playsinline loop autoplay muted src="/2.mp4" class="home-1__bg" />
       <div class="container home-1__wrapper">
         <div class="home-1__second-wrapper">
           <h1 class="home-1__title">

@@ -3,6 +3,7 @@
   background-color: #f4efe1;
   @media (min-width: $br1) {
     height: 100vh;
+    min-height: vw(600);
   }
 }
 
