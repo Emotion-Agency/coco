@@ -5,6 +5,13 @@ import { useFonts } from '~/composables/fonts'
 import { productsDTO } from '~~/composables/stories/helpers/productsDTO'
 import { useProductsStories } from '~~/composables/stories/productsStory'
 
+/**
+* @todo
+checkout
+loading and transition animations
+bears animation
+connect insta photos to footer
+* */
 useFonts()
 
 const { isInEditor } = useAppState()
