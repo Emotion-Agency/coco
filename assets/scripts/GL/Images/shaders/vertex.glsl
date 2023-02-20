@@ -4,6 +4,8 @@ varying vec2 vResolution;
 
 uniform float uStrength;
 uniform float uViewportY;
+uniform float uViewportX;
+uniform float uClicked;
 
 
 void main() {
@@ -18,6 +20,7 @@ void main() {
   float scrollValue = -uStrength;
 
   newPosition.z += sin((newPosition.y + newPosition.y) / uViewportY * 4. * PI) * scrollValue;
+  newPosition.z += sin((newPosition.y + newPosition.x) / uViewportX * 2. * PI) * sin(PI * uClicked) * 60.;
 
   gl_Position = projectionMatrix * newPosition;
 }

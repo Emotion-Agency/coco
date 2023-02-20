@@ -19,7 +19,7 @@ export const glTransition = async (el: HTMLElement) => {
       height,
       top,
       left,
-      ease: 'expo.out',
+      ease: 'power4.out',
       onComplete: () => {
         $img.style.position = 'relative'
         $img.style.zIndex = '1'

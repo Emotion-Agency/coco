@@ -28,7 +28,7 @@ void main() {
    float roundblend = sin(PI * uHover) * (1. - uClicked);
 
    vec2 p = (newUv - vec2(0.5, 0.5)) * (defaultScale) + vec2(0.5, 0.5);
-   vec2 offset = uStrength / 150.0 * vec2(cos(angle), sin(angle)) + roundblend * 0.05;
+   vec2 offset = uStrength / 150.0 * vec2(cos(angle), sin(angle)) + roundblend * 0.05 * (uClicked * 10.);
 
    float t = uStrength + ((1.0 - uVisible) * 10.0) + roundblend;
    float _Speed = 1.0;
@@ -49,7 +49,7 @@ void main() {
 
    vec4 finalTexture = img;
 
-   // finalTexture.rgb = mix(finalTexture.rgb, 1. - finalTexture.rgb, abs(uHover));
+   // finalTexture.rgb = mix(finalTexture.rgb, 1. - finalTexture.rgb, abs(sin(PI * uClicked)) * 0.2);
 
    gl_FragColor = finalTexture * uVisible;
 }

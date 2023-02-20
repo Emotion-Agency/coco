@@ -47,6 +47,7 @@ export default class Images extends Figure {
       uClicked: { value: 0 },
       uStrength: { value: 0 },
       uViewportY: { value: window.innerHeight },
+      uViewportX: { value: window.innerWidth },
       uScrollPos: { value: 0 },
       uVisible: { value: 1 },
     }
@@ -87,7 +88,12 @@ export default class Images extends Figure {
   }
 
   onClick() {
-    this.material.uniforms.uClicked.value = 1
+    gsap.to(this.material.uniforms.uClicked, {
+      duration: 2,
+      value: 1,
+      delay: 0.4,
+      ease: 'power2.out',
+    })
   }
 
   onMouseEnter() {
