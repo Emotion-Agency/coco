@@ -22,12 +22,12 @@ export const pageTransition: TransitionProps = {
         onComplete: () => {
           el.style.transform = ''
           el.style.filter = ''
-          window.ss && (window.ss.state.isFixed = false)
           done()
         },
       }
     )
 
+    resetScroll()
     if (document.body.classList.contains('gl-transition')) {
       glTransition(el)
     }
@@ -48,8 +48,5 @@ export const pageTransition: TransitionProps = {
         onComplete: done,
       }
     )
-    setTimeout(() => {
-      resetScroll()
-    }, 499)
   },
 }

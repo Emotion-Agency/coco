@@ -16,6 +16,25 @@ export const useGL = () => {
           dpr: window.devicePixelRatio,
         })
 
+        // if (screen.width > 960) {
+        //   const { default: Noisy } = await import(
+        //     '@/assets/scripts/GL/Noisy/Noisy'
+        //   )
+
+        //   const noise = document.querySelector('.noise')
+
+        //   window.scetch3 = new Scetch('#noise', {
+        //     dpr: window.devicePixelRatio,
+        //     nodes: [
+        //       {
+        //         $el: noise,
+        //         Figure: Noisy,
+        //       },
+        //     ],
+        //     raf,
+        //   })
+        // }
+
         emitter.emit('scetchCreated')
         isSceneCreated.value = true
       }

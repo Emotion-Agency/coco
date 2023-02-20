@@ -80,8 +80,10 @@ useHead({
     <SmoothScroll>
       <TheHeader />
       <Cart />
+      <div id="noise"></div>
       <slot />
       <div id="gl"></div>
+      <div class="noise"></div>
       <TheFooter />
     </SmoothScroll>
   </div>

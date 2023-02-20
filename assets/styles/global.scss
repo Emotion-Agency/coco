@@ -66,6 +66,19 @@ body {
   transition: opacity 1s ease;
 }
 
+#noise,
+.noise {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+  opacity: 1;
+  z-index: 1;
+  transition: opacity 1s ease;
+}
+
 [data-gl-id] {
   opacity: 0;
   will-change: width, height, top, left;
