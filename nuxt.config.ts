@@ -28,6 +28,7 @@ export default defineNuxtConfig({
       ENVIROMENT: process.env.NODE_ENV,
       IMGIX_DOMAIN: process.env.IMGIX_DOMAIN,
       IMGIX_KEY: process.env.IMGIX_KEY,
+      BACKEND_URL: process.env.BACKEND_URL,
     },
   },
 

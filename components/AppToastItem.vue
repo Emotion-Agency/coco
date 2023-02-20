@@ -1,17 +1,8 @@
 <template>
-  <div
-    class="toast"
-    :class="'toast--' + toast.color"
-  >
-    <div
-      ref="$progress"
-      class="toast__progress"
-    ></div>
+  <div class="toast" :class="'toast--' + toast.color">
+    <div ref="$progress" class="toast__progress"></div>
     <div class="toast__message">{{ toast.text }}</div>
-    <button
-      class="toast__close"
-      @click.prevent="hide(toast.id)"
-    >
+    <button class="toast__close" @click.prevent="hide(toast.id)">
       <svg
         width="15"
         height="14"
@@ -34,7 +25,6 @@
 import gsap from 'gsap'
 import { iToast } from '~/composables/toasts'
 
-
 interface iProps {
   toast: iToast
 }
@@ -45,19 +35,19 @@ const emit = defineEmits(['hide'])
 const $progress = ref(null)
 
 const hide = (id: string) => {
-  emit('hide',id)
+  emit('hide', id)
 }
 
 onMounted(() => {
   setTimeout(() => {
-    gsap.to($progress.value,{
-      duration: 5,
+    gsap.to($progress.value, {
+      duration: 4,
       width: '100%',
       ease: 'linear',
       onComplete: () => {
         hide(props.toast.id)
       },
     })
-  },0)
+  }, 0)
 })
 </script>
