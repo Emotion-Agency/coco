@@ -11,6 +11,7 @@ checkout
 loading and transition animations
 bears animation
 connect insta photos to footer
+products hover animations
 * */
 useFonts()
 

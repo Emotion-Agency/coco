@@ -39,6 +39,11 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  &:hover {
+    .catalog-v2__title {
+      animation: blurry 0.4s $easing;
+    }
+  }
 }
 
 .catalog-v2__top {

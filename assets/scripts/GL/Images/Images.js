@@ -15,9 +15,9 @@ export default class Images extends Figure {
     this.onMouseLeave = this.onMouseLeave.bind(this)
     this.onClick = this.onClick.bind(this)
 
-    this.$el.addEventListener('mouseenter', this.onMouseEnter)
-    this.$el.addEventListener('mouseleave', this.onMouseLeave)
-    this.$el.addEventListener('click', this.onClick)
+    this.$el.parentElement.addEventListener('mouseenter', this.onMouseEnter)
+    this.$el.parentElement.addEventListener('mouseleave', this.onMouseLeave)
+    this.$el.parentElement.addEventListener('click', this.onClick)
   }
 
   createGeometry() {
@@ -101,11 +101,13 @@ export default class Images extends Figure {
       duration: 2,
       value: 1,
       ease: 'power2.out',
+      overwrite: true,
     })
     gsap.to(this.material.uniforms.uScale, {
       duration: 2,
       value: 0.02,
       ease: 'power1.inOut',
+      overwrite: true,
     })
   }
 
@@ -114,11 +116,13 @@ export default class Images extends Figure {
       duration: 1,
       value: 0,
       ease: 'power2.out',
+      overwrite: true,
     })
     gsap.to(this.material.uniforms.uScale, {
       duration: 1,
       value: 0,
       ease: 'power2.out',
+      overwrite: true,
     })
   }
 
@@ -137,8 +141,9 @@ export default class Images extends Figure {
   }
 
   destroy() {
-    this.$el.removeEventListener('mouseenter', this.onMouseEnter)
-    this.$el.removeEventListener('mouseleave', this.onMouseLeave)
+    this.$el.parentElement.removeEventListener('mouseenter', this.onMouseEnter)
+    this.$el.parentElement.removeEventListener('mouseleave', this.onMouseLeave)
+    this.$el.parentElement.removeEventListener('mouseleave', this.onClick)
 
     this.disposeTexture(this.texture)
     super.destroy()

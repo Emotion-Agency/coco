@@ -25,10 +25,10 @@ void main() {
    vec2 newUv = uv;
    float angle = 1.55;
 
-   float roundblend = sin(PI * uHover) * (1. - uClicked);
+   float roundblend = sin(PI * uHover) * (1. - uClicked) + (uStrength * 0.2);
 
    vec2 p = (newUv - vec2(0.5, 0.5)) * (defaultScale) + vec2(0.5, 0.5);
-   vec2 offset = uStrength / 150.0 * vec2(cos(angle), sin(angle)) + roundblend * 0.05 * (uClicked * 10.);
+   vec2 offset = uStrength / 150.0 * vec2(cos(angle), sin(angle)) + roundblend * 0.05 + ((uClicked - 1.) * uClicked * 0.5);
 
    float t = uStrength + ((1.0 - uVisible) * 10.0) + roundblend;
    float _Speed = 1.0;
