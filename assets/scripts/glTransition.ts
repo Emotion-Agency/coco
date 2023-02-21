@@ -3,7 +3,7 @@ import { delayPromise } from './utils/ea'
 
 export const glTransition = async (el: HTMLElement) => {
   try {
-    window.ss && (window.ss.state.isFixed = true)
+    window.ss && (window.ss.isFixed = true)
     await delayPromise(200)
     const to = el.querySelector('.product-1__img-li') as HTMLElement
 
@@ -33,11 +33,11 @@ export const glTransition = async (el: HTMLElement) => {
         toImg.parentElement.removeChild(toImg)
         $img.parentElement.removeChild($img)
         to.appendChild($img)
-        window.ss && (window.ss.state.isFixed = false)
+        window.ss && (window.ss.isFixed = false)
       },
     })
   } catch (error) {
     console.log(error)
-    window.ss && (window.ss.state.isFixed = false)
+    window.ss && (window.ss.isFixed = false)
   }
 }

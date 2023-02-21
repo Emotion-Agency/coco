@@ -11,7 +11,6 @@ checkout
 loading and transition animations
 bears animation
 connect insta photos to footer
-products hover animations
 * */
 useFonts()
 
@@ -70,7 +69,11 @@ onMounted(async () => {
 useHead({
   htmlAttrs: {
     lang: 'en',
+    id: 'scroll-container',
   },
+  // bodyAttrs: {
+
+  // },
 })
 </script>
 
@@ -80,7 +83,7 @@ useHead({
       <Title>Emotion</Title>
       <Meta
         name="viewport"
-        content="width=device-width, initial-scale=1"
+        content="width=device-width, initial-scale=1 minimum-scale=1 maximum-scale=1"
       ></Meta>
       <Link rel="icon" type="image/x-icon" href="/favicon.ico"></Link>
     </Head>

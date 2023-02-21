@@ -20,9 +20,9 @@ body {
   overscroll-behavior-y: none;
   @include smooth-font;
   height: var(--vh);
-  @media (min-width: 960px) {
-    overflow: hidden;
-  }
+  // @media (min-width: 960px) {
+  //   overflow: hidden;
+  // }
 
   @media (max-width: $br1) {
     font-size: 16px;

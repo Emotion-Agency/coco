@@ -168,13 +168,13 @@
         top: 55px;
       }
     }
-  }
 
-  &:nth-of-type(5) {
-    top: vw(22);
+    &:nth-of-type(5) {
+      top: vw(22);
 
-    @media (max-width: $br3) {
-      top: vh(8);
+      @media (max-width: $br3) {
+        top: vh(8);
+      }
     }
   }
 }

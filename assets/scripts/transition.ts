@@ -34,7 +34,7 @@ export const pageTransition: TransitionProps = {
   },
   onLeave(el: HTMLElement, done) {
     const footer: HTMLElement = document.querySelector('.footer')
-    window.ss && (window.ss.state.isFixed = true)
+    window.ss && (window.ss.isFixed = true)
 
     gsap.fromTo(
       [el, footer],

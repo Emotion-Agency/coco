@@ -3,7 +3,10 @@ export const winSizes = () => {
   const vw = window.innerWidth
   const oprientation = vh > vw ? 'portrait' : 'landscape'
 
-  document.body.style.setProperty('--vh', `${vh}px`)
-  document.body.style.setProperty('--vw', `${vw}px`)
-  document.body.style.setProperty('--oprientation', `${oprientation}`)
+  document.documentElement.style.setProperty('--vh', `${vh}px`)
+  document.documentElement.style.setProperty('--vw', `${vw}px`)
+  document.documentElement.style.setProperty(
+    '--oprientation',
+    `${oprientation}`
+  )
 }
