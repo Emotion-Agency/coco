@@ -369,3 +369,11 @@
     font-size: 16px;
   }
 }
+
+.cart-loader {
+  @include coverdiv(absolute);
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

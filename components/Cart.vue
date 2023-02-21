@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { keysGenerator } from '~~/assets/scripts/utils/ea'
+
 const {
   isCartOpen,
   cartItems,
@@ -38,13 +40,25 @@ const browseHandler = () => {
   router.push('/shop/')
 }
 
+const isLoading = ref(false)
+
 const { createCheckout } = useShopify()
+const { addToast } = useToasts()
 
 const onCheckout = async () => {
   try {
+    isLoading.value = true
     await createCheckout(cartItems.value)
   } catch (error) {
     console.log(error)
+
+    addToast({
+      id: keysGenerator(8),
+      color: ToastColor.danger,
+      text: error?.message || 'The error was occured :( Please, try again',
+    })
+  } finally {
+    isLoading.value = false
   }
 }
 </script>
@@ -59,6 +73,9 @@ const onCheckout = async () => {
       <h3 class="cart__title">Your bag</h3>
       <div class="cart__line"></div>
       <div class="cart__block-wrapper">
+        <div v-if="isLoading" class="cart-loader">
+          <UiLoader />
+        </div>
         <ul v-if="cartItems?.length" class="cart__items-list">
           <li v-for="(el, idx) in sortedItems" :key="idx" class="cart__item">
             <div v-if="idx !== 0" class="cart__line"></div>

@@ -50,11 +50,19 @@ export const useCart = () => {
   }
 
   const getCartItems = () => {
-    const itemFromLS = process.client
+    const itemFromLS: iCartItem[] = process.client
       ? JSON.parse(localStorage.getItem('cart') || '[]')
       : []
 
-    cartItems.value = itemFromLS
+    const buyedItems: iCartItem[] = process.client
+      ? JSON.parse(localStorage.getItem('checkoutItems') || '[]')
+      : []
+
+    cartItems.value = itemFromLS?.filter(item => {
+      return !buyedItems.some(bi => bi.id === item.id)
+    })
+
+    process.client && localStorage.setItem('checkoutItems', '[]')
     return cartItems.value
   }
 

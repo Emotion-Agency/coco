@@ -71,9 +71,6 @@ useHead({
     lang: 'en',
     id: 'scroll-container',
   },
-  // bodyAttrs: {
-
-  // },
 })
 </script>
 

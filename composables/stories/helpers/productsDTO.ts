@@ -10,8 +10,11 @@ export const productsDTO = (productsData: iStory<iProductContent>[]) => {
       how_to_use: product.content.how_to_use,
       product_vibes: product.content.product_vibes,
       title: product.name,
-      images: product.content.images,
-      mainImage: product.content.images[0]?.filename,
+      images: product.content?.images || [],
+      mainImage:
+        (product.content?.images?.length &&
+          product.content?.images[0]?.filename) ||
+        null,
       price: product.content.price,
       compare_price: product.content.compare_price,
       slug: product.slug,
