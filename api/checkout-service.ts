@@ -3,7 +3,7 @@ import { iCartItem } from '~~/types/products'
 
 export default class CheckoutService {
   static createCheckout = async (items: iCartItem[], domain: string) => {
-    const res = await $api.post('/shopify-checkout', {
+    const res = await $api.post('/shopify/checkout', {
       items,
       domain,
     })

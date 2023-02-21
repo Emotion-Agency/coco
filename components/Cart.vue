@@ -37,6 +37,16 @@ const browseHandler = () => {
 
   router.push('/shop/')
 }
+
+const { createCheckout } = useShopify()
+
+const onCheckout = async () => {
+  try {
+    await createCheckout(cartItems.value)
+  } catch (error) {
+    console.log(error)
+  }
+}
 </script>
 
 <template>
@@ -112,7 +122,7 @@ const browseHandler = () => {
             <p class="cart__subtotal-price">${{ totalPrice }}</p>
           </div>
           <div class="cart__line"></div>
-          <div class="cart__button-wrapper">
+          <div class="cart__button-wrapper" @click="onCheckout">
             <TextButton>Checkout</TextButton>
           </div>
         </div>
