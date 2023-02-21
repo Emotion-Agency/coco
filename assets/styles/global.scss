@@ -80,7 +80,7 @@ body {
 }
 
 [data-gl-id] {
-  opacity: 0;
+  opacity: 0 !important;
   will-change: width, height, top, left;
 }
 
@@ -160,6 +160,7 @@ body:not(.in-storyblok) {
       will-change: transform, filter;
       isolation: isolate;
       filter: blur(20px);
+      letter-spacing: -0.03em;
     }
     .e-line {
       overflow: hidden;

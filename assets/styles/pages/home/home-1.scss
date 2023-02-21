@@ -100,6 +100,7 @@
   &:nth-of-type(2) {
     text-transform: uppercase;
     @include gerlomi;
+    text-align: right;
 
     @media (min-width: $br1) {
       bottom: vw(244);

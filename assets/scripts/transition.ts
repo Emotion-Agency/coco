@@ -28,6 +28,7 @@ export const pageTransition: TransitionProps = {
     )
 
     resetScroll()
+
     if (document.body.classList.contains('gl-transition')) {
       glTransition(el)
     }

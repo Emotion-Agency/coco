@@ -45,7 +45,8 @@ watch(
         v-for="(el, idx) in items"
         ref="$items"
         :key="idx"
-        class="catalog-v2__product"
+        data-a-o
+        class="catalog-product catalog-v2__product"
       >
         <a
           :href="`/shop/${el.slug}/`"
@@ -65,7 +66,7 @@ watch(
               data-gl
               data-gl-parallax="1"
               data-a-gl
-              data-a-gl-progress="1"
+              data-a-gl-progress="0"
             />
           </div>
           <h3 class="catalog-v2__title">{{ el.title }}</h3>
