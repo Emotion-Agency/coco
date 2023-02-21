@@ -7,6 +7,19 @@ interface iProps {
 
 defineProps<iProps>()
 const emit = defineEmits(['openSlider'])
+
+const itemClickHandler = (index: number) => {
+  const $slidersImg = document.querySelectorAll('.slider__images-li')
+  const $sliderScroller = document.querySelector('.slider__wrapper')
+  const target = $slidersImg[index]
+  const top =
+    target.getBoundingClientRect().top -
+    target.getBoundingClientRect().height / 2
+
+  $sliderScroller.scrollTop = top
+
+  emit('openSlider')
+}
 </script>
 
 <template>
@@ -16,6 +29,7 @@ const emit = defineEmits(['openSlider'])
         v-for="(el, idx) in product.images.slice(0, 5)"
         :key="idx"
         class="product-1__img-li"
+        @click="itemClickHandler(idx)"
       >
         <TheImg
           format="webp"

@@ -17,6 +17,10 @@ watch(
       window.ss.isFixed = true
     } else {
       window.ss.isFixed = false
+      if (process.client) {
+        const $sliderScroller = document.querySelector('.slider__wrapper')
+        $sliderScroller.scrollTop = 0
+      }
     }
   }
 )
@@ -33,6 +37,7 @@ watch(
         <li
           v-for="(el, idx) in imagesList"
           :key="idx"
+          ref="$items"
           class="slider__images-li"
         >
           <TheImg

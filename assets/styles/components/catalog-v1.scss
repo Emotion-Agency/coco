@@ -96,6 +96,7 @@
   font-size: vw(40);
   margin-top: vw(12);
   text-transform: uppercase;
+  will-change: filter;
 
   @media (max-width: $br1) {
     font-size: size(42, 16);
