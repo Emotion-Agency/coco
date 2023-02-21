@@ -20,7 +20,7 @@ export const appAnimation = () => {
   setTimeout(() => {
     $ah.length &&
       $ah.forEach(el => {
-        textAnimate.in(el)
+        textAnimate.in(el as HTMLElement)
       })
   }, 200)
 }

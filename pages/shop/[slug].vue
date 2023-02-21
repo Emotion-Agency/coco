@@ -86,7 +86,7 @@ onBeforeUnmount(() => {
             <p data-a-t class="product-1__specific">
               (Choker №{{ currentProduct.idx + 1 }})
             </p>
-            <h3 data-a-t class="product-1__name">{{ currentProduct.title }}</h3>
+            <h3 data-a-h class="product-1__name">{{ currentProduct.title }}</h3>
             <p data-a-t class="product-1__category">
               {{ currentProduct.collection }}
             </p>

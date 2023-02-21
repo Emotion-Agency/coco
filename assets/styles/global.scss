@@ -142,7 +142,7 @@ main {
 
 body:not(.in-storyblok) {
   [data-a-t] {
-    transform: translateY(60px);
+    transform: translateY(-60px);
     opacity: 0;
     will-change: transform;
   }
@@ -155,9 +155,10 @@ body:not(.in-storyblok) {
   [data-a-h] {
     opacity: 0;
     .char {
-      transform: translateX(110%);
+      transform: scale(1.5) translateY(-50%);
       opacity: 0;
-      will-change: transform, filter, opacity;
+      will-change: transform, filter;
+      isolation: isolate;
       filter: blur(20px);
     }
     .e-line {

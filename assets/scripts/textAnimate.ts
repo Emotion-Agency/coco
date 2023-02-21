@@ -1,10 +1,11 @@
 import gsap from 'gsap'
 import SplitType from 'split-type'
+import { clamp } from './utils/ea'
 
 const textAnimate = () => {
-  let $toAnimate
+  let $toAnimate: HTMLElement[]
 
-  const prepare = $el => {
+  const prepare = ($el: HTMLElement) => {
     if ($el.classList.contains('splitted')) {
       return
     }
@@ -19,18 +20,21 @@ const textAnimate = () => {
       char.setAttribute('data-char', char.innerText)
     })
 
-    $toAnimate = [...$el.querySelectorAll('.char')]
+    $toAnimate = [...$el.querySelectorAll('.char')] as HTMLElement[]
     $el.classList.add('splitted')
   }
 
   return {
-    in: $el => {
+    in: ($el: HTMLElement) => {
       prepare($el)
-      $el.style.opacity = 1
+      $el.style.opacity = '1'
+
+      const duration = clamp(16 / $toAnimate.length, 0.75, 2)
 
       gsap.to($toAnimate, {
-        duration: 1,
-        x: '0%',
+        duration,
+        scale: 1,
+        y: 0,
         filter: 'blur(0px)',
         opacity: 1,
         ease: 'expo.out',
@@ -38,7 +42,7 @@ const textAnimate = () => {
         overwrite: true,
       })
     },
-    out: ($el, to = '110%') => {
+    out: ($el: HTMLElement, to = '110%') => {
       prepare($el)
 
       gsap.to($toAnimate, {
