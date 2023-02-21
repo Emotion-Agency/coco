@@ -3,7 +3,7 @@ import axios from 'axios'
 export const API_URL =
   process.env.NODE_ENV === 'development'
     ? `http://localhost:5001/api`
-    : process.env.BACKEND_URL
+    : 'https://coco-back-production.up.railway.app/api'
 
 const $api = axios.create({
   withCredentials: true,
