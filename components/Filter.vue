@@ -54,7 +54,7 @@ onBeforeUnmount(() => {
       </li>
       <li v-for="(el, idx) in filters" :key="idx" class="desktop-filter__li">
         <input
-          :id="el.toLocaleLowerCase().replace(/\s/gm, '-')"
+          :id="el?.toLocaleLowerCase().replace(/\s/gm, '-')"
           :data-value="el"
           class="desktop-filter__radio"
           type="radio"
@@ -64,7 +64,7 @@ onBeforeUnmount(() => {
         />
         <label
           class="desktop-filter__text"
-          :for="el.toLocaleLowerCase().replace(/\s/gm, '-')"
+          :for="el?.toLocaleLowerCase().replace(/\s/gm, '-')"
         >
           {{ el }}
         </label>
@@ -98,7 +98,7 @@ onBeforeUnmount(() => {
         </li>
         <li v-for="(el, idx) in filters" :key="idx" class="mobile-filter__li">
           <input
-            :id="el.toLocaleLowerCase().replace(/\s/gm, '-')"
+            :id="el?.toLocaleLowerCase().replace(/\s/gm, '-')"
             :data-value="el"
             class="mobile-filter__radio"
             type="radio"
@@ -108,7 +108,7 @@ onBeforeUnmount(() => {
           />
           <label
             class="mobile-filter__text"
-            :for="el.toLocaleLowerCase().replace(/\s/gm, '-')"
+            :for="el?.toLocaleLowerCase().replace(/\s/gm, '-')"
           >
             {{ el }}
           </label>

@@ -82,6 +82,10 @@ const navItems = [
     link: '/about',
     text: 'About',
   },
+  {
+    link: '/contacts',
+    text: 'Contacts',
+  },
 ]
 
 const { cartItems } = useCart()

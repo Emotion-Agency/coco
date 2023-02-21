@@ -22,16 +22,14 @@ export const useProductsStories: tProductsStories = async () => {
 
   if (!stories.value.length) {
     try {
-      const { data }: tResStory = await storyapi.get(
-        'cdn/stories/?by_slugs=shop/*',
-        {
-          version:
-            config.public.ENVIROMENT === 'development' || isInEditor.value
-              ? 'draft'
-              : 'published',
-          cv: Date.now(),
-        }
-      )
+      const { data }: tResStory = await storyapi.get('cdn/stories/', {
+        by_slugs: 'shop/*',
+        version:
+          config.public.ENVIROMENT === 'development' || isInEditor.value
+            ? 'draft'
+            : 'published',
+        cv: Date.now(),
+      })
 
       stories.value = data.stories.filter(s => s.name !== 'Index')
     } catch (e) {

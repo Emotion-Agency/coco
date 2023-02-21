@@ -79,11 +79,12 @@
   }
   &::before {
     content: '[';
-
+    font-size: inherit;
     left: -10px;
   }
   &:after {
     content: ']';
+    font-size: inherit;
     right: -10px;
   }
 

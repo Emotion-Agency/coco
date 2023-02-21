@@ -35,8 +35,6 @@ const filteredItems = computed(() => {
 
 //   new SectionParallax($section1.value, $section2.value)
 // })
-
-// onBe
 </script>
 
 <template>
@@ -89,7 +87,7 @@ const filteredItems = computed(() => {
     <section ref="$section2" class="section section--nm home-2">
       <ParallaxImg
         class="home-2__bg"
-        src="/images/home/2.jpg"
+        src="/images/home/4.jpg"
         alt="Background"
       />
       <div class="container home-2__wrapper">

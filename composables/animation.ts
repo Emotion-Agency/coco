@@ -1,5 +1,3 @@
-import { resetScroll } from '~~/assets/scripts/utils/resetScroll'
-
 export const useAnimation = () => {
   const { isLoaded, isInEditor } = useAppState()
 
@@ -13,10 +11,6 @@ export const useAnimation = () => {
   })
 
   onMounted(async () => {
-    setTimeout(() => {
-      resetScroll()
-    }, 500)
-
     if (isLoaded.value && !isInEditor.value) {
       const { appAnimation } = await import('~~/assets/scripts/appAnimation')
       setTimeout(() => {

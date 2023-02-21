@@ -1,5 +1,5 @@
 <template>
-  <div class="ticker">
+  <component :is="tag" class="ticker">
     <div ref="$ticker" class="ticker__items">
       <div
         v-for="index in repeatNumber"
@@ -8,7 +8,7 @@
         v-html="html"
       />
     </div>
-  </div>
+  </component>
 </template>
 
 <script setup lang="ts">
@@ -18,6 +18,7 @@ interface iProps {
   multiplier?: number
   direction?: 1 | -1
   divider?: string
+  tag?: string
 }
 
 const props = withDefaults(defineProps<iProps>(), {
@@ -26,6 +27,7 @@ const props = withDefaults(defineProps<iProps>(), {
   multiplier: 21,
   direction: 1,
   divider: '—',
+  tag: 'div',
 })
 
 let ticker

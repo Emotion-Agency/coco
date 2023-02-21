@@ -10,8 +10,6 @@ updateNextPage('shop')
 useAnimation()
 
 useObserver('.section')
-
-const tickerText = 'Relive By Coco'
 </script>
 
 <template>
@@ -26,7 +24,10 @@ const tickerText = 'Relive By Coco'
       />
       <TheTicker
         data-a-t
-        :text="tickerText"
+        tag="h1"
+        title="Relive By Coco"
+        text="Relive By Coco"
+        aria-label="Relive By Coco"
         class="about-1__ticker"
         :divider="' '"
         :direction="-1"

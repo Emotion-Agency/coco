@@ -154,15 +154,14 @@ body:not(.in-storyblok) {
 
   [data-a-h] {
     opacity: 0;
-    perspective: 2000px;
     .char {
-      transform: translateX(140%);
+      transform: translateX(110%);
       opacity: 0;
-      will-change: transform;
+      will-change: transform, filter, opacity;
+      filter: blur(20px);
     }
     .e-line {
       overflow: hidden;
-      perspective: 2000px;
     }
     .line-inner {
       transform: translateY(100%);
@@ -175,5 +174,6 @@ body:not(.in-storyblok) {
 
   .word {
     display: inline-block;
+    white-space: nowrap;
   }
 }

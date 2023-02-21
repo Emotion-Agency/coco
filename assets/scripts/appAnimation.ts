@@ -1,10 +1,10 @@
 import gsap from 'gsap'
-import textLineAnimation from './textLineAnimation'
+import textAnimate from './textAnimate'
 
 export const appAnimation = () => {
-  const $aT = document.querySelectorAll('[data-a-t]:not(.page-leave-to)')
-  const $aO = document.querySelectorAll('[data-a-o]:not(.page-leave-to)')
-  const $ah = document.querySelectorAll('[data-a-h]:not(.page-leave-to)')
+  const $aT = document.querySelectorAll('[data-a-t]')
+  const $aO = document.querySelectorAll('[data-a-o]')
+  const $ah = document.querySelectorAll('[data-a-h]')
 
   const tl = gsap.timeline()
   const ease = 'expo.out'
@@ -20,7 +20,7 @@ export const appAnimation = () => {
   setTimeout(() => {
     $ah.length &&
       $ah.forEach(el => {
-        textLineAnimation.in(el)
+        textAnimate.in(el)
       })
   }, 200)
 }
