@@ -18,6 +18,7 @@ export const useProductsStories: tProductsStories = async () => {
   const config = useRuntimeConfig()
 
   const storyapi = useStoryblokApi()
+  const { isInEditor } = useAppState()
 
   if (!stories.value.length) {
     try {
@@ -25,7 +26,9 @@ export const useProductsStories: tProductsStories = async () => {
         'cdn/stories/?by_slugs=shop/*',
         {
           version:
-            config.public.ENVIROMENT === 'development' ? 'draft' : 'published',
+            config.public.ENVIROMENT === 'development' || isInEditor.value
+              ? 'draft'
+              : 'published',
           cv: Date.now(),
         }
       )

@@ -7,6 +7,7 @@ definePageMeta({
 
 const { updateNextPage } = useFooterLink()
 updateNextPage('home')
+useAnimation()
 
 onMounted(() => {
   document.querySelector('.navbar') &&

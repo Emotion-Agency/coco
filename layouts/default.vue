@@ -7,7 +7,6 @@ import { useProductsStories } from '~~/composables/stories/productsStory'
 
 /**
 * @todo
-checkout
 loading and transition animations
 bears animation
 connect insta photos to footer
@@ -61,6 +60,7 @@ onMounted(async () => {
     sbBridge.pingEditor(() => {
       if (sbBridge.isInEditor()) {
         isInEditor.value = true
+        document.body.classList.add('in-storyblok')
       }
     })
   }, 200)

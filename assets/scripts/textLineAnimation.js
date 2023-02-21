@@ -1,7 +1,7 @@
 import SplitType from 'split-type'
 import gsap from 'gsap'
 
-export const textLineAnimation = $el => {
+const textLineAnimation = () => {
   let $toAnimate
 
   const prepare = ($el, by = 'chars, lines') => {
@@ -35,7 +35,7 @@ export const textLineAnimation = $el => {
         gsap.to(to, {
           duration,
           y: '0%',
-          rotation: 0,
+          rotationZ: 0,
           stagger,
           ease: 'expo.out',
         })
@@ -50,3 +50,5 @@ export const textLineAnimation = $el => {
     },
   }
 }
+
+export default textLineAnimation()

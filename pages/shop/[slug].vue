@@ -9,6 +9,7 @@ useObserver('.section')
 
 const { updateNextPage } = useFooterLink()
 updateNextPage('home')
+useAnimation()
 
 const { products } = useProducts()
 const { listenStory } = await useProductsStories()
@@ -76,28 +77,32 @@ onBeforeUnmount(() => {
       <div class="container grid product-1__wrapper">
         <ProductImages
           v-if="!isMobile"
+          data-a-o
           :product="currentProduct"
           @open-slider="isSliderOpen = true"
         />
         <div class="product-1__right-block">
           <div class="product-1__info-wrapper">
-            <p class="product-1__specific">
+            <p data-a-t class="product-1__specific">
               (Choker №{{ currentProduct.idx + 1 }})
             </p>
-            <h3 class="product-1__name">{{ currentProduct.title }}</h3>
-            <p class="product-1__category">{{ currentProduct.collection }}</p>
-            <p v-if="currentProduct.price" class="product-1__price">
+            <h3 data-a-t class="product-1__name">{{ currentProduct.title }}</h3>
+            <p data-a-t class="product-1__category">
+              {{ currentProduct.collection }}
+            </p>
+            <p v-if="currentProduct.price" data-a-t class="product-1__price">
               ${{ Number(currentProduct.price).toFixed(2) }}
             </p>
           </div>
           <div class="product-1__mobile-images-wrapper">
             <ProductImages
               v-if="isMobile"
+              data-a-o
               :product="currentProduct"
               @open-slider="isSliderOpen = true"
             />
           </div>
-          <div class="product-1__description-wrapper">
+          <div data-a-t class="product-1__description-wrapper">
             <ul class="product-1__list">
               <li v-for="(el, idx) in tabs" :key="idx" class="product-1__li">
                 <input
@@ -124,7 +129,7 @@ onBeforeUnmount(() => {
               </p>
             </div>
           </div>
-          <div class="product-1__right-button">
+          <div data-a-o class="product-1__right-button">
             <TextButton
               class="product-1__right-btn"
               @click="addToCart(currentProduct)"

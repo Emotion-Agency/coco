@@ -7,6 +7,7 @@ definePageMeta({
 
 const { updateNextPage } = useFooterLink()
 updateNextPage('about')
+useAnimation()
 
 useObserver('.section')
 
@@ -26,7 +27,7 @@ const filteredItems = computed(() => {
 
 <template>
   <main>
-    <section class="section section--nm catalogue-1">
+    <section data-a-o class="section section--nm catalogue-1">
       <div class="container catalogue-1__wrapper">
         <h2 class="catalogue-1__title">Catalogue</h2>
         <div class="catalogue-1__filter-wrapper">

@@ -7,6 +7,7 @@ definePageMeta({
 
 const { updateNextPage } = useFooterLink()
 updateNextPage('shop')
+useAnimation()
 
 useObserver('.section')
 
@@ -17,12 +18,14 @@ const tickerText = 'Relive By Coco'
   <main>
     <section class="section section--nm about-1">
       <ParallaxImg
+        data-a-o
         class="about-1__bg"
         src="/images/about/1.jpg"
         :scale="1"
         alt="Background"
       />
       <TheTicker
+        data-a-t
         :text="tickerText"
         class="about-1__ticker"
         :divider="' '"
@@ -30,8 +33,8 @@ const tickerText = 'Relive By Coco'
       />
       <div class="container about-1__wrapper">
         <h2 class="grid about-1__title">
-          <span class="about-1__span-title"> Seriously playful </span>
-          <span class="about-1__span-title"> Rebellious and fun </span>
+          <span data-a-h class="about-1__span-title"> Seriously playful </span>
+          <span data-a-h class="about-1__span-title"> Rebellious and fun </span>
         </h2>
       </div>
     </section>

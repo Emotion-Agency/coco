@@ -676,6 +676,11 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
+"@ignatiusmb/scramble@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@ignatiusmb/scramble/-/scramble-3.0.1.tgz#496e446ccec56a1a32ecddbf3fce51b85662f4a8"
+  integrity sha512-MDGlB9FeSDGCPNxJTHy4fgaaRLgtcsaFY7X5N/QVloRLZBuxq3fT05jMaVo+w1f8AcDXqlz4HKrbMfI1lrUT9Q==
+
 "@imgix/js-core@^3.8.0":
   version "3.8.0"
   resolved "https://registry.yarnpkg.com/@imgix/js-core/-/js-core-3.8.0.tgz#630bc4fba8cb968d8c0e8298a2be71e39d75b8b8"
@@ -5894,6 +5899,11 @@ spdx-license-ids@^3.0.0:
   version "3.0.12"
   resolved "https://registry.yarnpkg.com/spdx-license-ids/-/spdx-license-ids-3.0.12.tgz#69077835abe2710b65f03969898b6637b505a779"
   integrity sha512-rr+VVSXtRhO4OHbXUiAF7xW3Bo9DuuF6C5jH+q/x15j2jniycgKbxU09Hr0WqlSLUs4i4ltHGXqTe7VHclYWyA==
+
+split-type@^0.3.3:
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/split-type/-/split-type-0.3.3.tgz#5ed4503d96cddcccea1ca2dcae0bbc330ff3282e"
+  integrity sha512-gEA90DEHJhdT/5Da2gR7FPHgaGgivTN4PfZBtHKcl4quDLsE3x7tJlGTKEp4yyqpfi1wCaqeKE+s2UCqBRjJYA==
 
 stable@^0.1.8:
   version "0.1.8"

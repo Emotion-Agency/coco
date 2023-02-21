@@ -6,6 +6,7 @@ definePageMeta({
 })
 const { updateNextPage } = useFooterLink()
 updateNextPage('about')
+useAnimation()
 
 useObserver('.section')
 
@@ -41,37 +42,45 @@ const filteredItems = computed(() => {
 <template>
   <main>
     <section ref="$section1" class="section section--nm home-1">
-      <video playsinline loop autoplay muted src="/2.mp4" class="home-1__bg" />
+      <video
+        data-a-o
+        playsinline
+        loop
+        autoplay
+        muted
+        src="/2.mp4"
+        class="home-1__bg"
+      />
       <div class="container home-1__wrapper">
         <div class="home-1__second-wrapper">
           <h1 class="home-1__title">
-            <span class="home-1__span"> Relive </span>
-            <span class="home-1__span"> by </span>
+            <span data-a-h class="home-1__span"> Relive </span>
+            <span data-a-h class="home-1__span"> by </span>
             <span class="home-1__span">
-              Coco
-              <span class="home-1__item"> ® </span>
+              <span data-a-h>Coco</span>
+              <span data-a-t class="home-1__item"> ® </span>
             </span>
           </h1>
-          <div class="home-1__text">Jewelry</div>
+          <div data-a-t class="home-1__text">Jewelry</div>
           <div class="home-1__description">
-            <p class="home-1__desc-text">
+            <p data-a-t class="home-1__desc-text">
               Our online store offers a unique selection of handmade recycled
               and vegan jewelry, perfect for conscious consumers looking to make
               a difference in the world
             </p>
-            <p class="home-1__desc-text">
+            <p data-a-t class="home-1__desc-text">
               Each piece is crafted using recycled materials and is completely
               vegan, making it a sustainable and ethical choice for those who
               care about the planet
             </p>
-            <p class="home-1__desc-text">
+            <p data-a-t class="home-1__desc-text">
               Supporting this online store means supporting a young girl's dream
               and her commitment to making the world a better place. It is a
               reminder that we all have the power to make a difference, no
               matter how young we may be
             </p>
           </div>
-          <div class="home-1__icon-wrapper">
+          <div data-a-o class="home-1__icon-wrapper">
             <IconsWhiteDiamond />
           </div>
         </div>
