@@ -16,27 +16,23 @@ export const useGL = () => {
           dpr: window.devicePixelRatio,
         })
 
-        // if (screen.width > 960) {
-        //   const { default: Noisy } = await import(
-        //     '@/assets/scripts/GL/Noisy/Noisy'
-        //   )
+        if (screen.width > 960) {
+          const { default: Noisy } = await import(
+            '@/assets/scripts/GL/Noisy/Noisy'
+          )
 
-        //   const noise = document.querySelector('.noise')
+          const noise = document.querySelector('.noise')
 
-        //   window.scetch3 = new Scetch('#noise', {
-        //     dpr: window.devicePixelRatio,
-        //     nodes: [
-        //       {
-        //         $el: noise,
-        //         Figure: Noisy,
-        //       },
-        //     ],
-        //     raf,
-        //   })
-        // }
+          window.scetch.addFigures([
+            {
+              $el: noise,
+              Figure: Noisy,
+            },
+          ])
 
-        emitter.emit('scetchCreated')
-        isSceneCreated.value = true
+          emitter.emit('scetchCreated')
+          isSceneCreated.value = true
+        }
       }
     } catch (error) {
       console.log(error)
@@ -48,11 +44,6 @@ export const useGL = () => {
   const startTransition = (e: Event) => {
     const target = e.currentTarget as HTMLElement
     const href = target.getAttribute('href')
-
-    // if (isMobile.value) {
-    //   router.push(href)
-    //   return
-    // }
 
     const clicked = target.querySelector('[data-gl]')
     clicked.classList.add('js-clicked')
@@ -68,8 +59,10 @@ export const useGL = () => {
       if (isSceneCreated.value) {
         initImages([...$items].map(item => item.querySelector('[data-gl]')))
       } else {
-        await createScene()
-        initImages([...$items].map(item => item.querySelector('[data-gl]')))
+        // await createScene()
+        emitter.on('scetchCreated', () => {
+          initImages([...$items].map(item => item.querySelector('[data-gl]')))
+        })
       }
     } catch (error) {
       console.log(error)

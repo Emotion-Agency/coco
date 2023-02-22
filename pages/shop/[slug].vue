@@ -138,12 +138,16 @@ onBeforeUnmount(() => {
           </div>
         </div>
       </div>
-      <Slider
-        v-if="currentProduct?.images?.length"
-        :images-list="currentProduct.images"
-        :is-opened="isSliderOpen"
-        @close="isSliderOpen = false"
-      />
+      <ClientOnly>
+        <Teleport to="#app">
+          <LazySlider
+            v-if="currentProduct?.images?.length"
+            :images-list="currentProduct.images"
+            :is-opened="isSliderOpen"
+            @close="isSliderOpen = false"
+          />
+        </Teleport>
+      </ClientOnly>
     </section>
     <section v-if="otherProducts?.length" class="section product-2">
       <div class="container product-2__wrapper">

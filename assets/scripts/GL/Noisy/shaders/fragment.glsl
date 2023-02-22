@@ -12,9 +12,9 @@ float rand(vec2 co){
 void main() {
     vec2 uv = vUv;
 
-    vec3 color = fromRGB(vec3(244., 244., 244.));
+    vec3 color = fromRGB(vec3(159., 159., 159.));
     float gray = clamp(length(color) * rand(uv), 0.0, 1.0);
 
 
-    gl_FragColor = vec4(gray, gray, gray, 0.04) * uAlpha;
+    gl_FragColor = vec4(gray, gray, gray, 0.01) * uAlpha;
 }

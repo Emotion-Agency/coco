@@ -6,5 +6,6 @@ declare global {
     ss: any
     scetch: any
     parallax: any
+    noise: any
   }
 }

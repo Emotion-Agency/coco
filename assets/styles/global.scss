@@ -110,8 +110,9 @@ body {
 }
 
 main {
-  background-color: var(--bg);
+  // background-color: var(--bg);
   position: relative;
+  z-index: 2;
 }
 
 .js-absolute {

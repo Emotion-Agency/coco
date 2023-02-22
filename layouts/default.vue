@@ -31,6 +31,8 @@ const parallaxInit = async () => {
   window.parallax = new Parallax({ mobile: false })
 }
 
+const { createScene } = useGL()
+
 onMounted(async () => {
   if (navigator.userAgent.toLowerCase().includes('safari/')) {
     if (!navigator.userAgent.toLowerCase().includes('chrome/'))
@@ -64,6 +66,8 @@ onMounted(async () => {
       }
     })
   }, 200)
+
+  await createScene()
 })
 
 useHead({

@@ -1,6 +1,8 @@
 .footer {
   padding-top: vw(50);
   background-color: var(--white);
+  position: relative;
+  z-index: 2;
 
   @media (max-width: $br1) {
     padding-top: 55px;
