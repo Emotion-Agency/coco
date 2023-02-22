@@ -82,6 +82,19 @@
   column-gap: vw(67);
 }
 
+.header__li {
+  &:nth-of-type(1) {
+    .header__text {
+      display: inline-block;
+
+      &:hover,
+      &.router-link-exact-active {
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
 .header__text {
   @include manrope;
   font-size: vw(16);

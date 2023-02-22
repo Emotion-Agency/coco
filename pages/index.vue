@@ -46,7 +46,7 @@ const filteredItems = computed(() => {
         loop
         autoplay
         muted
-        src="/2.mp4"
+        src="/1.mp4"
         class="home-1__bg"
       />
       <div class="container home-1__wrapper">

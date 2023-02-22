@@ -65,7 +65,8 @@
 @mixin stroke-link($color: var(--main)) {
   position: relative;
   width: fit-content;
-  transition: color 0.45s $easing, transform 0.45s $easing;
+  transition: color 0.45s $easing, transform 0.45s $easing,
+    margin-left 0.45s $easing;
   z-index: 2;
   &::before,
   &::after {
