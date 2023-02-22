@@ -4,8 +4,10 @@ import { pageTransition } from '~~/assets/scripts/transition'
 definePageMeta({
   pageTransition,
 })
+
 const { updateNextPage } = useFooterLink()
 updateNextPage('about')
+
 useAnimation()
 
 useObserver('.section')
@@ -39,7 +41,7 @@ const filteredItems = computed(() => {
 
 <template>
   <main>
-    <section ref="$section1" class="section section--nm home-1">
+    <section class="section section--nm home-1">
       <video
         data-a-o
         playsinline
@@ -84,7 +86,7 @@ const filteredItems = computed(() => {
         </div>
       </div>
     </section>
-    <section ref="$section2" class="section section--nm home-2">
+    <section class="section section--nm home-2">
       <ParallaxImg
         class="home-2__bg"
         src="/images/home/4.jpg"
