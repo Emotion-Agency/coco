@@ -14,14 +14,7 @@ export default defineNuxtConfig({
         },
       },
     ],
-    'nuxt-delay-hydration',
   ],
-
-  delayHydration: {
-    // enables nuxt-delay-hydration in dev mode for testing
-    debug: process.env.NODE_ENV === 'development',
-    mode: 'init',
-  },
 
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
