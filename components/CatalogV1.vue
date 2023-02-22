@@ -67,7 +67,12 @@ watch(
             data-a-gl-progress="0"
           />
           <h3 class="catalog-v1__title">{{ el.title }}</h3>
-          <p class="catalog-v1__price">[${{ el.price }}]</p>
+          <Price
+            :price="el.price"
+            :compare-price="el.compare_price"
+            :disable-for-sale="el.disableForSale"
+            class="catalog-v1__price"
+          />
         </a>
       </li>
     </ul>

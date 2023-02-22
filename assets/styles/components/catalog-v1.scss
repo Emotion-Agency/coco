@@ -23,6 +23,9 @@
 }
 
 .catalog-v1__product {
+  &--disable {
+    opacity: 0.5 !important;
+  }
   &:hover {
     .catalog-v1__title {
       animation: blurry 0.4s $easing;
@@ -137,4 +140,19 @@
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
+}
+
+.price {
+  &--sale {
+    .price__current {
+      color: var(--red);
+    }
+  }
+}
+
+.price__compare {
+  display: inline-block;
+  margin-left: 10px;
+  opacity: 0.5;
+  text-decoration: line-through;
 }

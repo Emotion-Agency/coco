@@ -90,9 +90,14 @@ onBeforeUnmount(() => {
             <p data-a-t class="product-1__category">
               {{ currentProduct.collection }}
             </p>
-            <p v-if="currentProduct.price" data-a-t class="product-1__price">
-              ${{ Number(currentProduct.price).toFixed(2) }}
-            </p>
+            <Price
+              :price="currentProduct.price"
+              :compare-price="currentProduct.compare_price"
+              :disable-for-sale="currentProduct.disableForSale"
+              :to-fixed="true"
+              data-a-t
+              class="product-1__price"
+            />
           </div>
           <div class="product-1__mobile-images-wrapper">
             <ProductImages
@@ -132,6 +137,7 @@ onBeforeUnmount(() => {
           <div data-a-o class="product-1__right-button">
             <TextButton
               class="product-1__right-btn"
+              :disabled="currentProduct.disableForSale"
               @click="addToCart(currentProduct)"
               >Add to bag</TextButton
             >

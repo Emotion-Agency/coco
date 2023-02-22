@@ -7,7 +7,7 @@ import { useProductsStories } from '~~/composables/stories/productsStory'
 
 /**
 * @todo
-loading and transition animations
+loading animation
 bears animation
 connect insta photos to footer
 * */
@@ -92,7 +92,6 @@ useHead({
     <SmoothScroll>
       <TheHeader />
       <Cart />
-      <div id="noise"></div>
       <slot />
       <div id="gl"></div>
       <div class="noise"></div>

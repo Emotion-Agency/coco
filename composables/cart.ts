@@ -6,6 +6,10 @@ export const useCart = () => {
   const { addToast } = useToasts()
 
   const addToCart = (item: iItem) => {
+    if (item.disableForSale) {
+      return
+    }
+
     const findItem = cartItems.value.find(ci => ci.id === item.id)
 
     addToast({

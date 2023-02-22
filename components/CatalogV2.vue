@@ -71,10 +71,18 @@ watch(
           </div>
           <h3 class="catalog-v2__title">{{ el.title }}</h3>
           <div class="catalog-v2__bottom">
-            <p class="catalog-v2__price">[${{ el.price }}]</p>
+            <Price
+              :price="el.price"
+              :compare-price="el.compare_price"
+              :disable-for-sale="el.disableForSale"
+              class="catalog-v2__price"
+            />
           </div>
         </a>
-        <TextButton class="catalog__v2-btn" @click="addToCart(el)"
+        <TextButton
+          v-if="!el.disableForSale"
+          class="catalog__v2-btn"
+          @click="addToCart(el)"
           >Add to bag</TextButton
         >
       </li>
