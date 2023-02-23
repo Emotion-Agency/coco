@@ -9,3 +9,12 @@ declare global {
     noise: any
   }
 }
+
+export interface iInstaPost {
+  __typename: 'GraphImage' | 'GraphVideo'
+  id: string
+  video_url?: string
+  shortcode: string
+  display_url: string
+  full_url: string
+}

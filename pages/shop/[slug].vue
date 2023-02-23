@@ -87,9 +87,13 @@ onBeforeUnmount(() => {
               (Choker №{{ currentProduct.idx + 1 }})
             </p>
             <h3 data-a-h class="product-1__name">{{ currentProduct.title }}</h3>
-            <p data-a-t class="product-1__category">
+            <NuxtLink
+              :to="`/shop?filter=${currentProduct.collection}`"
+              data-a-t
+              class="product-1__category"
+            >
               {{ currentProduct.collection }}
-            </p>
+            </NuxtLink>
             <Price
               :price="currentProduct.price"
               :compare-price="currentProduct.compare_price"

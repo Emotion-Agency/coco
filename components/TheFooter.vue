@@ -1,60 +1,34 @@
 <script setup lang="ts">
 import { dateHandler } from '~~/assets/scripts/getDate'
 
-const galleryImages = [
-  {
-    link: 'https://www.instagram.com/',
-    imgUrl: '/images/footer/11.jpg',
-  },
-  {
-    link: 'https://www.instagram.com/',
-    imgUrl: '/images/footer/2.jpg',
-  },
-  {
-    link: 'https://www.instagram.com/',
-    imgUrl: '/images/footer/3.jpg',
-  },
-  {
-    link: 'https://www.instagram.com/',
-    imgUrl: '/images/footer/4.jpg',
-  },
-  {
-    link: 'https://www.instagram.com/',
-    imgUrl: '/images/footer/5.jpg',
-  },
-  {
-    link: 'https://www.instagram.com/',
-    imgUrl: '/images/footer/6.jpg',
-  },
-  {
-    link: 'https://www.instagram.com/',
-    imgUrl: '/images/footer/7.jpg',
-  },
-  {
-    link: 'https://www.instagram.com/',
-    imgUrl: '/images/footer/8.jpg',
-  },
-  {
-    link: 'https://www.instagram.com/',
-    imgUrl: '/images/footer/9.jpg',
-  },
-  {
-    link: 'https://www.instagram.com/',
-    imgUrl: '/images/footer/10.jpg',
-  },
-]
-
 const { isCartOpen } = useCart()
 
 const { nextPage } = useFooterLink()
 const date = ref('')
 
+const postsLinks = [
+  'https://www.instagram.com/p/Co8rrYWDhqO/',
+  'https://www.instagram.com/p/Co8LD5Lpatt/',
+  'https://www.instagram.com/p/CoQp6tdpYwQ/',
+  'https://www.instagram.com/p/CoDNDWSJmBX/',
+  'https://www.instagram.com/p/CoALtsEu3-W/',
+  'https://www.instagram.com/p/Cn8A82EJtgW/',
+  'https://www.instagram.com/p/Cn5gLoaJmnl/',
+  'https://www.instagram.com/p/Cnc6i9wJbTJ/',
+  'https://www.instagram.com/p/CmmW77lpYfT/',
+  'https://www.instagram.com/p/Cmk0UwtjNI1/',
+]
+
+const { posts, getPosts } = useInstagramPosts()
+
 let interval
-onMounted(() => {
+onMounted(async () => {
   date.value = dateHandler()
   interval = setInterval(() => {
     date.value = dateHandler()
   }, 10000)
+
+  await getPosts(postsLinks)
 })
 
 onBeforeUnmount(() => {
@@ -69,7 +43,7 @@ const linkText = computed(() => {
 <template>
   <footer class="footer">
     <div class="container footer__wrapper">
-      <div class="footer__top-block">
+      <div v-if="posts.length" class="footer__top-block">
         <div class="footer__logo-wrapper">
           <IconsBigLogo class="footer__logo" />
         </div>
@@ -85,16 +59,17 @@ const linkText = computed(() => {
         <div class="footer__gallery-wrapper">
           <ul class="footer__gallery">
             <li
-              v-for="(el, idx) in galleryImages"
+              v-for="(el, idx) in posts"
               :key="idx"
               class="footer__gallery-item"
             >
-              <a :href="el.link" target="_blank" rel="noreferrer noopener">
+              <a :href="el.full_url" target="_blank" rel="noreferrer noopener">
                 <TheImg
                   format="webp"
                   quality="90"
+                  :imgx="true"
                   class="footer__img"
-                  :src="el.imgUrl"
+                  :src="el.display_url"
                   alt="Background"
                 />
               </a>

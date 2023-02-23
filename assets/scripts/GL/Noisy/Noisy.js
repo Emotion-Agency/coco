@@ -19,7 +19,7 @@ export default class Noisy extends Figure {
   }
 
   createMaterial() {
-    const a = 0.3 / (2 / this.renderer.dpr)
+    const a = 0.2 / (2 / this.renderer.dpr)
     const uniforms = {
       uAlpha: { value: a },
     }
