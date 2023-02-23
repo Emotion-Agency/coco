@@ -1,5 +1,8 @@
 <script lang="ts" setup>
 const { isLoaded } = useAppState()
+
+const $el = ref(null)
+
 onMounted(() => {
   setTimeout(() => {
     isLoaded.value = true
@@ -8,8 +11,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <Transition name="fade">
-    <div v-if="!isLoaded" class="coco-loader">
+  <transition name="blur">
+    <div v-show="!isLoaded" ref="$el" class="coco-loader">
       <div class="container coco-loader__container">
         <IconsBigLogo class="coco-loader__logo" />
         <p class="coco-loader__text">
@@ -19,5 +22,5 @@ onMounted(() => {
         </p>
       </div>
     </div>
-  </Transition>
+  </transition>
 </template>

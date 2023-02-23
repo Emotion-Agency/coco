@@ -56,6 +56,19 @@ body {
   opacity: 0;
 }
 
+.blur-enter-active,
+.blur-leave-active {
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(0.64, 0, 0.78, 0);
+  transition-property: opacity, transform, filter;
+}
+.blur-enter,
+.blur-leave-to {
+  opacity: 0;
+  transform: scale(0.99);
+  filter: blur(100px);
+}
+
 #gl {
   position: fixed;
   top: 0;

@@ -6,7 +6,7 @@ export const useAnimation = () => {
       const { appAnimation } = await import('~~/assets/scripts/appAnimation')
       setTimeout(() => {
         appAnimation()
-      }, 200)
+      }, 350)
     }
   })
 
