@@ -13,6 +13,14 @@
   }
 }
 
+.about-4__wrapper {
+  @media (min-width: $br1) {
+    pointer-events: none;
+  }
+  position: relative;
+  z-index: 2;
+}
+
 .about-4__text-wrapper {
   @media (max-width: $br1) {
     grid-template-columns: repeat(4, 1fr);

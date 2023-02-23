@@ -10,7 +10,10 @@ onMounted(async () => {
   const fl = fallingBears($parent.value)
   const setup = () => {
     const top = $parent.value.getBoundingClientRect().top
-    if (top < window.innerHeight / 2) {
+    const height = $parent.value.getBoundingClientRect().height
+
+    console.log(top, window.innerHeight)
+    if (top < window.innerHeight && -top < height) {
       !isInited && fl.play()
       isInited = true
     } else {

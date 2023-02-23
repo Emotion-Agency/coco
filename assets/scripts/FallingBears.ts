@@ -10,6 +10,8 @@ const size = (pcSize, mobSize) => {
   return mobSize + addSize * ((window.innerWidth - min) / maxWidth)
 }
 
+// let count = 0
+
 export const fallingBears = (parent: HTMLElement) => {
   let w = parent.offsetWidth
   let h = parent.offsetHeight
@@ -29,7 +31,11 @@ export const fallingBears = (parent: HTMLElement) => {
   const engine = Engine.create()
   const world = engine.world
 
-  // world.gravity.y = 0.4
+  // world.gravity.y = 0.1
+
+  // if (count > 10) {
+  world.gravity.y = 0.06
+  // }
 
   // create a renderer
   const render = Render.create({
@@ -51,13 +57,13 @@ export const fallingBears = (parent: HTMLElement) => {
 
   const floorHeight = 160
 
-  const ground = Bodies.rectangle(
-    0,
-    h + floorHeight / 2,
-    w * ratio,
-    floorHeight,
-    opts
-  )
+  // const ground = Bodies.rectangle(
+  //   0,
+  //   h + floorHeight / 2,
+  //   w * ratio,
+  //   floorHeight,
+  //   opts
+  // )
 
   const wallLeft = Bodies.rectangle(
     -floorHeight / 2,
@@ -75,13 +81,13 @@ export const fallingBears = (parent: HTMLElement) => {
     opts
   )
 
-  const roof = Bodies.rectangle(0, -h, w * ratio, floorHeight, opts)
+  // const roof = Bodies.rectangle(0, -h, w * ratio, floorHeight, opts)
 
-  World.add(world, [ground, wallLeft, wallRight, roof])
+  World.add(world, [wallLeft, wallRight])
 
-  let scale = size(0.6, 0.2)
+  let scale = size(0.6, 0.4)
 
-  const createLetters = () => {
+  const createBears = (isInital: boolean) => {
     const bear = {
       sizes: {
         w: 138,
@@ -89,37 +95,44 @@ export const fallingBears = (parent: HTMLElement) => {
       },
     }
 
-    for (let i = 0; i < 100; i++) {
-      let xPos = Math.random() * w
-      xPos = clamp(xPos, bear.sizes.w * scale, w)
+    let xPos = Math.random() * w
+    xPos = clamp(xPos, bear.sizes.w * scale, w)
 
-      console.log(xPos)
-      const yPos = -floorHeight
+    const yPos = !isInital ? -floorHeight : Math.random() * h
 
-      const el = Bodies.rectangle(
-        xPos,
-        yPos,
-        bear.sizes.w * scale,
-        bear.sizes.h * scale,
-        {
-          isSleeping: false,
-          restitution: 0.07,
-          frictionAir: 0.0001,
-          velocity: { x: 0, y: 0 },
-          angle: Math.random() * 0.5,
-          render: {
-            sprite: {
-              texture: '/images/bear.png',
-              xScale: scale,
-              yScale: scale,
-            },
+    const el = Bodies.rectangle(
+      xPos,
+      yPos,
+      bear.sizes.w * scale,
+      bear.sizes.h * scale,
+      {
+        isSleeping: false,
+        restitution: 1,
+        frictionAir: 0.001,
+        velocity: { x: 0, y: 0 },
+        angle: Math.random() * 0.5,
+        render: {
+          sprite: {
+            texture: '/images/bear.png',
+            xScale: scale,
+            yScale: scale,
           },
-        }
-      )
-      setTimeout(() => {
-        World.add(world, el)
-      }, 200 * i)
+        },
+      }
+    )
+
+    if (Matter.Composite.allBodies(engine.world).length <= 100) {
+      World.add(world, el)
     }
+
+    // count = Matter.Composite.allBodies(engine.world).length
+
+    Matter.Events.on(render, 'afterRender', function () {
+      const bounds = el.bounds
+      if (bounds.max.y > h + (floorHeight / 2 + 100)) {
+        Matter.Composite.remove(engine.world, el)
+      }
+    })
   }
 
   const mouse = Mouse.create(render.canvas)
@@ -180,7 +193,13 @@ export const fallingBears = (parent: HTMLElement) => {
         return
       }
 
-      createLetters()
+      for (let i = 0; i < 20; i++) {
+        createBears(true)
+      }
+
+      setInterval(() => {
+        createBears(false)
+      }, 300)
 
       isInit = true
     },
