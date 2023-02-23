@@ -12,7 +12,12 @@ const size = (pcSize, mobSize) => {
 
 // let count = 0
 
-export const fallingBears = (parent: HTMLElement) => {
+export type fallingBearsReturn = {
+  play: () => void
+  stop: () => void
+}
+
+export const fallingBears = (parent: HTMLElement): fallingBearsReturn => {
   let w = parent.offsetWidth
   let h = parent.offsetHeight
   const ratio = 2
@@ -108,7 +113,7 @@ export const fallingBears = (parent: HTMLElement) => {
       {
         isSleeping: false,
         restitution: 1,
-        frictionAir: 0.001,
+        frictionAir: 0.0001,
         velocity: { x: 0, y: 0 },
         angle: Math.random() * 0.5,
         render: {
@@ -173,7 +178,7 @@ export const fallingBears = (parent: HTMLElement) => {
     render.canvas.style.width = w
     render.canvas.style.height = w
 
-    scale = size(0.6, 0.2)
+    scale = size(0.6, 0.4)
   }
 
   resize.on(onResize)
@@ -182,7 +187,6 @@ export const fallingBears = (parent: HTMLElement) => {
     stop: () => {
       console.log('stop')
       Render.stop(render)
-      Runner.stop(runner)
     },
     play: () => {
       console.log('init')

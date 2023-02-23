@@ -71,6 +71,7 @@ const { story } = await useHomeStory()
                 v-if="story?.content?.main_screen_text_1"
                 data-a-t
                 class="home-1__desc-text"
+                :title="story?.content?.main_screen_text_1"
               >
                 {{ story.content.main_screen_text_1 }}
               </p>
@@ -78,11 +79,13 @@ const { story } = await useHomeStory()
                 v-if="story?.content?.main_screen_text_2"
                 data-a-t
                 class="home-1__desc-text"
+                :title="story?.content?.main_screen_text_2"
               >
                 {{ story.content.main_screen_text_2 }}
               </p>
               <p
                 v-if="story?.content?.main_screen_text_3"
+                :title="story?.content?.main_screen_text_3"
                 data-a-t
                 class="home-1__desc-text"
               >

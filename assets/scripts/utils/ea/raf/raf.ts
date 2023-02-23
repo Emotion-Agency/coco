@@ -1,4 +1,4 @@
-type TFunc = () => void
+type TFunc = (...agrs) => void
 
 export class RAF {
   cbArray: Array<null | TFunc>
