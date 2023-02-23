@@ -5,9 +5,10 @@ import { useFonts } from '~/composables/fonts'
 import { productsDTO } from '~~/composables/stories/helpers/productsDTO'
 import { useProductsStories } from '~~/composables/stories/productsStory'
 
+await preloadComponents('TheLoader')
+
 /**
 * @todo
-loading animation
 connect insta photos to footer
 * */
 useFonts()
@@ -101,6 +102,7 @@ onBeforeUnmount(() => {
       ></Meta>
       <Link rel="icon" type="image/x-icon" href="/favicon.ico"></Link>
     </Head>
+    <TheLoader />
     <AppGrid />
     <SmoothScroll>
       <TheHeader />

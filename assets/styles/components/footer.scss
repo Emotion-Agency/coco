@@ -21,22 +21,6 @@
   align-items: center;
 }
 
-.footer__logo {
-  display: block;
-  height: vw(395);
-  width: vw(300);
-
-  @media (max-width: $br1) {
-    height: 180px;
-    width: 136px;
-  }
-
-  @media (max-width: $br4) {
-    height: 66px;
-    width: 50px;
-  }
-}
-
 .footer__top-title {
   margin-top: vw(85);
 

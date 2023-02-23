@@ -1,0 +1,38 @@
+.coco-loader {
+  @include coverdiv(fixed);
+  z-index: 1000;
+
+  background-color: var(--white);
+}
+
+.coco-loader__container {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  height: 100%;
+}
+
+.coco-loader__logo {
+  height: 59px;
+  width: 50px;
+}
+
+.coco-loader__text {
+  @include reg;
+  text-align: center;
+  margin-top: vw(90);
+  max-width: vw(630);
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (max-width: $br1) {
+    margin-top: 18px;
+    max-width: 582px;
+  }
+
+  @media (max-width: $br4) {
+    margin-top: 12px;
+    max-width: 100%;
+  }
+}

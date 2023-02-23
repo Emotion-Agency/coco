@@ -192,3 +192,25 @@ body:not(.in-storyblok) {
     background-color: transparent;
   }
 }
+
+.big-logo {
+  // background: url('/images/sprite.svg');
+  // background-size: vw(1819) vw(376.25);
+  // background-repeat: no-repeat;
+  // background-position-x: 0;
+  // background-position-y: center;
+
+  display: block;
+  height: vw(376);
+  width: vw(315);
+
+  @media (max-width: $br1) {
+    height: 176px;
+    width: 149px;
+  }
+
+  @media (max-width: $br4) {
+    height: 59px;
+    width: 50px;
+  }
+}
