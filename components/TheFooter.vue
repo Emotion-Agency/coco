@@ -67,7 +67,6 @@ const linkText = computed(() => {
                 <TheImg
                   format="webp"
                   quality="90"
-                  :imgx="true"
                   class="footer__img"
                   :src="el.display_url"
                   alt="Background"

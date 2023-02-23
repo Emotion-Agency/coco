@@ -8,8 +8,51 @@ const getPostId = (url: string) => {
   return id
 }
 
+const galleryImages = [
+  {
+    full_url: 'https://www.instagram.com/',
+    display_url: '/images/footer/11.jpg',
+  },
+  {
+    full_url: 'https://www.instagram.com/',
+    display_url: '/images/footer/2.jpg',
+  },
+  {
+    full_url: 'https://www.instagram.com/',
+    display_url: '/images/footer/3.jpg',
+  },
+  {
+    full_url: 'https://www.instagram.com/',
+    display_url: '/images/footer/4.jpg',
+  },
+  {
+    full_url: 'https://www.instagram.com/',
+    display_url: '/images/footer/5.jpg',
+  },
+  {
+    full_url: 'https://www.instagram.com/',
+    display_url: '/images/footer/6.jpg',
+  },
+  {
+    full_url: 'https://www.instagram.com/',
+    display_url: '/images/footer/7.jpg',
+  },
+  {
+    full_url: 'https://www.instagram.com/',
+    display_url: '/images/footer/8.jpg',
+  },
+  {
+    full_url: 'https://www.instagram.com/',
+    display_url: '/images/footer/9.jpg',
+  },
+  {
+    full_url: 'https://www.instagram.com/',
+    display_url: '/images/footer/10.jpg',
+  },
+]
+
 export const useInstagramPosts = () => {
-  const posts = useState<iInstaPost[]>('instagramPosts', () => [])
+  const posts = useState<iInstaPost[]>('instagramPosts', () => galleryImages)
 
   const getPosts = (links: string[]) => {
     if (posts.value.length <= 10) {

@@ -107,9 +107,9 @@
   object-fit: cover;
   cursor: pointer;
 
-  // @media (min-width: $br1) {
-  //   height: fit-content;
-  // }
+  @media (min-width: $br1) {
+    aspect-ratio: 1;
+  }
 
   @media (max-width: $br1) {
     aspect-ratio: 0.85;
