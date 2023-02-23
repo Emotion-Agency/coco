@@ -6,6 +6,7 @@ interface iProps {
   alt?: string
   width?: number
   height?: number
+  storyblok?: boolean
 }
 
 withDefaults(defineProps<iProps>(), {
@@ -21,6 +22,7 @@ withDefaults(defineProps<iProps>(), {
         class="parallax-img"
         :class="imgClass"
         data-parallax="0.06"
+        :storyblok="storyblok"
         :data-scale="scale"
         :width="width"
         :height="height"

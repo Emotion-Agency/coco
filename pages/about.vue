@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { pageTransition } from '~~/assets/scripts/transition'
+import { useAboutStory } from '~/composables/stories/aboutStory'
 
 definePageMeta({
   pageTransition,
@@ -10,6 +11,8 @@ updateNextPage('shop')
 useAnimation()
 
 useObserver('.section')
+
+const { story } = await useAboutStory()
 </script>
 
 <template>
@@ -18,9 +21,10 @@ useObserver('.section')
       <ParallaxImg
         data-a-o
         class="about-1__bg"
-        src="/images/about/1.jpg"
+        :storyblok="true"
+        :src="story.content.main_screen_image.filename"
         :scale="1"
-        alt="Background"
+        alt="Relive by Coco"
       />
       <TheTicker
         data-a-t
@@ -65,7 +69,8 @@ useObserver('.section')
             quality="90"
             class="about-3__img"
             img-class="about-3__img"
-            src="/images/about/2.jpg"
+            :storyblok="true"
+            :src="story.content.third_screen_image.filename"
             alt="About image"
           />
           <p class="about-3__text">
@@ -110,7 +115,8 @@ useObserver('.section')
           class="about-5__img"
           img-class="about-5__img"
           :scale="1"
-          src="/images/about/3.jpg"
+          :storyblok="true"
+          :src="story.content.fourth_screen_image.filename"
           alt="About image"
         />
         <div class="container about-5__info-wrapper">

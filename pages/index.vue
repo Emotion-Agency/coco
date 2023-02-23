@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { pageTransition } from '~~/assets/scripts/transition'
+import { useHomeStory } from '~~/composables/stories/homeStory'
 
 definePageMeta({
   pageTransition,
@@ -37,6 +38,10 @@ const filteredItems = computed(() => {
 
 //   new SectionParallax($section1.value, $section2.value)
 // })
+
+const { story } = await useHomeStory()
+
+console.log(story.value)
 </script>
 
 <template>
@@ -64,21 +69,26 @@ const filteredItems = computed(() => {
             </h1>
             <div data-a-t class="home-1__text">Jewelry</div>
             <div class="home-1__description">
-              <p data-a-t class="home-1__desc-text">
-                Our online store offers a unique selection of handmade recycled
-                and vegan jewelry, perfect for conscious consumers looking to
-                make a difference in the world
+              <p
+                v-if="story?.content?.main_screen_text_1"
+                data-a-t
+                class="home-1__desc-text"
+              >
+                {{ story.content.main_screen_text_1 }}
               </p>
-              <p data-a-t class="home-1__desc-text">
-                Each piece is crafted using recycled materials and is completely
-                vegan, making it a sustainable and ethical choice for those who
-                care about the planet
+              <p
+                v-if="story?.content?.main_screen_text_2"
+                data-a-t
+                class="home-1__desc-text"
+              >
+                {{ story.content.main_screen_text_2 }}
               </p>
-              <p data-a-t class="home-1__desc-text">
-                Supporting this online store means supporting a young girl's
-                dream and her commitment to making the world a better place. It
-                is a reminder that we all have the power to make a difference,
-                no matter how young we may be
+              <p
+                v-if="story?.content?.main_screen_text_3"
+                data-a-t
+                class="home-1__desc-text"
+              >
+                {{ story.content.main_screen_text_3 }}
               </p>
             </div>
             <div data-a-o class="home-1__icon-wrapper">
@@ -90,7 +100,9 @@ const filteredItems = computed(() => {
       <section class="section section--nm home-2">
         <ParallaxImg
           class="home-2__bg"
-          src="/images/home/4.jpg"
+          :src="story.content.second_screen_image.filename"
+          :storyblok="true"
+          :width="1920"
           alt="Background"
         />
         <div class="container home-2__wrapper">

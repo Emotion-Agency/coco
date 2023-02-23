@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { iItem } from '~~/types/products'
+import { appAnimation } from '~/assets/scripts/appAnimation'
 
 interface iProps {
   items: iItem[]
@@ -29,6 +30,7 @@ watch(
     destroyImages($items.value)
     setTimeout(() => {
       initImages($items.value)
+      appAnimation()
     }, 200)
 
     setTimeout(() => {
