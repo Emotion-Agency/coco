@@ -44,19 +44,19 @@ const linkText = computed(() => {
   <footer class="footer">
     <div class="container footer__wrapper">
       <div v-if="posts.length" class="footer__top-block">
-        <div class="footer__logo-wrapper">
+        <div data-a-t class="footer__logo-wrapper">
           <IconsBigLogo class="footer__logo" />
         </div>
         <h3 class="grid footer__top-title">
-          <span class="footer__span-title"> Check </span>
-          <span class="footer__span-title"> Our </span>
-          <span class="footer__span-title"> Insta </span>
+          <span data-a-h class="footer__span-title"> Check </span>
+          <span data-a-h class="footer__span-title"> Our </span>
+          <span data-a-h class="footer__span-title"> Insta </span>
         </h3>
-        <p class="footer__description">
+        <p data-a-t class="footer__description">
           We believe that together we can create a better future, and we invite
           you to be a part of it. Follow us now and let's make a difference!
         </p>
-        <div class="footer__gallery-wrapper">
+        <div data-a-o class="footer__gallery-wrapper">
           <ul class="footer__gallery">
             <li
               v-for="(el, idx) in posts"

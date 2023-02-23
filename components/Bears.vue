@@ -42,6 +42,8 @@ onMounted(async () => {
 })
 
 onBeforeUnmount(() => {
+  isFocused.value = true
+
   raf.off(setup)
 })
 </script>

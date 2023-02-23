@@ -199,7 +199,7 @@ body:not(.in-storyblok) {
   // background-repeat: no-repeat;
   // background-position-x: 0;
   // background-position-y: center;
-
+  position: relative;
   display: block;
   height: vw(376);
   width: vw(315);

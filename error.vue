@@ -15,7 +15,7 @@ const handleError = () => {
 </script>
 
 <template>
-  <NuxtLayout :is-footer="false">
+  <NuxtLayout :is-footer="false" name="default">
     <div data-a-o>
       <div v-if="+error.statusCode === 404" class="error-page">
         <div class="container error-page__container">

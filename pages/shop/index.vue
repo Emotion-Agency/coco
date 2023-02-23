@@ -36,7 +36,6 @@ const filteredItems = computed(() => {
             default-text="All"
             @filter="categoryFilterHandler"
           />
-          <nuxt-link to="/shop/blag">dasdsa</nuxt-link>
           <CatalogV2 class="catalogue-1__catalog" :items="filteredItems" />
         </div>
       </div>
