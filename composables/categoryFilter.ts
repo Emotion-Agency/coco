@@ -22,7 +22,8 @@ export const useCategoryFilter = (items: Ref<iItem[]>) => {
       })
     } else {
       filteredProductsByCategory.value = items.value.filter(
-        product => product.collection === value
+        product =>
+          product.collection.toLocaleLowerCase().replace(/\s/gm, '-') === value
       )
       router.push(`?filter=${value}`)
     }

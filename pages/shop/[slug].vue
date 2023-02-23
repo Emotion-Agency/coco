@@ -118,7 +118,10 @@ useHead({
             </p>
             <h3 data-a-h class="product-1__name">{{ currentProduct.title }}</h3>
             <NuxtLink
-              :to="`/shop?filter=${currentProduct.collection}`"
+              v-if="currentProduct.collection"
+              :to="`/shop?filter=${currentProduct.collection
+                .toLocaleLowerCase()
+                .replace(/\s/gm, '-')}`"
               data-a-t
               class="product-1__category"
             >
