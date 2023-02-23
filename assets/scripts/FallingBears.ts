@@ -1,0 +1,188 @@
+import Matter from 'matter-js'
+import { clamp, resize } from './utils/ea'
+
+const size = (pcSize, mobSize) => {
+  const min = 375
+  const max = 1440
+  const addSize = pcSize - mobSize
+  const maxWidth = max - min
+
+  return mobSize + addSize * ((window.innerWidth - min) / maxWidth)
+}
+
+export const fallingBears = (parent: HTMLElement) => {
+  let w = parent.offsetWidth
+  let h = parent.offsetHeight
+  const ratio = 2
+
+  let isInit = false
+
+  const Engine = Matter.Engine
+  const Render = Matter.Render
+  const Runner = Matter.Runner
+  const MouseConstraint = Matter.MouseConstraint
+  const Mouse = Matter.Mouse
+  const World = Matter.World
+  const Bodies = Matter.Bodies
+
+  // create an engine
+  const engine = Engine.create()
+  const world = engine.world
+
+  // world.gravity.y = 0.4
+
+  // create a renderer
+  const render = Render.create({
+    element: parent,
+    engine,
+    options: {
+      width: w,
+      height: h,
+      pixelRatio: 1,
+      background: 'transparent',
+      wireframes: false,
+    },
+  })
+
+  const opts = {
+    render: { fillStyle: '#ffffff', visible: false },
+    isStatic: true,
+  }
+
+  const floorHeight = 160
+
+  const ground = Bodies.rectangle(
+    0,
+    h + floorHeight / 2,
+    w * ratio,
+    floorHeight,
+    opts
+  )
+
+  const wallLeft = Bodies.rectangle(
+    -floorHeight / 2,
+    -h,
+    floorHeight,
+    h * ratio + floorHeight + h * ratio,
+    opts
+  )
+
+  const wallRight = Bodies.rectangle(
+    w + floorHeight / 2,
+    -h,
+    floorHeight,
+    h * ratio + floorHeight + h * ratio,
+    opts
+  )
+
+  const roof = Bodies.rectangle(0, -h, w * ratio, floorHeight, opts)
+
+  World.add(world, [ground, wallLeft, wallRight, roof])
+
+  let scale = size(0.6, 0.2)
+
+  const createLetters = () => {
+    const bear = {
+      sizes: {
+        w: 138,
+        h: 179,
+      },
+    }
+
+    for (let i = 0; i < 100; i++) {
+      let xPos = Math.random() * w
+      xPos = clamp(xPos, bear.sizes.w * scale, w)
+
+      console.log(xPos)
+      const yPos = -floorHeight
+
+      const el = Bodies.rectangle(
+        xPos,
+        yPos,
+        bear.sizes.w * scale,
+        bear.sizes.h * scale,
+        {
+          isSleeping: false,
+          restitution: 0.07,
+          frictionAir: 0.0001,
+          velocity: { x: 0, y: 0 },
+          angle: Math.random() * 0.5,
+          render: {
+            sprite: {
+              texture: '/images/bear.png',
+              xScale: scale,
+              yScale: scale,
+            },
+          },
+        }
+      )
+      setTimeout(() => {
+        World.add(world, el)
+      }, 200 * i)
+    }
+  }
+
+  const mouse = Mouse.create(render.canvas)
+
+  const mouseConstraint = MouseConstraint.create(engine, {
+    mouse,
+    constraint: {
+      stiffness: 0.02,
+      angularStiffness: 0.02,
+      render: {
+        visible: false,
+      },
+    },
+  })
+
+  World.add(world, mouseConstraint)
+
+  // keep the mouse in sync with rendering
+  render.mouse = mouse
+
+  Render.run(render)
+
+  const runner = Runner.create()
+  Runner.run(runner, engine)
+
+  const onResize = () => {
+    w = parent.offsetWidth
+    h = parent.offsetHeight
+
+    render.bounds.max.x = w
+    render.bounds.max.y = h
+
+    render.options.width = w
+    render.options.height = h
+    render.canvas.width = w
+    render.canvas.height = h
+
+    render.canvas.style.width = w
+    render.canvas.style.height = w
+
+    scale = size(0.6, 0.2)
+  }
+
+  resize.on(onResize)
+
+  return {
+    stop: () => {
+      console.log('stop')
+      Render.stop(render)
+      Runner.stop(runner)
+    },
+    play: () => {
+      console.log('init')
+      Render.run(render)
+      Runner.run(runner, engine)
+
+      if (isInit) {
+        return
+      }
+
+      createLetters()
+
+      isInit = true
+    },
+  }
+}

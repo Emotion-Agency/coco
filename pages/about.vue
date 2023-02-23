@@ -107,6 +107,7 @@ const { story } = await useAboutStory()
             the charms you pick and never get bored
           </p>
         </div>
+        <Bears />
       </div>
     </div>
     <section class="section section--nm about-5">
