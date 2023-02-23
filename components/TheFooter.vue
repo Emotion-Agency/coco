@@ -70,6 +70,7 @@ const linkText = computed(() => {
                   class="footer__img"
                   :src="el.display_url"
                   alt="Background"
+                  lazy="true"
                 />
               </a>
             </li>
