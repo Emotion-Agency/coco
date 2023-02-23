@@ -171,14 +171,18 @@ useHead({
               </p>
             </div>
           </div>
-          <div data-a-o class="product-1__right-button">
-            <TextButton
-              class="product-1__right-btn"
-              :disabled="currentProduct.disableForSale"
-              @click="addToCart(currentProduct)"
-              >Add to bag</TextButton
-            >
-          </div>
+          <ClientOnly>
+            <Teleport :disabled="!isMobile" to="#app">
+              <div data-a-o class="product-1__right-button">
+                <TextButton
+                  class="product-1__right-btn"
+                  :disabled="currentProduct.disableForSale"
+                  @click="addToCart(currentProduct)"
+                  >Add to bag</TextButton
+                >
+              </div>
+            </Teleport>
+          </ClientOnly>
         </div>
       </div>
       <ClientOnly>
