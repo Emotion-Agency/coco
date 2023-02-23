@@ -69,6 +69,36 @@ const $el = ref<HTMLElement>(null)
 onBeforeUnmount(() => {
   destroyImages([$el.value])
 })
+
+const JSONSchema = computed(() => {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '5',
+      reviewCount: '1',
+    },
+    description: currentProduct.value.description,
+    name: currentProduct.value.title,
+    image: currentProduct.value.mainImage,
+    offers: {
+      '@type': 'Offer',
+      availability: 'https://schema.org/InStock',
+      price: currentProduct.value.price,
+      priceCurrency: 'USD',
+    },
+  }
+})
+
+useHead({
+  script: [
+    {
+      children: JSON.stringify(JSONSchema.value),
+      type: 'application/ld+json',
+    },
+  ],
+})
 </script>
 
 <template>

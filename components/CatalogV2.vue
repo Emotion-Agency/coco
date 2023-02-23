@@ -36,6 +36,35 @@ watch(
     }, 500)
   }
 )
+
+const JSONSchema = computed(() => {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    url: process.client && location?.href,
+    numberOfItems: props.items.length,
+    itemListElement: props.items.map(el => ({
+      '@type': 'Product',
+      image: el.mainImage,
+      url: process.client && `${location?.origin}/shop/${el.slug}`,
+      name: el.title,
+      offers: {
+        '@type': 'Offer',
+        price: el.price,
+        priceCurrency: 'USD',
+      },
+    })),
+  }
+})
+
+useHead({
+  script: [
+    {
+      children: JSON.stringify(JSONSchema.value),
+      type: 'application/ld+json',
+    },
+  ],
+})
 </script>
 
 <template>
