@@ -8,7 +8,6 @@ import { useProductsStories } from '~~/composables/stories/productsStory'
 /**
 * @todo
 loading animation
-bears animation
 connect insta photos to footer
 * */
 useFonts()
