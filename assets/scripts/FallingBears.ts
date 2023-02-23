@@ -17,7 +17,10 @@ export type fallingBearsReturn = {
   stop: () => void
 }
 
-export const fallingBears = (parent: HTMLElement): fallingBearsReturn => {
+export const fallingBears = (
+  parent: HTMLElement,
+  withInitial: boolean
+): fallingBearsReturn => {
   let w = parent.offsetWidth
   let h = parent.offsetHeight
   const ratio = 2
@@ -197,8 +200,10 @@ export const fallingBears = (parent: HTMLElement): fallingBearsReturn => {
         return
       }
 
-      for (let i = 0; i < 20; i++) {
-        createBears(true)
+      if (withInitial) {
+        for (let i = 0; i < 20; i++) {
+          createBears(true)
+        }
       }
 
       setInterval(() => {

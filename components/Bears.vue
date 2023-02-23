@@ -2,6 +2,14 @@
 import { delayPromise, raf } from '~~/assets/scripts/utils/ea'
 import { fallingBears, fallingBearsReturn } from '~/assets/scripts/FallingBears'
 
+interface iProps {
+  withInitial?: boolean
+}
+
+const props = withDefaults(defineProps<iProps>(), {
+  withInitial: true,
+})
+
 const $parent = ref(null)
 
 const isInited = ref(false)
@@ -22,7 +30,7 @@ let setup = (fl: fallingBearsReturn) => {
 
 onMounted(async () => {
   await delayPromise(2000)
-  const fl = fallingBears($parent.value)
+  const fl = fallingBears($parent.value, props.withInitial)
   setup = setup.bind(null, fl)
   window.addEventListener('blur', () => {
     isFocused.value = false

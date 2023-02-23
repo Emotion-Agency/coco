@@ -25,7 +25,7 @@ const currentProduct = computed(() => {
 })
 
 if (!currentProduct.value) {
-  throw createError({ statusCode: 404, statusMessage: 'Page Not Found' })
+  throw showError({ statusCode: 404, statusMessage: 'Page Not Found' })
 }
 
 const otherProducts = computed(() => {

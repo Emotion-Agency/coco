@@ -12,6 +12,14 @@ connect insta photos to footer
 * */
 useFonts()
 
+interface iProps {
+  isFooter?: boolean
+}
+
+withDefaults(defineProps<iProps>(), {
+  isFooter: true,
+})
+
 const { isInEditor } = useAppState()
 
 const { products } = useProducts()
@@ -30,7 +38,7 @@ const parallaxInit = async () => {
   window.parallax = new Parallax({ mobile: false })
 }
 
-const { createScene } = useGL()
+const { createScene, isSceneCreated } = useGL()
 
 onMounted(async () => {
   if (navigator.userAgent.toLowerCase().includes('safari/')) {
@@ -75,6 +83,12 @@ useHead({
     id: 'scroll-container',
   },
 })
+
+onBeforeUnmount(() => {
+  isSceneCreated.value = false
+  window.scetch && window.scetch.destroy()
+  window.parallax && window.parallax.destroy()
+})
 </script>
 
 <template>
@@ -94,7 +108,7 @@ useHead({
       <slot />
       <div id="gl"></div>
       <div class="noise"></div>
-      <TheFooter />
+      <TheFooter v-if="isFooter" />
     </SmoothScroll>
     <AppToast />
   </div>
