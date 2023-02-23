@@ -40,8 +40,6 @@ const filteredItems = computed(() => {
 // })
 
 const { story } = await useHomeStory()
-
-console.log(story.value)
 </script>
 
 <template>

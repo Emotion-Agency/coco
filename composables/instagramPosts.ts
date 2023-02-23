@@ -55,13 +55,13 @@ export const useInstagramPosts = () => {
   const posts = useState<iInstaPost[]>('instagramPosts', () => galleryImages)
 
   const getPosts = (links: string[]) => {
-    if (posts.value.length <= 10) {
-      const postIds = links.map(post => getPostId(post))
-      postIds.forEach(async postId => {
-        const post = await InstagramService.getPost(postId)
-        posts.value = [...new Set([...posts.value, post.data])]
-      })
-    }
+    // if (posts.value.length <= 10) {
+    //   const postIds = links.map(post => getPostId(post))
+    //   postIds.forEach(async postId => {
+    //     const post = await InstagramService.getPost(postId)
+    //     posts.value = [...new Set([...posts.value, post.data])]
+    //   })
+    // }
   }
 
   watch(posts, () => {
