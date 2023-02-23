@@ -7,7 +7,7 @@ defineProps<iProps>()
 
 const route = useRoute()
 
-const filterValue = ref(route.query.filter || 'default')
+const filterValue = ref((route.query.filter as string) || 'default')
 
 const emit = defineEmits(['filter'])
 
@@ -73,7 +73,11 @@ onBeforeUnmount(() => {
         class="mobile-filter__button"
         @click.stop="isFilterOpen = !isFilterOpen"
       >
-        Choose category
+        {{
+          filterValue === 'default'
+            ? 'Choose category'
+            : filterValue.replace(/\-/gm, ' ')
+        }}
         <IconsFilterMark class="mobile-filter__icon" />
       </button>
       <ul
