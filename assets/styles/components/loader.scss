@@ -27,12 +27,11 @@
   margin-right: auto;
 
   @media (max-width: $br1) {
-    margin-top: 18px;
+    margin-top: 40px;
     max-width: 582px;
   }
 
   @media (max-width: $br4) {
-    margin-top: 12px;
     max-width: 100%;
   }
 }

@@ -393,6 +393,9 @@
     right: 20px;
     z-index: 99;
   }
+  @media (max-width: $br4) {
+    bottom: 28px;
+  }
 }
 
 .product-1__right-btn {
@@ -409,7 +412,6 @@
   }
 
   @media (max-width: $br4) {
-    bottom: 28px;
     font-size: 20px;
     padding: 5px 12px;
   }
