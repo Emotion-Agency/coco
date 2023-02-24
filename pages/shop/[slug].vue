@@ -90,6 +90,12 @@ const JSONSchema = computed(() => {
     },
   }
 })
+
+const metaImg = computed(() => {
+  return useStoryblokImage(currentProduct.value.mainImage, {
+    size: `${1200}x${0}`,
+  })
+})
 </script>
 
 <template>
@@ -97,8 +103,8 @@ const JSONSchema = computed(() => {
     <PageMeta
       :title="`Relive by Coco | ${currentProduct.title}`"
       :description="currentProduct.description"
-      :og-image="currentProduct.mainImage"
-      :twitter-image="currentProduct.mainImage"
+      :og-image="metaImg"
+      :twitter-image="metaImg"
       :schema="JSON.stringify(JSONSchema)"
     />
     <section ref="$el" class="section product-1">
