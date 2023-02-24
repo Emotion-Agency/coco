@@ -32,22 +32,22 @@ const otherProducts = computed(() => {
   return products.value.filter(product => product.slug !== slug).slice(0, 6)
 })
 
-const activeTab = ref('details')
+const activeTab = ref('product-vibes')
 
 const tabs = computed(() => [
   {
-    title: 'Details',
-    descriptionId: 'details',
+    title: 'Product vibes',
+    descriptionId: 'product-vibes',
     text: currentProduct.value.description,
   },
   {
-    title: 'How to use',
-    descriptionId: 'how-use',
+    title: 'Coco says',
+    descriptionId: 'coco-says',
     text: currentProduct.value.how_to_use,
   },
   {
-    title: 'Product vibes',
-    descriptionId: 'product-vibes',
+    title: 'Details',
+    descriptionId: 'details',
     text: currentProduct.value.product_vibes,
   },
 ])
