@@ -415,7 +415,7 @@
   dependencies:
     virtual-scroll "^2.1.1"
 
-"@emotionagency/utils@*", "@emotionagency/utils@latest":
+"@emotionagency/utils@*":
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/@emotionagency/utils/-/utils-1.0.7.tgz#a1d66f0260a0c4ca7e2bc54cf185f813e30cd610"
   integrity sha512-QOsIegh9x1o1/cBE3LpQsUlMeDcciua6ccPQG4gZWuli6eKQryqz1PioGmy89yANkTXAaQclVvjQ3rePruXfJw==
@@ -426,6 +426,13 @@
   integrity sha512-7YIbBezR0I+tHhMLt2HyEhHpgjgx+ZYp5NRttGBlUf7ysA/GSZYTSRuLZxV330AnNorcI1wwvVORKesbOP8WyQ==
   dependencies:
     debounce "^1.2.0"
+
+"@emotionagency/utils@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@emotionagency/utils/-/utils-1.1.1.tgz#058cfe8513893cb341976fd186ea4b21f4e54474"
+  integrity sha512-aO754aHjNEeA2Bfk/o5FruSXEAhL1A+WJb4ZLxFNsqm8y9gOwmrWIifqpG3hXO+mNLprPYAF6gMeHP4IuXzoSg==
+  dependencies:
+    ssr-window "^4.0.2"
 
 "@esbuild/android-arm64@0.16.17":
   version "0.16.17"
@@ -5909,6 +5916,11 @@ split-type@^0.3.3:
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/split-type/-/split-type-0.3.3.tgz#5ed4503d96cddcccea1ca2dcae0bbc330ff3282e"
   integrity sha512-gEA90DEHJhdT/5Da2gR7FPHgaGgivTN4PfZBtHKcl4quDLsE3x7tJlGTKEp4yyqpfi1wCaqeKE+s2UCqBRjJYA==
+
+ssr-window@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/ssr-window/-/ssr-window-4.0.2.tgz#dc6b3ee37be86ac0e3ddc60030f7b3bc9b8553be"
+  integrity sha512-ISv/Ch+ig7SOtw7G2+qkwfVASzazUnvlDTwypdLoPoySv+6MqlOV10VwPSE6EWkGjhW50lUmghPmpYZXMu/+AQ==
 
 stable@^0.1.8:
   version "0.1.8"

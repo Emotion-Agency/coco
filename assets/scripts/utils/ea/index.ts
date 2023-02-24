@@ -1,11 +1,13 @@
-import { raf } from './raf/raf'
-import { resize } from './resize/resize'
-import { clamp, lerp } from './math'
-import { createNewElement } from './createNewElement'
-import mutationObserver from './mutationObserver'
-import { matrixTransform } from './matrixTransform'
-import { delayPromise } from './delay'
-import { keysGenerator } from './keysGenerator'
+import {
+  raf,
+  resize,
+  clamp,
+  lerp,
+  createNewElement,
+  matrixTransform,
+  delayPromise,
+  keysGenerator,
+} from '@emotionagency/utils'
 
 export {
   raf,
@@ -13,7 +15,6 @@ export {
   clamp,
   lerp,
   createNewElement,
-  mutationObserver,
   matrixTransform,
   delayPromise,
   keysGenerator,
