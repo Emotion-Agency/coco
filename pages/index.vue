@@ -51,7 +51,7 @@ const { story } = await useHomeStory()
         :description="story.content?.Meta[0].description"
       />
       <section class="section section--nm home-1">
-        <video
+        <!-- <video
           data-a-o
           playsinline
           loop
@@ -59,7 +59,8 @@ const { story } = await useHomeStory()
           muted
           src="/1.mp4"
           class="home-1__bg"
-        />
+        /> -->
+        <HomeVideo class="home-1__bg" />
         <div class="container home-1__wrapper">
           <div class="home-1__second-wrapper">
             <h1 class="home-1__title">
