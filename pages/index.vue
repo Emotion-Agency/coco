@@ -45,6 +45,11 @@ const { story } = await useHomeStory()
 <template>
   <KeepAlive>
     <main>
+      <PageMeta
+        v-if="story.content?.Meta?.length"
+        :title="story.content?.Meta[0].title"
+        :description="story.content?.Meta[0].description"
+      />
       <section class="section section--nm home-1">
         <video
           data-a-o

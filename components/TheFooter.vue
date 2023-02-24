@@ -4,8 +4,6 @@ import { useContactsStory } from '~~/composables/stories/contactsStory'
 
 const { story } = await useContactsStory()
 
-console.log(story.value)
-
 const phone = computed(() => {
   const phoneNumber = story.value.content.Phone.replace(/\D/gm, '')
 

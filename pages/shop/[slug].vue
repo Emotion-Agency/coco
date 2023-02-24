@@ -90,19 +90,17 @@ const JSONSchema = computed(() => {
     },
   }
 })
-
-useHead({
-  script: [
-    {
-      children: JSON.stringify(JSONSchema.value),
-      type: 'application/ld+json',
-    },
-  ],
-})
 </script>
 
 <template>
   <main>
+    <PageMeta
+      :title="`Relive by Coco | ${currentProduct.title}`"
+      :description="currentProduct.description"
+      :og-image="currentProduct.mainImage"
+      :twitter-image="currentProduct.mainImage"
+      :schema="JSON.stringify(JSONSchema)"
+    />
     <section ref="$el" class="section product-1">
       <div class="container grid product-1__wrapper">
         <ProductImages
@@ -200,7 +198,7 @@ useHead({
       <div class="container product-2__wrapper">
         <h2 class="product-2__title">Other Products</h2>
         <div class="product-2__filter-wrapper">
-          <CatalogV2 class="product-2__catalog" :items="otherProducts" />
+          <!-- <CatalogV2 class="product-2__catalog" :items="otherProducts" /> -->
         </div>
         <div class="product-2__btn-wrapper">
           <TextButton tag="nuxt-link" to="/shop/">See all</TextButton>

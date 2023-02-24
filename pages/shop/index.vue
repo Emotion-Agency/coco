@@ -27,6 +27,10 @@ const filteredItems = computed(() => {
 
 <template>
   <main>
+    <PageMeta
+      title="Relive by Coco | Shop"
+      description="Relive by Coco catalogue page"
+    />
     <section class="section section--nm catalogue-1">
       <div class="container catalogue-1__wrapper">
         <h2 data-a-h class="catalogue-1__title">Catalogue</h2>
