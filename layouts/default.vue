@@ -21,7 +21,7 @@ withDefaults(defineProps<iProps>(), {
   isFooter: true,
 })
 
-const { isInEditor } = useAppState()
+const { isInEditor, isLoaded } = useAppState()
 
 const { products } = useProducts()
 const { stories } = await useProductsStories()
@@ -70,6 +70,7 @@ onMounted(async () => {
     sbBridge.pingEditor(() => {
       if (sbBridge.isInEditor()) {
         isInEditor.value = true
+        isLoaded.value = true
         document.body.classList.add('in-storyblok')
       }
     })
@@ -102,7 +103,7 @@ onBeforeUnmount(() => {
       ></Meta>
       <Link rel="icon" type="image/x-icon" href="/favicon.ico"></Link>
     </Head>
-    <TheLoader />
+    <TheLoader v-if="!isInEditor" />
     <AppGrid />
     <SmoothScroll>
       <TheHeader />
