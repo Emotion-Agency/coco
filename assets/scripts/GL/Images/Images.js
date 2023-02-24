@@ -1,9 +1,9 @@
 import gsap from 'gsap'
-import { lerp } from '~/assets/scripts/utils/ea'
 import { Figure } from '@emotionagency/glhtml'
 
 import fragment from './shaders/fragment.glsl'
 import vertex from './shaders/vertex.glsl'
+import { lerp } from '~/assets/scripts/utils/ea'
 
 export default class Images extends Figure {
   textureLoaded = false
