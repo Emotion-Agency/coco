@@ -1,7 +1,7 @@
 import Matter from 'matter-js'
 import { clamp, resize } from './utils/ea'
 
-const size = (pcSize, mobSize) => {
+const size = (pcSize: number, mobSize: number) => {
   const min = 375
   const max = 1440
   const addSize = pcSize - mobSize
@@ -41,9 +41,7 @@ export const fallingBears = (
 
   // world.gravity.y = 0.1
 
-  // if (count > 10) {
-  world.gravity.y = 0.06
-  // }
+  world.gravity.y = 0.02
 
   // create a renderer
   const render = Render.create({
