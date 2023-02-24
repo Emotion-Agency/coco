@@ -204,7 +204,7 @@ const metaImg = computed(() => {
       <div class="container product-2__wrapper">
         <h2 class="product-2__title">Other Products</h2>
         <div class="product-2__filter-wrapper">
-          <!-- <CatalogV2 class="product-2__catalog" :items="otherProducts" /> -->
+          <CatalogV2 class="product-2__catalog" :items="otherProducts" />
         </div>
         <div class="product-2__btn-wrapper">
           <TextButton tag="nuxt-link" to="/shop/">See all</TextButton>
