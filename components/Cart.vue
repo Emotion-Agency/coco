@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { keysGenerator } from '~~/assets/scripts/utils/ea'
+import { keysGenerator } from '~/assets/scripts/utils/ea'
 
 const {
   isCartOpen,

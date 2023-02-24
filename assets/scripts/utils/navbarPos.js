@@ -1,4 +1,4 @@
-import { raf } from '@emotionagency/utils'
+import { raf } from '~/assets/scripts/utils/ea'
 
 export default class NavbarPos {
   $sc = document.querySelector('#scroll-container')

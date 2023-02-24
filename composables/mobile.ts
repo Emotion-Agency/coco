@@ -8,7 +8,7 @@ export const useMobile = () => {
   let resizeFn
 
   onMounted(async () => {
-    const { resize } = await import('@emotionagency/utils')
+    const { resize } = await import('~/assets/scripts/utils/ea')
     resizeFn = resize
     resizeFn.on(resizeHandler)
   })

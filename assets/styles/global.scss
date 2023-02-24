@@ -61,12 +61,13 @@ body {
   transition-duration: 0.5s;
   transition-timing-function: cubic-bezier(0.64, 0, 0.78, 0);
   transition-property: opacity, transform, filter;
+  will-change: transform, filter, opacity;
 }
 .blur-enter,
 .blur-leave-to {
   opacity: 0;
   transform: scale(0.99);
-  filter: blur(100px);
+  filter: blur(20px);
 }
 
 #gl {

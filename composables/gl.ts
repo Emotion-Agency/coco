@@ -9,7 +9,7 @@ export const useGL = () => {
     try {
       if (!isSceneCreated.value && !isMobile.value) {
         const { Scetch } = await import('@emotionagency/glhtml')
-        const { raf } = await import('@emotionagency/utils')
+        const { raf } = await import('~/assets/scripts/utils/ea')
 
         window.scetch = new Scetch('#gl', {
           raf,

@@ -1,5 +1,5 @@
 import gsap from 'gsap'
-import { lerp } from '@emotionagency/utils'
+import { lerp } from '~/assets/scripts/utils/ea'
 import { Figure } from '@emotionagency/glhtml'
 
 import fragment from './shaders/fragment.glsl'

@@ -49,7 +49,7 @@ onMounted(async () => {
 
   const { hello } = await import('~/assets/scripts/utils/hello')
   const { winSizes } = await import('~/assets/scripts/utils/winSizes')
-  const { resize } = await import('@/assets/scripts/utils/ea')
+  const { resize } = await import('~/assets/scripts/utils/ea')
 
   hello()
   resize.on(winSizes)
@@ -103,7 +103,7 @@ onBeforeUnmount(() => {
       ></Meta>
       <Link rel="icon" type="image/x-icon" href="/favicon.ico"></Link>
     </Head>
-    <TheLoader v-if="!isInEditor" />
+    <!-- <TheLoader v-if="!isInEditor" /> -->
     <AppGrid />
     <SmoothScroll>
       <TheHeader />

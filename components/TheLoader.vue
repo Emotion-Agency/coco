@@ -12,7 +12,7 @@ onMounted(() => {
 
 <template>
   <transition name="blur">
-    <div v-show="!isLoaded" ref="$el" class="coco-loader">
+    <div v-if="!isLoaded" ref="$el" class="coco-loader">
       <div class="container coco-loader__container">
         <IconsBigLogo class="coco-loader__logo" />
         <p class="coco-loader__text">

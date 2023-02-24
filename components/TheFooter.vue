@@ -1,5 +1,24 @@
 <script setup lang="ts">
 import { dateHandler } from '~~/assets/scripts/getDate'
+import { useContactsStory } from '~~/composables/stories/contactsStory'
+
+const { story } = await useContactsStory()
+
+console.log(story.value)
+
+const phone = computed(() => {
+  const phoneNumber = story.value.content.Phone.replace(/\D/gm, '')
+
+  const formattedPhoneNumber = phoneNumber.replace(
+    /^(\d{1})(\d{3})(\d{3})(\d{4})$/,
+    '+$1 ($2) $3 $4'
+  )
+
+  return {
+    phoneNumber,
+    formattedPhoneNumber,
+  }
+})
 
 const { isCartOpen } = useCart()
 
@@ -80,7 +99,7 @@ const linkText = computed(() => {
         <div class="footer__button-wrapper">
           <TextButton
             tag="a"
-            href="https://www.instagram.com/relivebycoco/"
+            :href="story.content.Instagram"
             class="footer__top-btn"
             >See more</TextButton
           >
@@ -98,7 +117,7 @@ const linkText = computed(() => {
             <ul class="footer__social-list">
               <li class="footer__social-li">
                 <a
-                  href="https://www.facebook.com/"
+                  :href="story.content.Facebook"
                   target="_blank"
                   class="footer__social-link"
                   rel="noreferrer noopener"
@@ -110,7 +129,7 @@ const linkText = computed(() => {
               </li>
               <li class="footer__social-li">
                 <a
-                  href="https://www.instagram.com/relivebycoco/"
+                  :href="story.content.Instagram"
                   target="_blank"
                   class="footer__social-link"
                   rel="noreferrer noopener"
@@ -122,7 +141,7 @@ const linkText = computed(() => {
               </li>
               <li class="footer__social-li">
                 <a
-                  href="https://www.tiktok.com/"
+                  :href="story.content.TikTok"
                   target="_blank"
                   class="footer__social-link"
                   rel="noreferrer noopener"
@@ -138,21 +157,31 @@ const linkText = computed(() => {
             <p class="footer__contacts-title">Other contacts</p>
             <ul class="footer__contacts-list">
               <li class="footer__contacts-li">
-                <a class="footer__contacts-link" href="mailto:coco@gmail.com">
+                <a
+                  class="footer__contacts-link"
+                  :href="`mailto:${story.content.Email}`"
+                >
                   <span class="footer__contacts-number">01</span>
-                  <span class="footer__contacts-text">Coco@GMAIL.COM</span>
-                </a>
-              </li>
-              <li class="footer__contacts-li">
-                <a class="footer__contacts-link" href="tel:10223332222">
-                  <span class="footer__contacts-number">02</span>
-                  <span class="footer__contacts-text">+1 (022) 333 2222</span>
+                  <span class="footer__contacts-text">{{
+                    story.content.Email
+                  }}</span>
                 </a>
               </li>
               <li class="footer__contacts-li">
                 <a
                   class="footer__contacts-link"
-                  href="https://wa.me/+10223332222"
+                  :href="`tel:${phone.phoneNumber}`"
+                >
+                  <span class="footer__contacts-number">02</span>
+                  <span class="footer__contacts-text">
+                    {{ phone.formattedPhoneNumber }}
+                  </span>
+                </a>
+              </li>
+              <li class="footer__contacts-li">
+                <a
+                  class="footer__contacts-link"
+                  :href="`https://wa.me/${story.content.WhatsApp}`"
                   target="_blank"
                   rel="noreferrer noopener"
                 >

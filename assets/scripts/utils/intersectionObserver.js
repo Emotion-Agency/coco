@@ -1,4 +1,4 @@
-import { raf } from '@/assets/scripts/utils/ea'
+import { raf } from '~/assets/scripts/utils/ea'
 
 const noop = () => {}
 

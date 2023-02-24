@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { delayPromise, raf } from '~~/assets/scripts/utils/ea'
+import { delayPromise, raf } from '~/assets/scripts/utils/ea'
 import { fallingBears, fallingBearsReturn } from '~/assets/scripts/FallingBears'
 
 interface iProps {
