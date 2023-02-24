@@ -103,7 +103,7 @@ onBeforeUnmount(() => {
       ></Meta>
       <Link rel="icon" type="image/x-icon" href="/favicon.ico"></Link>
     </Head>
-    <!-- <TheLoader v-if="!isInEditor" /> -->
+    <TheLoader v-if="!isInEditor" />
     <AppGrid />
     <SmoothScroll>
       <TheHeader />
