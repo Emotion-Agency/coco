@@ -4,7 +4,12 @@ export default defineNuxtConfig({
   css: ['@/assets/styles/index.scss'],
 
   modules: [
-    '@vite-pwa/nuxt',
+    [
+      '@vite-pwa/nuxt',
+      {
+        enabled: true,
+      },
+    ],
     [
       '@storyblok/nuxt',
 
