@@ -4,6 +4,13 @@ export default defineNuxtConfig({
   css: ['@/assets/styles/index.scss'],
 
   modules: [
+    '@vite-pwa/nuxt',
+    [
+      'nuxt-delay-hydration',
+      {
+        mode: 'manual',
+      },
+    ],
     [
       '@storyblok/nuxt',
 

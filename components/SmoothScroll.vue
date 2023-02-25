@@ -8,7 +8,7 @@ onMounted(async () => {
     mobile: false,
     breakpoint: 1060,
     passive: false,
-    isFixed: false,
+    isFixed: true,
     friction: 0.07,
     stepSize: 0.9,
     scrollbar: true,

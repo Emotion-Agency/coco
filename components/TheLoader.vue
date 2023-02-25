@@ -6,6 +6,7 @@ const $el = ref(null)
 onMounted(() => {
   setTimeout(() => {
     isLoaded.value = true
+    window.ss && (window.ss.isFixed = false)
   }, 2000)
 })
 </script>

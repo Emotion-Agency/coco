@@ -118,9 +118,11 @@ onBeforeUnmount(() => {
       <TheHeader />
       <Cart />
       <slot />
+      <DelayHydration>
+        <TheFooter v-if="isFooter" />
+      </DelayHydration>
       <div id="gl"></div>
       <div class="noise"></div>
-      <TheFooter v-if="isFooter" />
     </SmoothScroll>
     <AppToast />
   </div>
