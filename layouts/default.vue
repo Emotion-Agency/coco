@@ -41,6 +41,8 @@ const parallaxInit = async () => {
 
 const { createScene, isSceneCreated } = useGL()
 
+useTitleChanger()
+
 onMounted(async () => {
   if (navigator.userAgent.toLowerCase().includes('safari/')) {
     if (!navigator.userAgent.toLowerCase().includes('chrome/'))
