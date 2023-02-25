@@ -4,6 +4,10 @@ import { useContactsStory } from '~~/composables/stories/contactsStory'
 
 const { story } = await useContactsStory()
 
+const instaPosts = computed(() => {
+  return story.value.content.insta_images.map(ii => ii.link)
+})
+
 const phone = computed(() => {
   const phoneNumber = story.value.content.Phone.replace(/\D/gm, '')
 
@@ -23,29 +27,12 @@ const { isCartOpen } = useCart()
 const { nextPage } = useFooterLink()
 const date = ref('')
 
-const postsLinks = [
-  'https://www.instagram.com/p/Co8rrYWDhqO/',
-  'https://www.instagram.com/p/Co8LD5Lpatt/',
-  'https://www.instagram.com/p/CoQp6tdpYwQ/',
-  'https://www.instagram.com/p/CoDNDWSJmBX/',
-  'https://www.instagram.com/p/CoALtsEu3-W/',
-  'https://www.instagram.com/p/Cn8A82EJtgW/',
-  'https://www.instagram.com/p/Cn5gLoaJmnl/',
-  'https://www.instagram.com/p/Cnc6i9wJbTJ/',
-  'https://www.instagram.com/p/CmmW77lpYfT/',
-  'https://www.instagram.com/p/Cmk0UwtjNI1/',
-]
-
-const { posts, getPosts } = useInstagramPosts()
-
 let interval
-onMounted(async () => {
+onMounted(() => {
   date.value = dateHandler()
   interval = setInterval(() => {
     date.value = dateHandler()
   }, 10000)
-
-  await getPosts(postsLinks)
 })
 
 onBeforeUnmount(() => {
@@ -60,49 +47,10 @@ const linkText = computed(() => {
 <template>
   <footer class="footer">
     <div class="container footer__wrapper">
-      <div v-if="posts.length" class="footer__top-block">
-        <div data-a-t class="footer__logo-wrapper">
-          <IconsBigLogo class="footer__logo" />
-        </div>
-        <h3 class="grid footer__top-title">
-          <span data-a-h class="footer__span-title"> Check </span>
-          <span data-a-h class="footer__span-title"> Our </span>
-          <span data-a-h class="footer__span-title"> Insta </span>
-        </h3>
-        <p data-a-t class="footer__description">
-          We believe that together we can create a better future, and we invite
-          you to be a part of it. Follow us now and let's make a difference!
-        </p>
-        <div data-a-o class="footer__gallery-wrapper">
-          <ul class="footer__gallery">
-            <li
-              v-for="(el, idx) in posts"
-              :key="idx"
-              class="footer__gallery-item"
-            >
-              <a :href="el.full_url" target="_blank" rel="noreferrer noopener">
-                <TheImg
-                  format="webp"
-                  quality="90"
-                  class="footer__img"
-                  :src="el.display_url"
-                  alt="Background"
-                  lazy="true"
-                />
-              </a>
-            </li>
-          </ul>
-          <IconsBigDiamond class="footer__icon" />
-        </div>
-        <div class="footer__button-wrapper">
-          <TextButton
-            tag="a"
-            :href="story.content.Instagram"
-            class="footer__top-btn"
-            >See more</TextButton
-          >
-        </div>
-      </div>
+      <FooterInstaPosts
+        :instagram-url="story.content.Instagram"
+        :posts-links="instaPosts"
+      />
       <div class="footer__bottom-block">
         <div class="footer__dotted-line"></div>
         <h2 class="footer__bottom-title">Contact</h2>

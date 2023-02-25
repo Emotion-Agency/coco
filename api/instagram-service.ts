@@ -1,8 +1,8 @@
 import $api from './axiosInstance'
 
 export default class InstagramService {
-  static getPost = async (postId: string) => {
-    const res = await $api.get(`/instagram/get-media?post_id=${postId}`)
+  static getPost = async (postUrl: string) => {
+    const res = await $api.get(`/instagram/get-media?post_url=${postUrl}`)
     return res
   }
 }

@@ -1,0 +1,73 @@
+<script lang="ts" setup>
+interface iProps {
+  instagramUrl: string
+  postsLinks: string[]
+}
+
+const props = defineProps<iProps>()
+
+// const postsLinks = [
+//   'https://www.instagram.com/p/Cn5bDCRJJ-u/',
+//   'https://www.instagram.com/p/CmffdZoDrln/',
+//   'https://www.instagram.com/p/CoQp6tdpYwQ/',
+//   'https://www.instagram.com/p/CoDNDWSJmBX/',
+//   'https://www.instagram.com/p/CoALtsEu3-W/',
+//   'https://www.instagram.com/p/Cn8A82EJtgW/',
+//   'https://www.instagram.com/p/CmZsECTprWZ/',
+//   'https://www.instagram.com/p/Cnc6i9wJbTJ/',
+//   'https://www.instagram.com/p/Clco2qzj0eI/',
+//   'https://www.instagram.com/p/Clbfz1VrUcU/',
+// ]
+
+const { posts, getPosts } = useInstagramPosts()
+
+onMounted(async () => {
+  await getPosts(props.postsLinks)
+})
+</script>
+
+<template>
+  <ClientOnly>
+    <div class="footer__top-block">
+      <div data-a-t class="footer__logo-wrapper">
+        <IconsBigLogo class="footer__logo" />
+      </div>
+      <h3 class="grid footer__top-title">
+        <span data-a-h class="footer__span-title"> Check </span>
+        <span data-a-h class="footer__span-title"> Our </span>
+        <span data-a-h class="footer__span-title"> Insta </span>
+      </h3>
+      <p data-a-t class="footer__description">
+        We believe that together we can create a better future, and we invite
+        you to be a part of it. Follow us now and let's make a difference!
+      </p>
+      <div v-if="posts.length" data-a-o class="footer__gallery-wrapper">
+        <ul class="footer__gallery">
+          <li
+            v-for="(el, idx) in posts"
+            :key="idx"
+            class="footer__gallery-item"
+          >
+            <a :href="el?.postUrl" target="_blank" rel="noreferrer noopener">
+              <TheImg
+                v-if="el?.postMedia"
+                format="webp"
+                quality="90"
+                class="footer__img"
+                :src="el?.postMedia"
+                alt="Background"
+                lazy="true"
+              />
+            </a>
+          </li>
+        </ul>
+        <IconsBigDiamond class="footer__icon" />
+      </div>
+      <div class="footer__button-wrapper">
+        <TextButton tag="a" :href="instagramUrl" class="footer__top-btn"
+          >See more</TextButton
+        >
+      </div>
+    </div>
+  </ClientOnly>
+</template>
