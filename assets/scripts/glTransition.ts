@@ -4,10 +4,15 @@ import { delayPromise } from './utils/ea'
 export const glTransition = async (el: HTMLElement) => {
   try {
     window.ss && (window.ss.isFixed = true)
+    const $img = document.querySelector('.js-cloned') as HTMLElement
+    if (window.scetch) {
+      const f = window.scetch.figures.find(f => f._id === $img.dataset.glId)
+      f && f.onClick()
+    }
+
     await delayPromise(200)
     const to = el.querySelector('.product-1__img-li') as HTMLElement
 
-    const $img = document.querySelector('.js-cloned') as HTMLElement
     const toImg = to.querySelector('.product-1__img') as HTMLElement
 
     const { width, height, top, left } = to.getBoundingClientRect()

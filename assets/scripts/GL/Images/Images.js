@@ -13,11 +13,10 @@ export default class Images extends Figure {
 
     this.onMouseEnter = this.onMouseEnter.bind(this)
     this.onMouseLeave = this.onMouseLeave.bind(this)
-    this.onClick = this.onClick.bind(this)
+    // this.onClick = this.onClick.bind(this)
 
     this.$el?.parentElement?.addEventListener('mouseenter', this.onMouseEnter)
     this.$el?.parentElement?.addEventListener('mouseleave', this.onMouseLeave)
-    this.$el?.parentElement?.addEventListener('click', this.onClick)
   }
 
   createGeometry() {
@@ -91,7 +90,7 @@ export default class Images extends Figure {
     gsap.to(this.material.uniforms.uClicked, {
       duration: 2,
       value: 1,
-      delay: 0.4,
+      delay: 0,
       ease: 'power2.out',
     })
   }
@@ -149,7 +148,6 @@ export default class Images extends Figure {
       'mouseleave',
       this.onMouseLeave
     )
-    this.$el?.parentElement?.removeEventListener('mouseleave', this.onClick)
 
     this.disposeTexture(this.texture)
     super.destroy()
