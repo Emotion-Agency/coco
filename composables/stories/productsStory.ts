@@ -24,6 +24,7 @@ export const useProductsStories: tProductsStories = async () => {
     try {
       const { data }: tResStory = await storyapi.get('cdn/stories/', {
         by_slugs: 'shop/*',
+        sort_by: 'name:asc',
         version:
           config.public.ENVIROMENT === 'development' || isInEditor.value
             ? 'draft'
