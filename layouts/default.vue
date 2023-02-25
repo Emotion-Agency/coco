@@ -96,11 +96,18 @@ onBeforeUnmount(() => {
 <template>
   <div id="app">
     <Head>
-      <Title>Emotion</Title>
+      <Title>Relive by Coco</Title>
       <Meta
         name="viewport"
         content="width=device-width, initial-scale=1 minimum-scale=1 maximum-scale=1"
-      ></Meta>
+      />
+
+      <Meta name="twitter:card" content="summary_large_image" />
+
+      <Meta name="twitter:image" content="/twitter.jpg" />
+
+      <Meta property="og:site_name" content="Relive by Coco" />
+      <Meta property="og:image" content="/twitter.png" />
       <Link rel="icon" type="image/x-icon" href="/favicon.ico"></Link>
     </Head>
     <TheLoader v-if="!isInEditor" />
