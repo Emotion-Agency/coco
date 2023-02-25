@@ -18,6 +18,7 @@ export const useAboutStory: tAboutStories = async () => {
 
   const storyapi = useStoryblokApi()
   const { isInEditor } = useAppState()
+  const { addToast } = useToasts()
 
   if (!story.value) {
     try {
@@ -31,6 +32,11 @@ export const useAboutStory: tAboutStories = async () => {
 
       story.value = data.story
     } catch (e) {
+      addToast({
+        color: ToastColor.danger,
+        id: Date.now().toString(),
+        text: 'An error with our server was occured. Try to reload page',
+      })
       console.log(e.message)
     }
   }

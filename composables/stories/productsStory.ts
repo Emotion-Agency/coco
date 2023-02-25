@@ -19,6 +19,7 @@ export const useProductsStories: tProductsStories = async () => {
 
   const storyapi = useStoryblokApi()
   const { isInEditor } = useAppState()
+  const { addToast } = useToasts()
 
   if (!stories.value.length) {
     try {
@@ -34,6 +35,11 @@ export const useProductsStories: tProductsStories = async () => {
 
       stories.value = data.stories.filter(s => s.name !== 'Index')
     } catch (e) {
+      addToast({
+        color: ToastColor.danger,
+        id: Date.now().toString(),
+        text: 'An error with our server was occured. Try to reload page',
+      })
       console.log(e.message)
     }
   }
