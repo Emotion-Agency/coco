@@ -118,9 +118,9 @@ onBeforeUnmount(() => {
       <TheHeader />
       <Cart />
       <slot />
-      <DelayHydration>
-        <TheFooter v-if="isFooter" />
-      </DelayHydration>
+
+      <TheFooter v-if="isFooter" />
+
       <div id="gl"></div>
       <div class="noise"></div>
     </SmoothScroll>

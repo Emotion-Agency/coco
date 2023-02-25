@@ -6,12 +6,6 @@ export default defineNuxtConfig({
   modules: [
     '@vite-pwa/nuxt',
     [
-      'nuxt-delay-hydration',
-      {
-        mode: 'manual',
-      },
-    ],
-    [
       '@storyblok/nuxt',
 
       {
