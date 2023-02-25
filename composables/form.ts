@@ -1,5 +1,5 @@
 import { iInputData } from './input'
-import sendFormService from '~~/api/wishlist-service'
+import sendFormService from '~~/api/form-service'
 
 export const useForm = (formData, $inputs) => {
   const { isWaiting } = useAppState()
@@ -56,7 +56,7 @@ export const useForm = (formData, $inputs) => {
       addToast({
         color: ToastColor.danger,
         id: Date.now().toString(),
-        text: 'An error has occurred:(',
+        text: error?.message || 'An error has occurred:(',
       })
     } finally {
       setTimeout(() => {

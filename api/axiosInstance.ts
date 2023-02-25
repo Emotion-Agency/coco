@@ -5,6 +5,8 @@ export const API_URL =
     ? `http://localhost:5001/api`
     : 'https://coco-back-production.up.railway.app/api'
 
+// export const API_URL = 'https://coco-back-production.up.railway.app/api'
+
 const $api = axios.create({
   withCredentials: true,
   baseURL: API_URL,
