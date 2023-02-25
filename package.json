@@ -31,7 +31,7 @@
   "dependencies": {
     "@emotionagency/glhtml": "^1.0.1",
     "@emotionagency/parallax": "^1.0.3",
-    "@emotionagency/smoothscroll": "latest",
+    "@emotionagency/smoothscroll": "^1.0.4",
     "@emotionagency/utils": "^1.1.1",
     "@imgix/js-core": "^3.8.0",
     "@storyblok/nuxt": "^5.1.0",

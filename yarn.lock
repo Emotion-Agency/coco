@@ -1195,11 +1195,13 @@
   dependencies:
     "@emotionagency/utils" "*"
 
-"@emotionagency/smoothscroll@latest":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@emotionagency/smoothscroll/-/smoothscroll-1.0.3.tgz#731efff534f0086818f6349df818232cb7d87a6e"
-  integrity sha512-23IJoDv6Ibn2wxCt5SwPk88oo8LJ7Wu2QEFg/GGc2IiWn0KXFxEBTByHeCNSRfIw1Z4nI1VBvzRIMStiRq5bVQ==
+"@emotionagency/smoothscroll@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@emotionagency/smoothscroll/-/smoothscroll-1.0.4.tgz#1a6b26928365d32b72283e2c92eec44d2f207315"
+  integrity sha512-fMqArVzdLtp/HE6b3A8L2or3nSca/3mom2gUaHJvXWBbD9yrCtA8s8voDor+Bsy+8gVGfAA/TAezOkKYfuY6jw==
   dependencies:
+    "@emotionagency/utils" "^1.1.1"
+    tiny-emitter "^2.1.0"
     virtual-scroll "^2.1.1"
 
 "@emotionagency/utils@*":

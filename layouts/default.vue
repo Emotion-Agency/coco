@@ -7,10 +7,6 @@ import { useProductsStories } from '~~/composables/stories/productsStory'
 
 await preloadComponents('TheLoader')
 
-/**
-* @todo
-connect insta photos to footer
-* */
 useFonts()
 
 interface iProps {

@@ -5,12 +5,6 @@ export default defineNuxtConfig({
 
   modules: [
     [
-      '@vite-pwa/nuxt',
-      {
-        enabled: true,
-      },
-    ],
-    [
       '@storyblok/nuxt',
 
       {
