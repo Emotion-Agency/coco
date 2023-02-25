@@ -55,7 +55,7 @@ const onCheckout = async () => {
     addToast({
       id: keysGenerator(8),
       color: ToastColor.danger,
-      text: error?.message || 'The error was occured :( Please, try again',
+      text: error?.message || 'The error was occurred :( Please, try again',
     })
   } finally {
     isLoading.value = false

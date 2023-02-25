@@ -48,9 +48,15 @@ const handleError = () => {
           justify-content: center;
           align-items: center;
           text-align: center;
+          max-width: 90%;
+          margin: 0 auto;
+          font-weight: 800;
+          text-transform: uppercase;
+          font-size: 16px;
         "
       >
-        The error was occured:(
+        Oops, looks like our server is taking a coffee break. We'll have it up
+        and running in no time! Please Try to reload page
       </div>
     </div>
   </NuxtLayout>

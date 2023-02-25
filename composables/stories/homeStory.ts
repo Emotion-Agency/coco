@@ -35,7 +35,7 @@ export const useHomeStory: tHomeStories = async () => {
       addToast({
         color: ToastColor.danger,
         id: Date.now().toString(),
-        text: 'An error with our server was occured. Try to reload page',
+        text: 'Oops...an error with our server was occurred. Try to reload page',
       })
       console.log(e.message)
     }
