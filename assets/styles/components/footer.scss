@@ -186,12 +186,25 @@
   }
 }
 
+.footer__gallery-link {
+  overflow: hidden;
+  transition: transform 0.45s $easing;
+  display: block;
+  &:hover {
+    transform: scale(0.9);
+    .footer__img {
+      transform: scale(1.1);
+    }
+  }
+}
+
 .footer__img {
   display: block;
   aspect-ratio: 0.8;
   width: 100%;
   object-fit: cover;
   height: 100%;
+  transition: transform 0.45s $easing;
 
   @media (min-width: $br1) {
     max-width: 100%;
@@ -619,4 +632,3 @@
   width: fit-content;
   margin-top: vw(30);
 }
-

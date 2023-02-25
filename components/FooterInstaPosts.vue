@@ -48,7 +48,12 @@ onMounted(async () => {
             :key="idx"
             class="footer__gallery-item"
           >
-            <a :href="el?.postUrl" target="_blank" rel="noreferrer noopener">
+            <a
+              :href="el?.postUrl"
+              target="_blank"
+              rel="noreferrer noopener"
+              class="footer__gallery-link"
+            >
               <TheImg
                 v-if="el?.postMedia"
                 format="webp"
