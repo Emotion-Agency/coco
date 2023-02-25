@@ -38,7 +38,7 @@ export interface iProductContent {
   uuid: string
   disable_for_sale: boolean
   description: string
-  product_vibes: string
+  details: string
   how_to_use: string
   images: iImage[]
   price: string

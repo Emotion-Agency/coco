@@ -4,7 +4,7 @@ export interface iItem {
   disableForSale: boolean
   description: string
   how_to_use: string
-  product_vibes: string
+  details: string
   title: string
   images: any[]
   mainImage: string

@@ -48,7 +48,7 @@ const tabs = computed(() => [
   {
     title: 'Details',
     descriptionId: 'details',
-    text: currentProduct.value.product_vibes,
+    text: currentProduct.value.details,
   },
 ])
 
