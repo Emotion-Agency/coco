@@ -4,7 +4,6 @@ import { iStory } from '~/types/story'
 
 type tProductsStories = () => Promise<{
   stories: Ref<iStory[]>
-  listenStory: (arg0: string | string[]) => void
 }>
 
 type tResStory = {
@@ -44,7 +43,10 @@ export const useProductsStories: tProductsStories = async () => {
     }
   }
 
-  const listenStory = (slug: string) => {
+  if (process.client) {
+    const route = useRoute()
+    const slug = route.params.slug
+
     const currentStory = stories.value.find(story => story.slug === slug)
 
     useCustomBridge(currentStory?.id, evStory => {
@@ -53,5 +55,5 @@ export const useProductsStories: tProductsStories = async () => {
     })
   }
 
-  return { stories, listenStory }
+  return { stories }
 }
