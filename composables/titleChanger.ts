@@ -1,5 +1,5 @@
 export const useTitleChanger = () => {
-  const blurTitle = "Going somewhere? Don't forger about us:)"
+  const blurTitle = "Going somewhere? Don't forget about us:)"
   const originalTitle = ref(null)
 
   const handleVisibilityChange = () => {
