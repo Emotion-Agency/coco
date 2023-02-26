@@ -68,7 +68,7 @@ onMounted(async () => {
       </div>
       <div class="footer__button-wrapper">
         <TextButton tag="a" :href="instagramUrl" class="footer__top-btn"
-          >See more</TextButton
+          >IG page</TextButton
         >
       </div>
     </div>

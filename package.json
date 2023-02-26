@@ -6,7 +6,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "fi": "node devUtils/fontsInclude.js && prettier --write ./composables/fonts.ts"
+    "fi": "node devUtils/fontsInclude.js && prettier --write ./composables/fonts.ts",
+    "lighthouse": "npx unlighthouse --site https://coco-dusky.vercel.app/"
   },
   "devDependencies": {
     "@nuxt/image-edge": "^1.0.0-27919678.2f5b64b",
