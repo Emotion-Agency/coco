@@ -59,7 +59,7 @@ onMounted(async () => {
                 class="footer__img"
                 :src="el?.postMedia"
                 alt="Background"
-                lazy="true"
+                loading="lazy"
               />
             </a>
           </li>
