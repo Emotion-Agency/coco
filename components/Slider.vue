@@ -41,8 +41,6 @@ watch(
           class="slider__images-li"
         >
           <TheImg
-            format="webp"
-            quality="90"
             class="slider__img"
             :storyblok="true"
             :width="1000"

@@ -86,8 +86,6 @@ useHead({
         >
           <div class="catalog-v2__top">
             <TheImg
-              format="webp"
-              quality="90"
               :storyblok="true"
               :imgx="true"
               :width="800"

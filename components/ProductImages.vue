@@ -32,8 +32,6 @@ const itemClickHandler = (index: number) => {
         @click="itemClickHandler(idx)"
       >
         <TheImg
-          format="webp"
-          quality="90"
           class="product-1__img"
           :src="el.filename"
           :storyblok="true"

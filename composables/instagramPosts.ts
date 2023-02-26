@@ -22,6 +22,10 @@ export const useInstagramPosts = () => {
         postMedia: prepareImage(pd.data.postMedia.replace('&dl=1', '')),
       }))
     } catch (error) {
+      posts.value = links.map(link => ({
+        postUrl: link,
+        postMedia: '/images/thumb.jpg',
+      }))
       console.log(error)
     }
   }

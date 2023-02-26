@@ -8,12 +8,16 @@ interface iProps {
   width?: number
   height?: number
   alt?: string
+  format?: 'webp' | 'jpg' | 'png' | null
+  quality?: number
 }
 
 const props = withDefaults(defineProps<iProps>(), {
-  alt: 'Coco',
+  alt: 'Relive by Coco',
   width: 0,
   height: 0,
+  format: 'webp',
+  quality: 90,
 })
 
 const imageSource = computed(() => {
@@ -21,6 +25,8 @@ const imageSource = computed(() => {
     return useStoryblokImage(props.src, {
       size: `${props.width}x${props.height}`,
       imgix: props.imgx,
+      format: props.format,
+      quality: props.quality,
     })
   }
   if (props.imgx) {

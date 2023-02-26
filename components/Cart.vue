@@ -80,13 +80,7 @@ const onCheckout = async () => {
           <li v-for="(el, idx) in sortedItems" :key="idx" class="cart__item">
             <div v-if="idx !== 0" class="cart__line"></div>
             <div class="cart__item-wrapper">
-              <TheImg
-                format="webp"
-                quality="90"
-                class="cart__img"
-                :src="el.mainImage"
-                alt="Cart image"
-              />
+              <TheImg class="cart__img" :src="el.mainImage" alt="Cart image" />
               <div class="cart__info-wrapper">
                 <div class="cart__top-info">
                   <NuxtLink

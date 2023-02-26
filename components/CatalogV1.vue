@@ -83,8 +83,6 @@ useHead({
           @click.prevent="startTransition"
         >
           <TheImg
-            format="webp"
-            quality="90"
             class="catalog-v1__img"
             :storyblok="true"
             :imgx="true"

@@ -1,7 +1,8 @@
 import ImgixClient from '@imgix/js-core'
 
 interface iOpts {
-  filters?: string
+  format?: 'webp' | 'jpg' | 'png' | null
+  quality?: number
   size?: string
   imgix?: boolean
 }
@@ -17,7 +18,7 @@ export const useStoryblokImage = (image: string, options: iOpts = {}) => {
 
   const imgixTransform = (url: string) => imgix.buildURL(url, {})
 
-  const filters = options.filters ?? 'filters:quality(92):format(webp)'
+  const filters = `filters:quality(${options.quality}):format(${options.format})`
   const size = options.size ?? null
 
   const imageService = 'https://a-us.storyblok.com'

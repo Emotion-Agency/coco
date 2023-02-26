@@ -7,6 +7,8 @@ interface iProps {
   width?: number
   height?: number
   storyblok?: boolean
+  format?: 'webp' | 'jpg' | 'png' | null
+  quality?: number
 }
 
 withDefaults(defineProps<iProps>(), {
@@ -26,6 +28,8 @@ withDefaults(defineProps<iProps>(), {
         :data-scale="scale"
         :width="width"
         :height="height"
+        :quality="quality"
+        :format="format"
       />
     </div>
   </div>

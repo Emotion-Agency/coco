@@ -70,8 +70,6 @@ const { story } = await useAboutStory()
         </h3>
         <div class="about-3__info">
           <ParallaxImg
-            format="webp"
-            quality="90"
             class="about-3__img"
             img-class="about-3__img"
             :storyblok="true"

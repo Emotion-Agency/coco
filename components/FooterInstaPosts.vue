@@ -56,8 +56,6 @@ onMounted(async () => {
             >
               <TheImg
                 v-if="el?.postMedia"
-                format="webp"
-                quality="90"
                 class="footer__img"
                 :src="el?.postMedia"
                 alt="Background"
