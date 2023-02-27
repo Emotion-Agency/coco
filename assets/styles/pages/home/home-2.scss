@@ -17,7 +17,7 @@
   position: relative;
 
   @media (max-width: $br1) {
-    height: var(--vh);
+    height: 100vh;
     min-height: 667px;
   }
 }
