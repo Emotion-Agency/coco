@@ -1,5 +1,5 @@
 .error-page {
-  height: 100vh;
+  height: var(--vh);
   padding-top: vw(140);
   padding-bottom: 20px;
   @media (max-width: $br1) {
