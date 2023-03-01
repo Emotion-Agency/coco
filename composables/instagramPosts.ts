@@ -5,8 +5,6 @@ import { iInstaPost } from '~~/types'
 export const useInstagramPosts = () => {
   const posts = useState<iInstaPost[]>('instagramPosts', () => [])
 
-  const { prepareImage } = useImageProxy()
-
   const getPosts = async (links: string[]) => {
     try {
       const promises = links
@@ -19,8 +17,10 @@ export const useInstagramPosts = () => {
 
       posts.value = postsData.map(pd => ({
         ...pd.data,
-        postMedia: prepareImage(pd.data.postMedia.replace('&dl=1', '')),
+        postMedia: pd.data.postMedia,
       }))
+
+      console.log(posts.value)
     } catch (error) {
       posts.value = links.map(link => ({
         postUrl: link,
