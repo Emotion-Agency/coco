@@ -107,6 +107,10 @@ onBeforeUnmount(() => {
       <Meta property="og:site_name" content="Relive by Coco" />
       <Meta property="og:image" content="/twitter.png" />
       <Link rel="icon" type="image/x-icon" href="/favicon.ico"></Link>
+      <Link
+        rel="preconnect"
+        href="https://coco-back-production.up.railway.app"
+      />
     </Head>
     <TheLoader v-if="!isInEditor" />
     <AppGrid />
