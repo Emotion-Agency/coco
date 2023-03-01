@@ -37,7 +37,9 @@ const handleError = () => {
             >Go home</TextButton
           >
         </div>
-        <Bears :with-initial="false" />
+        <ClientOnly>
+          <LazyBears :with-initial="false" />
+        </ClientOnly>
       </div>
       <div
         v-else
