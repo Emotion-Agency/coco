@@ -27,6 +27,7 @@ const { story } = await useAboutStory()
         data-a-o
         class="about-1__bg"
         :storyblok="true"
+        :width="1920"
         :src="story.content.main_screen_image.filename"
         :scale="1"
         alt="Relive by Coco"
@@ -73,6 +74,7 @@ const { story } = await useAboutStory()
             class="about-3__img"
             img-class="about-3__img"
             :storyblok="true"
+            :width="1000"
             :src="story.content.third_screen_image.filename"
             alt="About image"
           />
@@ -120,6 +122,7 @@ const { story } = await useAboutStory()
           img-class="about-5__img"
           :scale="1"
           :storyblok="true"
+          :width="1000"
           :src="story.content.fourth_screen_image.filename"
           alt="About image"
         />
