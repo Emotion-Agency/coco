@@ -30,6 +30,7 @@ const { story } = await useAboutStory()
         :width="1920"
         :src="story.content.main_screen_image.filename"
         :scale="1"
+        :quality="70"
         alt="Relive by Coco"
       />
       <TheTicker

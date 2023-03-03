@@ -51,15 +51,6 @@ const { story } = await useHomeStory()
         :description="story?.content?.Meta[0].description"
       />
       <section class="section section--nm home-1">
-        <!-- <video
-          data-a-o
-          playsinline
-          loop
-          autoplay
-          muted
-          src="/1.mp4"
-          class="home-1__bg"
-        /> -->
         <HomeVideo class="home-1__bg" />
         <div class="container home-1__wrapper">
           <div class="home-1__second-wrapper">
@@ -110,6 +101,7 @@ const { story } = await useHomeStory()
           :src="story.content.second_screen_image.filename"
           :storyblok="true"
           :width="1920"
+          :quality="70"
           alt="Background"
         />
         <div class="container home-2__wrapper">
