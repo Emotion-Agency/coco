@@ -51,5 +51,5 @@ void main() {
 
    // finalTexture.rgb = mix(finalTexture.rgb, 1. - finalTexture.rgb, abs(sin(PI * uClicked)) * 0.2);
 
-   gl_FragColor = mix(finalTexture, vec4(0., 0., 0., 1.), 0.1) * uVisible;
+   gl_FragColor = finalTexture * uVisible;
 }
