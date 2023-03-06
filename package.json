@@ -7,7 +7,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "fi": "node devUtils/fontsInclude.js && prettier --write ./composables/fonts.ts",
-    "lighthouse": "npx unlighthouse --site https://coco-dusky.vercel.app/"
+    "lighthouse": "npx unlighthouse --site https://www.relivebycoco.com/"
   },
   "devDependencies": {
     "@nuxt/image-edge": "^1.0.0-27919678.2f5b64b",
@@ -23,6 +23,8 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.7.1",
     "esm": "^3.2.25",
+    "nuxt-simple-robots": "^1.0.2",
+    "nuxt-simple-sitemap": "^1.0.8",
     "prettier": "^2.6.2",
     "sass": "^1.51.0",
     "sass-loader": "^12.6.0",
