@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   css: ['@/assets/styles/index.scss'],
 
   modules: [
+    'nuxt-simple-sitemap',
     'nuxt-simple-robots',
     [
       '@storyblok/nuxt',
@@ -26,6 +27,7 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
+    siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://www.relivebycoco.com',
     public: {
       ENVIROMENT: process.env.NODE_ENV,
       IMGIX_DOMAIN: process.env.IMGIX_DOMAIN,
@@ -38,6 +40,13 @@ export default defineNuxtConfig({
 
   robots: {
     sitemap: '/sitemap.xml',
+  },
+
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: ['/shop/coca-cola/'],
+    },
   },
 
   vite: {
