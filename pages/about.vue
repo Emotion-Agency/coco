@@ -144,10 +144,9 @@ const { story } = await useAboutStory()
     <div class="section section--nm about-6">
       <div class="container about-6__wrapper">
         <p class="about-6__text">
-          Our <span class="about-6__gerlomi-text">a handmade</span> products
-          made by a little 8 year old girl that loves fashion, music, dance &
-          rock&roll. This is a
-          <span class="about-6__gerlomi-text">unisex</span> products
+          <span class="about-6__gerlomi-text">Handmade</span> products made by a
+          little 8 year old girl that loves fashion, music, dance & rock&roll.
+          This is a <span class="about-6__gerlomi-text">unisex</span> products
           <span class="about-6__gerlomi-text">for all ages</span>
         </p>
       </div>
