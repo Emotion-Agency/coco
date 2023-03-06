@@ -102,36 +102,33 @@ const linkText = computed(() => {
           <div class="footer__contacts">
             <p class="footer__contacts-title">Other contacts</p>
             <ul class="footer__contacts-list">
-              <li class="footer__contacts-li">
+              <li v-if="story.content.Email" class="footer__contacts-li">
                 <a
                   class="footer__contacts-link"
                   :href="`mailto:${story.content.Email}`"
                 >
-                  <span class="footer__contacts-number">01</span>
                   <span class="footer__contacts-text">{{
                     story.content.Email
                   }}</span>
                 </a>
               </li>
-              <li class="footer__contacts-li">
+              <li v-if="story.content.Phone" class="footer__contacts-li">
                 <a
                   class="footer__contacts-link"
                   :href="`tel:${phone.phoneNumber}`"
                 >
-                  <span class="footer__contacts-number">02</span>
                   <span class="footer__contacts-text">
                     {{ phone.formattedPhoneNumber }}
                   </span>
                 </a>
               </li>
-              <li class="footer__contacts-li">
+              <li v-if="story.content.WhatsApp" class="footer__contacts-li">
                 <a
                   class="footer__contacts-link"
                   :href="`https://wa.me/${story.content.WhatsApp}`"
                   target="_blank"
                   rel="noreferrer noopener"
                 >
-                  <span class="footer__contacts-number">03</span>
                   <span class="footer__contacts-text">Whatsapp</span>
                 </a>
               </li>

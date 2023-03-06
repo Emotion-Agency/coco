@@ -403,6 +403,7 @@
 
 .footer__contacts-list {
   margin-top: vw(16);
+  counter-set: contacts 0;
 
   @media (max-width: $br1) {
     margin-top: 16px;
@@ -437,18 +438,27 @@
   }
 }
 
-.footer__contacts-number {
-  font-weight: 600;
-  font-size: vw(12);
-
-  @media (max-width: $br1) {
-    font-size: 12px;
-  }
-}
-
 .footer__contacts-text {
   font-weight: 600;
   font-size: vw(16);
+  display: flex;
+  align-items: center;
+  column-gap: vw(18);
+  @media (max-width: $br1) {
+    column-gap: 18px;
+  }
+
+  &::before {
+    counter-increment: contacts;
+    content: '0' counter(contacts);
+    display: inline-block;
+    font-weight: 600;
+    font-size: vw(12);
+
+    @media (max-width: $br1) {
+      font-size: 12px;
+    }
+  }
 
   @media (max-width: $br1) {
     font-size: 16px;
