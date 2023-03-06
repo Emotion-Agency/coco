@@ -10,6 +10,8 @@ const props = defineProps<iProps>()
 
 const emit = defineEmits(['close'])
 
+const { detectFileType } = useDetectFileType()
+
 watch(
   () => props.isOpened,
   () => {
@@ -41,11 +43,18 @@ watch(
           class="slider__images-li"
         >
           <TheImg
+            v-if="detectFileType(el.filename) === 'image'"
             class="slider__img"
             :storyblok="true"
             :width="1000"
             :src="el.filename"
             alt="Slider image"
+          />
+          <ProductVideo
+            v-if="detectFileType(el.filename) === 'video'"
+            class="slider__img"
+            video-class="slider__img"
+            :url="el.filename"
           />
         </li>
       </ul>

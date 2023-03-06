@@ -12,14 +12,20 @@ const itemClickHandler = (index: number) => {
   const $slidersImg = document.querySelectorAll('.slider__images-li')
   const $sliderScroller = document.querySelector('.slider__wrapper')
   const target = $slidersImg[index]
-  const top =
-    target.getBoundingClientRect().top -
-    target.getBoundingClientRect().height / 2
 
-  $sliderScroller.scrollTop = top
+  const targetTop = target.getBoundingClientRect().top
+  const targetHeight = target.getBoundingClientRect().height
+  const windowHeight = window.innerHeight
+  const sliderHeight = $sliderScroller.getBoundingClientRect().height
+  const offset = (sliderHeight - windowHeight) / 2
+
+  $sliderScroller.scrollTop =
+    targetTop - windowHeight / 2 + targetHeight / 2 - offset
 
   emit('openSlider')
 }
+
+const { detectFileType } = useDetectFileType()
 </script>
 
 <template>
@@ -32,11 +38,19 @@ const itemClickHandler = (index: number) => {
         @click="itemClickHandler(idx)"
       >
         <TheImg
+          v-if="detectFileType(el.filename) === 'image'"
           class="product-1__img"
           :src="el.filename"
           :storyblok="true"
           :width="900"
           alt="Main image"
+        />
+        <ProductVideo
+          v-if="detectFileType(el.filename) === 'video'"
+          class="product-1__img"
+          video-class="product-1__img"
+          :url="el.filename"
+          :disabled="true"
         />
       </li>
     </ul>

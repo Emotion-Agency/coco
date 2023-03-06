@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export const API_URL =
   process.env.NODE_ENV === 'development'
-    ? `http://localhost:5001/api`
+    ? `http://localhost:5004/api`
     : 'https://coco-back-production.up.railway.app/api'
 
 // export const API_URL = 'https://coco-back-production.up.railway.app/api'
