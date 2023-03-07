@@ -405,6 +405,10 @@
     color: var(--white);
     border-radius: 90px;
     padding: 8px 24px;
+    transition: opacity 0.3s ease;
+    &--hidden {
+      opacity: 0;
+    }
 
     font-size: size(32, 20);
     svg path {

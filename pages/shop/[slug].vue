@@ -57,8 +57,6 @@ const isSliderOpen = ref(false)
 
 const { isMobile } = useMobile()
 
-const { addToCart } = useCart()
-
 const { destroyImages } = useGL()
 
 const $el = ref<HTMLElement>(null)
@@ -173,16 +171,7 @@ const metaImg = computed(() => {
             </div>
           </div>
           <ClientOnly>
-            <Teleport :disabled="!isMobile" to="#app">
-              <div data-a-o class="product-1__right-button">
-                <TextButton
-                  class="product-1__right-btn"
-                  :disabled="currentProduct.disableForSale"
-                  @click="addToCart(currentProduct)"
-                  >Add to bag</TextButton
-                >
-              </div>
-            </Teleport>
+            <BuyButton :current-product="currentProduct" />
           </ClientOnly>
         </div>
       </div>
