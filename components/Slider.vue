@@ -34,13 +34,14 @@ watch(
     <CloseButton class="slider__close-btn" @click="emit('close')"
       >close [ x ]</CloseButton
     >
-    <div class="container slider__wrapper">
+    <div class="container slider__wrapper" @click.stop="emit('close')">
       <ul class="slider__images-list">
         <li
           v-for="(el, idx) in imagesList"
           :key="idx"
           ref="$items"
           class="slider__images-li"
+          @click.stop
         >
           <TheImg
             v-if="detectFileType(el.filename) === 'image'"
