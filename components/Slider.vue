@@ -47,7 +47,7 @@ watch(
             v-if="detectFileType(el.filename) === 'image'"
             class="slider__img"
             :storyblok="true"
-            :width="1000"
+            :width="1600"
             :src="el.filename"
             alt="Slider image"
           />
