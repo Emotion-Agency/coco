@@ -50,8 +50,12 @@ const JSONSchema = computed(() => {
       image: el.mainImage,
       url: process.client && `${location?.origin}/shop/${el.slug}`,
       name: el.title,
+      description: el.description,
       offers: {
         '@type': 'Offer',
+        availability: el?.disableForSale
+          ? 'https://schema.org/SoldOut'
+          : 'https://schema.org/InStock',
         price: el.price,
         priceCurrency: 'USD',
       },

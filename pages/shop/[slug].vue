@@ -69,17 +69,14 @@ const JSONSchema = computed(() => {
   return {
     '@context': 'https://schema.org',
     '@type': 'Product',
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '5',
-      reviewCount: '1',
-    },
     description: currentProduct.value.description,
     name: currentProduct.value.title,
     image: currentProduct.value.mainImage,
     offers: {
       '@type': 'Offer',
-      availability: 'https://schema.org/InStock',
+      availability: currentProduct.value?.disableForSale
+        ? 'https://schema.org/SoldOut'
+        : 'https://schema.org/InStock',
       price: currentProduct.value.price,
       priceCurrency: 'USD',
     },
