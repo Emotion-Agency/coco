@@ -33,6 +33,7 @@ onBeforeUnmount(() => {
   <Teleport :disabled="!isMobile" to="#app">
     <div data-a-o class="product-1__right-button">
       <TextButton
+        v-if="!currentProduct.disableForSale"
         class="product-1__right-btn"
         :class="[!isButtonVisible && 'product-1__right-btn--hidden']"
         :disabled="currentProduct.disableForSale"
