@@ -167,6 +167,20 @@ const linkText = computed(() => {
                   <span class="footer__pages-text">contacts</span>
                 </NuxtLink>
               </li>
+              <li class="footer__pages-li">
+                <NuxtLink to="/returns/" class="footer__pages-link">
+                  <span class="footer__pages-number">06</span>
+                  <span class="footer__pages-text">Returns & Exchanges</span>
+                </NuxtLink>
+              </li>
+              <li class="footer__pages-li">
+                <NuxtLink to="/privacy/" class="footer__pages-link">
+                  <span class="footer__pages-number">07</span>
+                  <span class="footer__pages-text"
+                    >Legal and Privacy Policy</span
+                  >
+                </NuxtLink>
+              </li>
             </ul>
           </div>
           <FooterForm />
