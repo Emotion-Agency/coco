@@ -8,8 +8,6 @@ definePageMeta({
 })
 
 const { story } = await usePrivacyStory()
-
-console.log(story.value)
 </script>
 
 <template>
