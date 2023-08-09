@@ -1,0 +1,133 @@
+.privacy {
+  padding-top: vw(200);
+  padding-bottom: vw(200);
+
+  @media (max-width: $br1) {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+}
+
+.privacy__title {
+  @include manrope;
+  font-weight: 800;
+  font-size: vw(200);
+  line-height: 1em;
+  text-align: center;
+  text-transform: uppercase;
+  @include col(1, 12);
+
+  @media (max-width: $br1) {
+    font-size: size(120, 42);
+  }
+
+  @media (max-width: $br4) {
+    @include col(1, 4);
+    font-size: 42px;
+  }
+}
+
+.privacy__content {
+  margin-top: vw(150);
+
+  @media (max-width: $br1) {
+    margin-top: 120px;
+  }
+}
+
+.privacy__text {
+  @include col(7, 12);
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: $br1) {
+    @include col(1, 12);
+  }
+
+  @media (max-width: $br4) {
+    @include col(1, 4);
+  }
+
+  h2 {
+    @include manrope;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: vw(48);
+    margin-top: vw(72);
+
+    @media (max-width: $br1) {
+      font-size: size(48, 28);
+      margin-top: 48px;
+    }
+
+    @media (max-width: $br4) {
+      font-size: 28px;
+    }
+
+    &:first-of-type {
+      margin-top: vw(16);
+
+      @media (max-width: $br1) {
+        margin-top: 16px;
+      }
+    }
+  }
+
+  h3 {
+    @include manrope;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: vw(28);
+    margin-top: vw(18);
+    margin-bottom: vw(18);
+
+    @media (max-width: $br1) {
+      font-size: size(28, 18);
+      margin-top: 16px;
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: $br4) {
+      font-size: 18px;
+    }
+  }
+
+  p {
+    @include reg;
+    font-size: vw(24);
+    text-transform: none;
+    line-height: 1.5em;
+
+    @media (max-width: $br1) {
+      font-size: size(24, 16);
+    }
+
+    @media (max-width: $br4) {
+      font-size: 16px;
+    }
+  }
+
+  p + p {
+    margin-top: vw(10);
+
+    @media (max-width: $br1) {
+      margin-top: 8px;
+    }
+  }
+
+  h2 + p {
+    margin-top: vw(18);
+
+    @media (max-width: $br1) {
+      margin-top: 16px;
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    margin-top: vw(10);
+    margin-bottom: vw(10);
+    list-style-type: disc;
+  }
+}
