@@ -1,0 +1,79 @@
+.returns {
+  padding-top: vw(200);
+  padding-bottom: vw(200);
+
+  @media (max-width: $br1) {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+}
+
+.returns__main-title {
+  @include manrope;
+  font-weight: 800;
+  font-size: vw(200);
+  line-height: 1em;
+  text-align: center;
+  text-transform: uppercase;
+  @include col(1, 12);
+
+  @media (max-width: $br1) {
+    font-size: size(120, 42);
+  }
+
+  @media (max-width: $br4) {
+    @include col(1, 4);
+    font-size: 42px;
+  }
+}
+
+.returns__wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: vw(24);
+  justify-content: center;
+  @include col(7, 12);
+  margin-top: vw(150);
+
+  @media (max-width: $br1) {
+    @include col(1, 12);
+    margin-top: 120px;
+    row-gap: 20px;
+  }
+
+  @media (max-width: $br4) {
+    @include col(1, 4);
+  }
+}
+
+.returns__title {
+  @include manrope;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: vw(48);
+
+  @media (max-width: $br1) {
+    font-size: size(48, 28);
+  }
+
+  @media (max-width: $br4) {
+    font-size: 28px;
+  }
+}
+
+.returns__desc {
+  @include reg;
+  font-size: vw(24);
+  margin-top: vw(20);
+  text-transform: none;
+  line-height: 1.5em;
+
+  @media (max-width: $br1) {
+    font-size: size(24, 16);
+    margin-top: 16px;
+  }
+
+  @media (max-width: $br4) {
+    font-size: 16px;
+  }
+}
