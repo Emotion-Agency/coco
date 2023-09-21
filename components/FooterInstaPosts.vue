@@ -1,10 +1,15 @@
 <script lang="ts" setup>
-interface iProps {
-  instagramUrl: string
-  postsLinks: string[]
+interface ILink {
+  imageUrl: string
+  link: string
 }
 
-const props = defineProps<iProps>()
+interface iProps {
+  instagramUrl: string
+  postsLinks: ILink[]
+}
+
+defineProps<iProps>()
 
 // const postsLinks = [
 //   'https://www.instagram.com/p/Cn5bDCRJJ-u/',
@@ -18,12 +23,6 @@ const props = defineProps<iProps>()
 //   'https://www.instagram.com/p/Clco2qzj0eI/',
 //   'https://www.instagram.com/p/Clbfz1VrUcU/',
 // ]
-
-const { posts, getPosts } = useInstagramPosts()
-
-onMounted(async () => {
-  await getPosts(props.postsLinks)
-})
 </script>
 
 <template>
@@ -41,23 +40,23 @@ onMounted(async () => {
         We believe that together we can create a better future, and we invite
         you to be a part of it. Follow us now and let's make a difference!
       </p>
-      <div v-if="posts.length" data-a-o class="footer__gallery-wrapper">
+      <div v-if="postsLinks.length" data-a-o class="footer__gallery-wrapper">
         <ul class="footer__gallery">
           <li
-            v-for="(el, idx) in posts"
+            v-for="(el, idx) in postsLinks"
             :key="idx"
             class="footer__gallery-item"
           >
             <a
-              :href="el?.postUrl"
+              :href="el.link"
               target="_blank"
               rel="noreferrer noopener"
               class="footer__gallery-link"
             >
               <TheImg
-                v-if="el?.postMedia"
+                v-if="el.imageUrl"
                 class="footer__img"
-                :src="el?.postMedia"
+                :src="el.imageUrl"
                 alt="Background"
               />
             </a>

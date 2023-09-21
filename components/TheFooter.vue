@@ -5,7 +5,12 @@ import { useContactsStory } from '~~/composables/stories/contactsStory'
 const { story } = await useContactsStory()
 
 const instaPosts = computed(() => {
-  return story.value.content.insta_images.map(ii => ii.link)
+  return story.value.content.insta_images.map(ii => {
+    return {
+      imageUrl: ii.image.filename,
+      link: ii.link_url,
+    }
+  })
 })
 
 const phone = computed(() => {
