@@ -9,6 +9,10 @@ export const useShopify = () => {
         window?.location?.origin
       )
 
+      if (!res?.data?.webUrl) {
+        throw new Error('No webUrl returned from Shopify')
+      }
+
       localStorage.setItem('checkoutItems', JSON.stringify(items))
 
       window.location.href = res?.data?.webUrl
